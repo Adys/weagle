@@ -1,0 +1,24 @@
+## Interface: 30000
+## Title: Weagle
+## Author: Adys
+## Version: 3.0
+## Notes: Datamining suite
+## URL: http://devcub.com
+## OptionalDeps: Ace3
+## DefaultState: Enabled
+## LoadOnDemand: 0
+## SavedVariables: Weagle_data
+
+Dongle.lua
+LibWeagle.lua
+LibWeadgets.lua
+Libs.xml
+
+Pages.lua
+Options.lua
+Weagle.lua
+
+WeagleTooltip.xml
+WeagleGUI.lua
+
+Modules.xml
