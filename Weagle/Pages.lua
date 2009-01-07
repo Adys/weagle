@@ -55,27 +55,22 @@ pages = {
 	["ITEM: Unlocked"] = {
 		119,   -- Deprecated Rogue's Vest
 		128,   -- Deprecated Tauren Trapper's Pants
-		192,   -- Martin Thunder
-		2377,  -- Round Buckler, Cenarion Circle US
 		2715,  -- Monster - Item, Lantern - Round
 		5148,  -- Book of Thorns II
 		5417,  -- Weapon of Massive Destruction (test)
 		5418,  -- Weapon of Mass Destruction (test)
 		6619,  -- Manual: The Path of Defense
-		8628,  -- Reins of the Spotted Nightsaber, Alexstrasza US
-		9380,  -- Jang'thraze the Protector, Archimonde
 		13262, -- Ashbringer, Varimathras
 		14062, -- Kodo Mount
 		17142, -- Shard of the Defiler, Archimonde
 		17782, -- Talisman of Binding Shard
 		18964, -- Turtle Egg (Loggerhead), Suramar
-		25596, -- Peep's Whistle, Archimonde
-		25967, -- Eagle Crested Pauldrons, Draenor US
 		37739, -- Brutal Gladiator's Blade of Alacrity, Archimonde
 	},
 	["ITEM: Misc"] = {
 		6766,  -- Flayed Demon Skin (old2)
 		6836,  -- Dress Shoes
+		10664, -- A Note to Magus Rimtori
 		20310, -- Demon Flayed Skin
 		18565, -- Vessel of Rebirth DEPRECATED, Alexstrasza US
 		18566, -- Essence of the Firelord DEPRECATED
@@ -103,15 +98,13 @@ pages = {
 	},
 	["ITEM: Removed From Game"] = {
 		1254,  -- Lesser Firestone (DEPRECATED)
-		1386,  -- Thistlewood Axe, Emerald Dream EU
 		3107,  -- Broken Keen Throwing Knife
 		3108,  -- Broken Heavy Throwing Dagger
 		3111,  -- Broken Crude Throwing Axe
 		3131,  -- Broken Weighted Throwing Axe
 		3137,  -- Broken Deadly Throwing Axe
 		3135,  -- Broken Sharp Throwing Axe
-		4111,  -- Master Hunter's Rifle, Alexstrasza US
-		4213,  -- Grimoire of Doom, Alexstrasza US
+		4213,  -- Grimoire of Doom
 		5379,  -- Broken Boot Knife
 		5522,  -- Spellstone (DEPRECATED)
 		5530,  -- (Deprecated) Blinding Powder
@@ -120,8 +113,7 @@ pages = {
 		8427,  -- Mutilated Rat Carcass
 		9653,  -- Speedy Racer Goggles
 		10590, -- Pocked Black Box
-		11743, -- Rockfist
-		13179, -- Broken Flightblade Throwing Axe
+		13173, -- Broken Flightblade Throwing Axe
 		13602, -- Greater Spellstone (DEPRECATED)
 		13603, -- Major Spellstone (DEPRECATED)
 		13699, -- Firestone (DEPRECATED)
@@ -129,9 +121,11 @@ pages = {
 		13701, -- Major Firestone (DEPRECATED)
 		14557, -- The Lion Horn of Stormwind
 		15326, -- Broken Gleaming Throwing Axe
-		15754, -- Pattern: Warbear Woolies, Azjol-Nerub / Windrunner US
 		15886, -- Timolain's Phylactery
+		16665, -- Tome of Tranquilizing Shot
 		17982, -- Ragnaros Core
+		18149, -- Rune of Recall
+		18150, -- Rune of Recall
 		18241, -- Black War Steed Bridle
 		18242, -- Reins of the Black War Tiger
 		18243, -- Black Battlestrider
@@ -143,8 +137,6 @@ pages = {
 		19109, -- Deep Rooted Ring
 		19110, -- Cold Forged Blade
 		19111, -- Winteraxe Epaulets
-		19112, -- Frozen Steel Vambraces, Windrunner
-		19113, -- Yeti Hide Bracers, Bronze Dragonflight EU
 		20256, -- Warsong Gulch Ribbon of Sacrifice
 		22128, -- Master Firestone (DEPRECATED)
 		22520, -- The Phylactery of Kel'Thuzad
@@ -153,13 +145,31 @@ pages = {
 		22646, -- Master Spellstone (DEPRECATED)
 		22631, -- Atiesh, Greatstaff of the Guardian
 		22632, -- Atiesh, Greatstaff of the Guardian
+		22682, -- Frozen Rune
 		22726, -- Splinter of Atiesh
 		22727, -- Frame of Atiesh
 		22733, -- Staff Head of Atiesh
 		22734, -- Base of Atiesh
-		22737, -- Atiesh, Greatstaff of the Guardian, Bronze Dragonflight EU
 		32895, -- Scroll of the Maelstrom
+		33012, -- Terokkar Lilac
+		33014, -- Fine Poking Stick
+	},
+	["ITEM: Misc - NTL"] = {
+		192,   -- Martin Thunder
+		1386,  -- Thistlewood Axe, Emerald Dream EU
+		2377,  -- Round Buckler, Cenarion Circle US
+		4111,  -- Master Hunter's Rifle, Alexstrasza US
+		8628,  -- Reins of the Spotted Nightsaber, Alexstrasza US
+		9380,  -- Jang'thraze the Protector, Ysera (Archimonde?)
+		11743, -- Rockfist, Archimonde
+		15754, -- Pattern: Warbear Woolies, Azjol-Nerub / Windrunner US
+		19112, -- Frozen Steel Vambraces, Windrunner
+		19113, -- Yeti Hide Bracers, Bronze Dragonflight EU
+		22737, -- Atiesh, Greatstaff of the Guardian, Bronze Dragonflight EU / Suramar EU
+		25596, -- Peep's Whistle, Archimonde
+		25967, -- Eagle Crested Pauldrons, Draenor US
 		32896, -- Scroll of the Sun, Silvermoon EU
+		33986, -- Indalamar's Ring of 200 Crit, Archimonde
 	},
 	["ITEM: Stationeries"] = {
 		8164,  -- Test Stationery
@@ -168,5 +178,5 @@ pages = {
 		21140, -- Auction Stationery
 		22058, -- Valentine's Day Stationery
 		34171, -- Winter Stationery
-	}
+	},
 }

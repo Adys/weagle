@@ -99,11 +99,17 @@ end
 function Weagle:SetItemRef(link, text, button)
 	-- We create our own SetItemRef to
 	-- be able to hook it more easily
-	if strsub(link, 1, 6) == "player" then
-		return SetItemRef(link, text, button) -- We don't care about player links
-	elseif strsub(link, 1, 7) == "channel" then
+	local l, d = GetLinkData(link)
+	
+	if l == "player" then
+		if button == "LeftButton" and IsControlKeyDown() then
+			InviteUnit(d) -- Invite with alt-click
+		else
+			return SetItemRef(link, text, button) -- We don't care about player links
+		end
+	elseif l == "channel" then
 		return SetItemRef(link, text, button) -- We don't care about channel links either
-	elseif strsub(link, 1, 5) == "trade" then
+	elseif l == "trade" then
 		return SetItemRef(link, text, button) -- You got the trick
 	end
 		

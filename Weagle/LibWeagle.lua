@@ -295,14 +295,10 @@ end
 
 function GetLinkData(link)
 	if link:match("|H") then -- convert the link to a linkstring if necessary
-		link = link:match("|H(%w+:%d+)")
+		link = link:match("|H(%w+:[^:]+)")
 	end
 	
-	if link:match("(%w+):(%w+)") then -- player:Adys:123
-		return link:match("(%w+):(%w+)")
-	end
-	
-	return link:match("(%w+):(%d+)")
+	return link:match("(%w+):([^:]+)")
 end
 
 function EscapeLink(link)
