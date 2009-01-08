@@ -168,6 +168,7 @@ pages = {
 		22737, -- Atiesh, Greatstaff of the Guardian, Bronze Dragonflight EU / Suramar EU
 		25596, -- Peep's Whistle, Archimonde
 		25967, -- Eagle Crested Pauldrons, Draenor US
+		27169, -- 66 TEST Green Rogue/Hunter Ring, wowdb
 		32896, -- Scroll of the Sun, Silvermoon EU
 		33986, -- Indalamar's Ring of 200 Crit, Archimonde
 	},
