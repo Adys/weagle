@@ -1,5 +1,9 @@
 pages = {
 	["ITEM: Bookmarks"] = {
+		2496,  -- Raider Shortsword
+		34661, -- Massacre Sword
+		37298, -- Competitor's Souvenir
+		40534, -- Monster - Axe, 1H Northrend C02 Blue
 		8627,  -- Reins of the Night saber
 --		8628,  -- Reins of the Spotted Nightsaber
 --		8629,  -- Reins of the Striped Nightsaber
@@ -22,9 +26,7 @@ pages = {
 		5105,  -- Explosive Shell
 		6116,
 		7953,
-		27352, -- Level 66 Test Gear Green - Mail - Hunter, Thottbot
 		5874,  -- Harness: Black Ram, Thottbot
-		6437,  -- Flayed Demon Skin (old)
 		30845, -- Glyph of Chromatic Warding
 		38282, -- Bland Two-Handed Blade
 		13325,
@@ -44,17 +46,18 @@ pages = {
 		32911, -- Empty Brewfest Stein
 		19879,
 		37740, -- Brutal Gladiator's Swift Judgement
-		20952, -- Cut Agate
-		20953, -- Cut Jade
-		20957, -- Cut Citrine
-		20962, -- Cut Aquamarine
-		20965, -- Cut Ruby
-		21772, -- Cut Sapphire
-		21773, -- Cut Opal
+--		20952, -- Cut Agate
+--		20953, -- Cut Jade
+--		20957, -- Cut Citrine
+--		20962, -- Cut Aquamarine
+--		20965, -- Cut Ruby
+--		21772, -- Cut Sapphire
+--		21773, -- Cut Opal
 	},
 	["ITEM: Unlocked"] = {
 		119,   -- Deprecated Rogue's Vest
 		128,   -- Deprecated Tauren Trapper's Pants
+		192,   -- Martin Thunder
 		2715,  -- Monster - Item, Lantern - Round
 		5148,  -- Book of Thorns II
 		5417,  -- Weapon of Massive Destruction (test)
@@ -62,19 +65,21 @@ pages = {
 		6619,  -- Manual: The Path of Defense
 		13262, -- Ashbringer, Varimathras
 		14062, -- Kodo Mount
+		15754, -- Pattern: Warbear Woolies
 		17142, -- Shard of the Defiler, Archimonde
 		17782, -- Talisman of Binding Shard
 		18964, -- Turtle Egg (Loggerhead), Suramar
 		37739, -- Brutal Gladiator's Blade of Alacrity, Archimonde
 	},
 	["ITEM: Misc"] = {
+		6437,  -- Flayed Demon Skin (old)
 		6766,  -- Flayed Demon Skin (old2)
 		6836,  -- Dress Shoes
 		10664, -- A Note to Magus Rimtori
-		20310, -- Demon Flayed Skin
 		18565, -- Vessel of Rebirth DEPRECATED, Alexstrasza US
 		18566, -- Essence of the Firelord DEPRECATED
 		19322, -- zzDEPRECATED Warsong Mark of Honor
+		20310, -- Demon Flayed Skin
 		20978, -- Apprentice's Staff
 		23162, -- Foror's Crate of Endless Resist Gear Storage
 		23364, -- zzDEPRECATEDHeart of the Sky
@@ -89,11 +94,13 @@ pages = {
 		38498, -- QA Test Blank Purple Gem
 		38538, -- Riding Crop
 		40232, -- Test Dazzling Talasite
-		40484, -- Deprecated Glyph of the White Bear
-		40948, -- Deprecated Glyph of the Red Lynx
 		42440, -- Gigaflux Dimensional Transporter
 		43307, -- Arena Points
 		43308, -- Honor Points
+	},
+	["ITEM: Spell Lock"] = {
+		40484, -- Deprecated Glyph of the White Bear
+		40948, -- Deprecated Glyph of the Red Lynx
 		43336, -- Deprecated Glyph of the Black Bear
 	},
 	["ITEM: Removed From Game"] = {
@@ -150,25 +157,23 @@ pages = {
 		22727, -- Frame of Atiesh
 		22733, -- Staff Head of Atiesh
 		22734, -- Base of Atiesh
+		24140, -- Blackened Urn
 		32895, -- Scroll of the Maelstrom
 		33012, -- Terokkar Lilac
 		33014, -- Fine Poking Stick
 	},
 	["ITEM: Misc - NTL"] = {
-		192,   -- Martin Thunder
 		1386,  -- Thistlewood Axe, Emerald Dream EU
 		2377,  -- Round Buckler, Cenarion Circle US
 		4111,  -- Master Hunter's Rifle, Alexstrasza US
 		8628,  -- Reins of the Spotted Nightsaber, Alexstrasza US
 		9380,  -- Jang'thraze the Protector, Ysera (Archimonde?)
 		11743, -- Rockfist, Archimonde
-		15754, -- Pattern: Warbear Woolies, Azjol-Nerub / Windrunner US
-		19112, -- Frozen Steel Vambraces, Windrunner
+		19112, -- Frozen Steel Vambraces, Windrunner/Grim Batol EU
 		19113, -- Yeti Hide Bracers, Bronze Dragonflight EU
 		22737, -- Atiesh, Greatstaff of the Guardian, Bronze Dragonflight EU / Suramar EU
 		25596, -- Peep's Whistle, Archimonde
 		25967, -- Eagle Crested Pauldrons, Draenor US
-		27169, -- 66 TEST Green Rogue/Hunter Ring, wowdb
 		32896, -- Scroll of the Sun, Silvermoon EU
 		33986, -- Indalamar's Ring of 200 Crit, Archimonde
 	},
