@@ -82,6 +82,9 @@ pages = {
 		20310, -- Demon Flayed Skin
 		20978, -- Apprentice's Staff
 		23162, -- Foror's Crate of Endless Resist Gear Storage
+		23233, -- Red Bryanite of Strength stuff
+		23234, -- Blue Bryanite of Agility
+		23235, -- Yellow Bryanite of Stamina
 		23364, -- zzDEPRECATEDHeart of the Sky
 		23366, -- zzDEPRECATEDPerfect Diamond
 		27774, -- zzOLDMighty Blood Garnet
