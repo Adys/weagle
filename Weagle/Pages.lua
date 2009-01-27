@@ -1,51 +1,55 @@
 pages = {
 	["ITEM: Bookmarks"] = {
+		37919, -- Test Scott K Bow
+		44924, -- Arcanite Ripper (NEW)
 		2496,  -- Raider Shortsword
+		5859,  -- Party Grenade, Thottbot
 		34661, -- Massacre Sword
-		37298, -- Competitor's Souvenir
+		36919, -- Cardinal Ruby
+		38605, -- McCarty's Notes
 		40534, -- Monster - Axe, 1H Northrend C02 Blue
-		8627,  -- Reins of the Night saber
---		8628,  -- Reins of the Spotted Nightsaber
---		8629,  -- Reins of the Striped Nightsaber
-		8630,  -- Reins of the Bengal Tiger
---		8621,  -- Reins of the Striped Frostsaber
---		8632,  -- Reins of the Spotted Frostsaber
-		8633,  -- Reins of the Leopard
-		12325, -- Reins of the Primal Leopard
-		12326, -- Reins of the Tawny Sabercat
-		12327, -- Reins of the Golden Sabercat
-		11364, -- Tabard of Stormwind
-		23388, -- Tranquillien Tabard
-		17967, -- Refined Scale of Onyxia
-		23086, -- [UNUSED] Letter Cookie, Thottbot
-		25677, -- Terokkar Chokeberry, Thottbot
-		16339, -- Commander's Steed, Wowhead
 		1281,
-		2415,
+		2415,  -- White Stallion, Allakhazam
 		2499,  -- Double-bladed Axe
 		5105,  -- Explosive Shell
-		6116,
-		7953,
 		5874,  -- Harness: Black Ram, Thottbot
-		30845, -- Glyph of Chromatic Warding
-		38282, -- Bland Two-Handed Blade
-		13325,
-		14889,
+		6116,  -- Apprentice's Robe, Allakhazam
+		7953,
+		11364, -- Tabard of Stormwind
+		12947, -- Alex's Ring of Audacity
+		13325, -- Fluorescent Green Mechanostrider (?)
 		13337, -- Monster - Staff, Feathered Gold
-		16085, -- Artisan First Aid - Heal Thyself
-		12947,
-		17967, -- Refined Scale of Onyxia
 		14586, -- Monster - Mace2H, Fist of Omokk
+		14889,
+		16085, -- Artisan First Aid - Heal Thyself
+		16339, -- Commander's Steed, Wowhead
+		17019, -- Arcane Dust, Allakhazam
+		17967, -- Refined Scale of Onyxia
+		19879, -- Alex's Test Beatdown Staff
 		21878, -- ZZOLD Spellthread
-		17019,
+		23086, -- [UNUSED] Letter Cookie, Thottbot
+		23388, -- Tranquillien Tabard
+		25677, -- Terokkar Chokeberry, Thottbot
+		32911, -- Empty Brewfest Stein
 		33007, -- Grimbooze's Secret Recipe
-		29887, -- Hunter 150 Epic Ammo Box
-		22045, -- Test QARaid Uber Ammo Lockbox
 		33063, -- Really Tough Brewfest Bread
 		33957, -- Witches Band
-		32911, -- Empty Brewfest Stein
-		19879,
 		37740, -- Brutal Gladiator's Swift Judgement
+		38282, -- Bland Two-Handed Blade
+--		30845, -- Glyph of Chromatic Warding
+--		37298, -- Competitor's Souvenir
+--		22045, -- Test QARaid Uber Ammo Lockbox
+--		29887, -- Hunter 150 Epic Ammo Box
+		--8627,  -- Reins of the Night saber
+--		8628,  -- Reins of the Spotted Nightsaber
+--		8629,  -- Reins of the Striped Nightsaber
+		--8630,  -- Reins of the Bengal Tiger
+--		8621,  -- Reins of the Striped Frostsaber
+--		8632,  -- Reins of the Spotted Frostsaber
+		--8633,  -- Reins of the Leopard
+		--12325, -- Reins of the Primal Leopard
+		--12326, -- Reins of the Tawny Sabercat
+		--12327, -- Reins of the Golden Sabercat
 --		20952, -- Cut Agate
 --		20953, -- Cut Jade
 --		20957, -- Cut Citrine
@@ -101,7 +105,18 @@ pages = {
 		43307, -- Arena Points
 		43308, -- Honor Points
 	},
+	["ITEM: Monster"] = {
+		2715,  -- Monster - Item, Lantern - Round
+		13337, -- Monster - Staff, Feathered Gold
+		14586, -- Monster - Mace2H, Fist of Omokk
+		39754, -- Monster - Sword, Northrend Iron Dwarf
+		40534, -- Monster - Axe, 1H Northrend C02 Blue
+	},
 	["ITEM: Spell Lock"] = {
+		18582, -- The Twin Blades of Azzinoth
+		18583, -- Warglaive of Azzinoth (Right)
+		18584, -- Warglaive of Azzinoth (Left)
+		19932, -- UNUSED Empowered Mojo Bundle
 		40484, -- Deprecated Glyph of the White Bear
 		40948, -- Deprecated Glyph of the Red Lynx
 		43336, -- Deprecated Glyph of the Black Bear
@@ -179,6 +194,7 @@ pages = {
 		25967, -- Eagle Crested Pauldrons, Draenor US
 		32896, -- Scroll of the Sun, Silvermoon EU
 		33986, -- Indalamar's Ring of 200 Crit, Archimonde
+		39754, -- Monster - Sword, Northrend Iron Dwarf, Aman'Thul
 	},
 	["ITEM: Stationeries"] = {
 		8164,  -- Test Stationery

@@ -1,6 +1,6 @@
 local function toggle(name, value)
 	local t = {}
-	t.name = name .. " toggle"
+	t.name = name
 	t.desc = name .. " toggle"
 	t.type = "toggle"
 	t.get  = function() return Weagle_data[value] end
@@ -36,10 +36,10 @@ Weagle_Options = {
 			guiHidden = true,
 		},
 		
-		ignoredbc   = toggle("Item.dbc ignore", "item_ignoredbc"),
-		showfailed  = toggle("Failed process feedback", "item_showfailed"),
-		showcached  = toggle("Cached process feedback", "item_showcached"),
-		showskipped = toggle("Skipped process feedback", "item_showskipped"),
+		ignoredbc   = toggle("Item.dbc ignore", "Item_ignoredbc"),
+		showfailed  = toggle("Failed process feedback", "Item_showfailed"),
+		showcached  = toggle("Cached process feedback", "Item_showcached"),
+		showskipped = toggle("Skipped process feedback", "Item_showskipped"),
 		
 		findach		= findobj("Achievement"),
 		findcreature	= findobj("Creature"),

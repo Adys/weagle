@@ -522,7 +522,7 @@ function Weagle:GrabData()
 			
 		elseif processed.failed[id] then
 			if Weagle_data.Item_showskipped then
-				Weagle:Print('Item #' .. id ..': |c00FFFF00Skipping previously processed item. |r' .. link)
+				Weagle:Print("Item #" .. id ..": |c00FFFF00Skipping previously processed item. |r")
 			end
 			
 			Weagle_data.Item_last = id
