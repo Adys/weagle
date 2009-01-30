@@ -6,7 +6,6 @@ pages = {
 		5859,  -- Party Grenade, Thottbot
 		34661, -- Massacre Sword
 		36919, -- Cardinal Ruby
-		38605, -- McCarty's Notes
 		40534, -- Monster - Axe, 1H Northrend C02 Blue
 		1281,
 		2415,  -- White Stallion, Allakhazam
@@ -36,7 +35,6 @@ pages = {
 		33957, -- Witches Band
 		37740, -- Brutal Gladiator's Swift Judgement
 		38282, -- Bland Two-Handed Blade
---		30845, -- Glyph of Chromatic Warding
 --		37298, -- Competitor's Souvenir
 --		22045, -- Test QARaid Uber Ammo Lockbox
 --		29887, -- Hunter 150 Epic Ammo Box
@@ -62,6 +60,7 @@ pages = {
 		119,   -- Deprecated Rogue's Vest
 		128,   -- Deprecated Tauren Trapper's Pants
 		192,   -- Martin Thunder
+		1589,  -- Tablet of Spirit Armor III
 		2715,  -- Monster - Item, Lantern - Round
 		5148,  -- Book of Thorns II
 		5417,  -- Weapon of Massive Destruction (test)
@@ -86,6 +85,13 @@ pages = {
 		20310, -- Demon Flayed Skin
 		20978, -- Apprentice's Staff
 		23162, -- Foror's Crate of Endless Resist Gear Storage
+		38605, -- McCarty's Notes, La Croisade Ecarlate
+		38538, -- Riding Crop
+		42440, -- Gigaflux Dimensional Transporter
+		43307, -- Arena Points
+		43308, -- Honor Points
+	},
+	["ITEM: Test Gems"] = {
 		23233, -- Red Bryanite of Strength stuff
 		23234, -- Blue Bryanite of Agility
 		23235, -- Yellow Bryanite of Stamina
@@ -93,17 +99,23 @@ pages = {
 		23366, -- zzDEPRECATEDPerfect Diamond
 		27774, -- zzOLDMighty Blood Garnet
 		27811, -- zzOLDMighty Blood Garnet
+		27864, -- Brian's Bryanite of Extended Cost Copying
 		28117, -- zzOLDBold Ornate Ruby
 		28122, -- zzOLDEnscribed Ornate Topaz
+		28388, -- TCHILTON TEST RUBY
+		28389, -- TCHILTON TEST DAWNSTONE
 		33060, -- Soulbound Test Gem
 		37430, -- Solid Sky Sapphire (Unused)
 		38292, -- Test Living Ruby
 		38498, -- QA Test Blank Purple Gem
-		38538, -- Riding Crop
 		40232, -- Test Dazzling Talasite
-		42440, -- Gigaflux Dimensional Transporter
-		43307, -- Arena Points
-		43308, -- Honor Points
+	},
+	["ITEM: Beta Misc"] = {
+		8546,  -- Powerful Smelling Salts
+		17242, -- Key to Salem's Chest
+		17262, -- James' Key
+		25884, -- Primal Stone Statue
+--		30845, -- Glyph of Chromatic Warding
 	},
 	["ITEM: Monster"] = {
 		2715,  -- Monster - Item, Lantern - Round
@@ -117,6 +129,7 @@ pages = {
 		18583, -- Warglaive of Azzinoth (Right)
 		18584, -- Warglaive of Azzinoth (Left)
 		19932, -- UNUSED Empowered Mojo Bundle
+		25884, -- Primal Stone Statue
 		40484, -- Deprecated Glyph of the White Bear
 		40948, -- Deprecated Glyph of the Red Lynx
 		43336, -- Deprecated Glyph of the Black Bear
