@@ -73,6 +73,7 @@ pages = {
 		17782, -- Talisman of Binding Shard
 		18964, -- Turtle Egg (Loggerhead), Suramar
 		37739, -- Brutal Gladiator's Blade of Alacrity, Archimonde
+		44743, -- Cultist Acolyte's Hood Target
 	},
 	["ITEM: Misc"] = {
 		6437,  -- Flayed Demon Skin (old)
@@ -115,7 +116,8 @@ pages = {
 		17242, -- Key to Salem's Chest
 		17262, -- James' Key
 		25884, -- Primal Stone Statue
---		30845, -- Glyph of Chromatic Warding
+		29805, -- Socrethar's Head
+		30845, -- Glyph of Chromatic Warding
 	},
 	["ITEM: Monster"] = {
 		2715,  -- Monster - Item, Lantern - Round
@@ -130,6 +132,7 @@ pages = {
 		18584, -- Warglaive of Azzinoth (Left)
 		19932, -- UNUSED Empowered Mojo Bundle
 		25884, -- Primal Stone Statue
+		29052, -- Warp Nether Extractor
 		40484, -- Deprecated Glyph of the White Bear
 		40948, -- Deprecated Glyph of the Red Lynx
 		43336, -- Deprecated Glyph of the Black Bear
@@ -151,6 +154,7 @@ pages = {
 		8427,  -- Mutilated Rat Carcass
 		9653,  -- Speedy Racer Goggles
 		10590, -- Pocked Black Box
+		11743, -- Rockfist
 		13173, -- Broken Flightblade Throwing Axe
 		13602, -- Greater Spellstone (DEPRECATED)
 		13603, -- Major Spellstone (DEPRECATED)
@@ -159,6 +163,7 @@ pages = {
 		13701, -- Major Firestone (DEPRECATED)
 		14557, -- The Lion Horn of Stormwind
 		15326, -- Broken Gleaming Throwing Axe
+		15327, -- Broken Wicked Throwing Dagger
 		15886, -- Timolain's Phylactery
 		16665, -- Tome of Tranquilizing Shot
 		17982, -- Ragnaros Core
@@ -199,7 +204,6 @@ pages = {
 		4111,  -- Master Hunter's Rifle, Alexstrasza US
 		8628,  -- Reins of the Spotted Nightsaber, Alexstrasza US
 		9380,  -- Jang'thraze the Protector, Ysera (Archimonde?)
-		11743, -- Rockfist, Archimonde
 		19112, -- Frozen Steel Vambraces, Windrunner/Grim Batol EU
 		19113, -- Yeti Hide Bracers, Bronze Dragonflight EU
 		22737, -- Atiesh, Greatstaff of the Guardian, Bronze Dragonflight EU / Suramar EU
