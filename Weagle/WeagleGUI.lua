@@ -65,6 +65,23 @@ function WeagleGUI:NewListItem(n)
 		insets = { left = 5, right = 6, top = 6, bottom = 5 }
 	})
 	
+	function f.Update()
+		local id = f.id
+		if f.obj == "item" then
+			icon, name = GetItemIcon(id), GetItemLink(id)
+			if not icon then
+				icon = DEFAULT_INVALID_ICON
+				name = "Invalid item #" .. id
+				f:SetBackdropColor(1, 0.3, 0.3)
+			elseif not name then
+				name = "Uncached item #" .. id
+				f:SetBackdropColor(1, 0.5, 0)
+			end
+		end
+		
+		return icon, name
+	end
+	
 	return f
 end
 
@@ -78,6 +95,7 @@ function WeagleGUI:NewIcon(name, parent, path)
 		GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
 		GameTooltip:SetHyperlink(self:GetParent().obj .. ":" .. self:GetParent().id)
 		GameTooltip:Show()
+		parent.Update()
 	end)
 	f:SetScript("OnLeave", function() GameTooltip:Hide() end)
 	
@@ -98,19 +116,12 @@ function Weagle:AddListItem(obj, id, n)
 	local f = _G[FrameName] or WeagleGUI:NewListItem(n)
 	f:SetBackdropColor(0, 0.18, 0.35)
 	
-	local nameframe = _G[FrameName .. "Title"]
+	f.obj = obj
+	f.id = id
 	
-	if obj == "item" then
-		icon, name = GetItemIcon(id), GetItemLink(id)
-		if not icon then
-			icon = DEFAULT_INVALID_ICON
-			name = "Invalid item #" .. id
-			f:SetBackdropColor(1, 0.3, 0.3)
-		elseif not name then
-			name = "Uncached item #" .. id
-			f:SetBackdropColor(1, 0.5, 0)
-		end
-	end
+	local icon, name = f.Update()
+	
+	local nameframe = _G[FrameName .. "Title"]
 	
 	local txt = "#" .. id .. " - " .. name
 --	iconframe:SetTexture(icon)
@@ -120,8 +131,6 @@ function Weagle:AddListItem(obj, id, n)
 	_:SetText(txt) -- ugly
 	
 	
-	f.obj = obj
-	f.id = id
 	f:Show()
 end
 
