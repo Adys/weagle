@@ -35,6 +35,7 @@ pages = {
 		33957, -- Witches Band
 		37740, -- Brutal Gladiator's Swift Judgement
 		38282, -- Bland Two-Handed Blade
+		30845, -- Glyph of Chromatic Warding
 --		37298, -- Competitor's Souvenir
 --		22045, -- Test QARaid Uber Ammo Lockbox
 --		29887, -- Hunter 150 Epic Ammo Box
@@ -68,24 +69,27 @@ pages = {
 		6619,  -- Manual: The Path of Defense
 		13262, -- Ashbringer, Varimathras
 		14062, -- Kodo Mount
-		15754, -- Pattern: Warbear Woolies
 		17142, -- Shard of the Defiler, Archimonde
 		17782, -- Talisman of Binding Shard
 		18964, -- Turtle Egg (Loggerhead), Suramar
 		37739, -- Brutal Gladiator's Blade of Alacrity, Archimonde
 		44743, -- Cultist Acolyte's Hood Target
+		44946, -- Scroll of Enchant Weapon - Titanguard
 	},
 	["ITEM: Misc"] = {
 		6437,  -- Flayed Demon Skin (old)
 		6766,  -- Flayed Demon Skin (old2)
 		6836,  -- Dress Shoes
 		10664, -- A Note to Magus Rimtori
+		17242, -- Key to Salem's Chest
+		17262, -- James' Key
 		18565, -- Vessel of Rebirth DEPRECATED, Alexstrasza US
 		18566, -- Essence of the Firelord DEPRECATED
 		19322, -- zzDEPRECATED Warsong Mark of Honor
 		20310, -- Demon Flayed Skin
 		20978, -- Apprentice's Staff
 		23162, -- Foror's Crate of Endless Resist Gear Storage
+		29805, -- Socrethar's Head
 		38605, -- McCarty's Notes, La Croisade Ecarlate
 		38538, -- Riding Crop
 		42440, -- Gigaflux Dimensional Transporter
@@ -111,14 +115,6 @@ pages = {
 		38498, -- QA Test Blank Purple Gem
 		40232, -- Test Dazzling Talasite
 	},
-	["ITEM: Beta Misc"] = {
-		8546,  -- Powerful Smelling Salts
-		17242, -- Key to Salem's Chest
-		17262, -- James' Key
-		25884, -- Primal Stone Statue
-		29805, -- Socrethar's Head
-		30845, -- Glyph of Chromatic Warding
-	},
 	["ITEM: Monster"] = {
 		2715,  -- Monster - Item, Lantern - Round
 		13337, -- Monster - Staff, Feathered Gold
@@ -126,16 +122,39 @@ pages = {
 		39754, -- Monster - Sword, Northrend Iron Dwarf
 		40534, -- Monster - Axe, 1H Northrend C02 Blue
 	},
+	["ITEM: Brew of the Month"] = {
+		37488, -- Wild Winter Pilsner
+		37489, -- Izzard's Ever Flavor
+		37496, -- Binary Brew
+		37497, -- Autumnal Acorn Ale
+		37498, -- Wild Winter Pilsner
+		37499, -- Lord of Frost's Private Label
+		37899, -- Izzard's Ever Flavor
+		37906, -- Binary Brew
+		37909, -- Lord of Frost's Private Label
+	},
 	["ITEM: Spell Lock"] = {
+		1450,  -- Potion of Fervor
+		10719, -- Mobile Alarm
+		13460, -- Greater Holy Protection Potion
 		18582, -- The Twin Blades of Azzinoth
 		18583, -- Warglaive of Azzinoth (Right)
 		18584, -- Warglaive of Azzinoth (Left)
 		19932, -- UNUSED Empowered Mojo Bundle
+		23820, -- Critter Enlarger
+		24269, -- Heavy Netherweave Net
 		25884, -- Primal Stone Statue
 		29052, -- Warp Nether Extractor
+		34144, -- Branch of Destruction
+		34145, -- Rod of Devastation
+		34146, -- Red Death
+		34147, -- Silverstave
+		34148, -- Purified Silverstave
+		34149, -- Lightstave
 		40484, -- Deprecated Glyph of the White Bear
 		40948, -- Deprecated Glyph of the Red Lynx
 		43336, -- Deprecated Glyph of the Black Bear
+		43362, -- Glyph of the Bear Cub
 	},
 	["ITEM: Removed From Game"] = {
 		1254,  -- Lesser Firestone (DEPRECATED)
@@ -164,8 +183,11 @@ pages = {
 		14557, -- The Lion Horn of Stormwind
 		15326, -- Broken Gleaming Throwing Axe
 		15327, -- Broken Wicked Throwing Dagger
+		15754, -- Pattern: Warbear Woolies
 		15886, -- Timolain's Phylactery
 		16665, -- Tome of Tranquilizing Shot
+		17384, -- Zinfizzlex's Portable Shredder Unit
+		17410, -- Zinfizzlex's Portable Shredder Unit
 		17982, -- Ragnaros Core
 		18149, -- Rune of Recall
 		18150, -- Rune of Recall
@@ -180,23 +202,28 @@ pages = {
 		19109, -- Deep Rooted Ring
 		19110, -- Cold Forged Blade
 		19111, -- Winteraxe Epaulets
+		19113, -- Yeti Hide Bracers
 		20256, -- Warsong Gulch Ribbon of Sacrifice
 		22128, -- Master Firestone (DEPRECATED)
+		22646, -- Master Spellstone (DEPRECATED)
+		15754, -- Design: Teardrop Blood Garnet
+		24140, -- Blackened Urn
+		32895, -- Scroll of the Maelstrom
+		33012, -- Terokkar Lilac
+		33014, -- Fine Poking Stick
+		33976, -- Brewfest Ram
+	},
+	["ITEM: RFG - Naxx"] = {
 		22520, -- The Phylactery of Kel'Thuzad
 		22589, -- Atiesh, Greatstaff of the Guardian
-		22630, -- Atiesh, Greatstaff of the Guardian
-		22646, -- Master Spellstone (DEPRECATED)
-		22631, -- Atiesh, Greatstaff of the Guardian
-		22632, -- Atiesh, Greatstaff of the Guardian
 		22682, -- Frozen Rune
 		22726, -- Splinter of Atiesh
 		22727, -- Frame of Atiesh
 		22733, -- Staff Head of Atiesh
 		22734, -- Base of Atiesh
-		24140, -- Blackened Urn
-		32895, -- Scroll of the Maelstrom
-		33012, -- Terokkar Lilac
-		33014, -- Fine Poking Stick
+		22630, -- Atiesh, Greatstaff of the Guardian
+		22631, -- Atiesh, Greatstaff of the Guardian
+		22632, -- Atiesh, Greatstaff of the Guardian
 	},
 	["ITEM: Misc - NTL"] = {
 		1386,  -- Thistlewood Axe, Emerald Dream EU
@@ -205,7 +232,6 @@ pages = {
 		8628,  -- Reins of the Spotted Nightsaber, Alexstrasza US
 		9380,  -- Jang'thraze the Protector, Ysera (Archimonde?)
 		19112, -- Frozen Steel Vambraces, Windrunner/Grim Batol EU
-		19113, -- Yeti Hide Bracers, Bronze Dragonflight EU
 		22737, -- Atiesh, Greatstaff of the Guardian, Bronze Dragonflight EU / Suramar EU
 		25596, -- Peep's Whistle, Archimonde
 		25967, -- Eagle Crested Pauldrons, Draenor US
