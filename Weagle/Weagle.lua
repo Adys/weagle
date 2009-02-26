@@ -73,7 +73,8 @@ function Weagle:OnInitialize()
 	self:RegisterChatCommand("wdb", "ChatCommand")
 	self:RegisterChatCommand("weagle", "ChatCommand")
 	
-	ChatFrame_OnHyperlinkShow = Weagle_OnHyperlinkShow
+	Legacy_SetItemRef = SetItemRef
+	SetItemRef = Weagle_SetItemRef
 	
 	CreateFrame("GameTooltip", "WeagleHiddenTooltip", UIParent, "GameTooltipTemplate")
 	WeagleHiddenTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
@@ -96,7 +97,7 @@ end
 
 -- Tooltips
 
-function Weagle:SetItemRef(link, text, button)
+function Weagle_SetItemRef(link, text, button)
 	-- We create our own SetItemRef to
 	-- be able to hook it more easily
 	local l, d = GetLinkData(link)
@@ -105,12 +106,12 @@ function Weagle:SetItemRef(link, text, button)
 		if button == "LeftButton" and IsControlKeyDown() then
 			InviteUnit(d) -- Invite with alt-click
 		else
-			return SetItemRef(link, text, button) -- We don't care about player links
+			return Legacy_SetItemRef(link, text, button) -- We don't care about player links
 		end
 	elseif l == "channel" then
-		return SetItemRef(link, text, button) -- We don't care about channel links either
+		return Legacy_SetItemRef(link, text, button) -- We don't care about channel links either
 	elseif l == "trade" then
-		return SetItemRef(link, text, button) -- You got the trick
+		return Legacy_SetItemRef(link, text, button) -- You got the trick
 	end
 		
 	
@@ -134,10 +135,6 @@ function Weagle:SetHyperlink(f, link)
 	if not f:IsShown() then
 		f:Show()
 	end
-end
-
-function Weagle_OnHyperlinkShow(self, link, text, button)
-	Weagle:SetItemRef(link, text, button)
 end
 
 function Weagle:SetupTooltip(link)
