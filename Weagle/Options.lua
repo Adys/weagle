@@ -122,6 +122,7 @@ Weagle_DefaultSettings = {
 	-- Settings
 	["Item_ignoredbc"]		= false,
 	["Item_showcached"]		= true,
+	["Item_showcaching"]		= true,
 	["Item_showfailed"]		= true,
 	["Item_showskipped"]		= false,
 	["Item_showtooltip"]		= false,

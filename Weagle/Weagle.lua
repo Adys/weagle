@@ -47,6 +47,12 @@ local function O(opt)
 	return Weagle_data[opt]
 end
 
+local function printif(cond, msg)
+	if cond then
+		Weagle:Print(msg)
+	end
+end
+
 function Weagle:ResetSettings()
 	Weagle_data = Weagle_DefaultSettings
 	Weagle_data.itemdbc = {}
@@ -533,15 +539,12 @@ function Weagle:GrabData()
 		local id = previous
 		local _, link = GetItemInfo(previous)
 		if link then
-			
-			Weagle:Print('Item #' .. id .. ': |cff00ff00Caching...|r ' .. link .. ' - ' .. #toget .. ' left')
+			printif(O("Item_showcaching"), 'Item #' .. id .. ': |cff00ff00Caching...|r ' .. link .. ' - ' .. #toget .. ' left')
 			
 			processed.cached[id] = true
 			Weagle_data.Item_last = id
 		else
-			if O("Item_showfailed") then
-				Weagle:Print('Item #' .. previous ..': |cffff0000Processing failed.|r ' .. #toget .. ' left')
-			end
+			printif(O("Item_showfailed"), 'Item #' .. previous ..': |cffff0000Processing failed.|r ' .. #toget .. ' left')
 			
 			processed.failed[id] = true
 			Weagle_data.Item_last = previous
@@ -556,9 +559,7 @@ function Weagle:GrabData()
 		local id = toget[1]
 		
 		if GetItemIcon(id) == nil and O("Item_ignoredbc") == false then -- We check if the item exists first
-			if O("Item_showskipped") then
-				Weagle:Print('Item #' .. id..': |cffffff00Skipping invalid item.|r')
-			end
+			printif(O("Item_showskipped"), 'Item #' .. id..': |cffffff00Skipping invalid item.|r')
 			
 			Weagle_data.Item_last = id
 			table.remove(toget, 1)
@@ -568,9 +569,7 @@ function Weagle:GrabData()
 		if IsItemCached(id) then
 			local _, link = GetItemInfo(id)
 			
-			if O("Item_showcached") then
-				Weagle:Print('Item #' .. id ..': |c00FFFF00Skipping cached item. |r' .. link)
-			end
+			printif(O("Item_showcached"), 'Item #' .. id ..': |c00FFFF00Skipping cached item. |r' .. link)
 			
 			Weagle_data.Item_last = id
 			table.remove(toget, 1)
@@ -578,9 +577,7 @@ function Weagle:GrabData()
 			return Weagle:GrabData()
 			
 		elseif processed.failed[id] then
-			if O("Item_showskipped") then
-				Weagle:Print("Item #" .. id ..": |c00FFFF00Skipping previously processed item. |r")
-			end
+			printif(O("Item_showskipped"), "Item #" .. id ..": |c00FFFF00Skipping previously processed item. |r")
 			
 			Weagle_data.Item_last = id
 			table.remove(toget, 1)
