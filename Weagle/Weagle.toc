@@ -9,7 +9,6 @@
 ## LoadOnDemand: 0
 ## SavedVariables: Weagle_data
 
-Dongle.lua
 LibWeagle.lua
 LibWeadgets.lua
 Libs.xml
