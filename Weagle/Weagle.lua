@@ -385,7 +385,7 @@ function Weagle:QuestSniffer()
 	currentQuestId = questnext + 1
 
 	if(currentQuestId < lastQuestId) then
-		Weagle:ScheduleTimer("QuestSniffer", O("Quest_throttle"))
+		Weagle:ScheduleTimer("QuestSniffer", O("Quest_batchthrottle"))
 	else
 		Weagle:Print("[QUESTS] Sniffing finished.")
 	end
@@ -605,7 +605,7 @@ end
 function Weagle:GrabQuestData()
 	if quest_toget[1] then
 		local id = quest_toget[1]
-		print(id, O("Quest_throttle"))
+		printif(O("Quest_showcaching"), "Quest #" .. id .. ": Processing...")
 		if O("Quest_showtooltip") then
 			ItemRefTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
 			ItemRefTooltip:SetHyperlink("quest:" .. id)

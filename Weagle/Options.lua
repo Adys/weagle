@@ -127,6 +127,7 @@ Weagle_DefaultSettings = {
 	["Item_showskipped"]		= false,
 	["Item_showtooltip"]		= false,
 	["Quest_showtooltip"]		= false,
+	["Quest_showcaching"]		= true,
 	
 	-- Preferences
 	["Icon_invalid"]			= "interface/icons/inv_misc_questionmark",
