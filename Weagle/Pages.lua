@@ -28,6 +28,7 @@ pages = {
 		21878, -- ZZOLD Spellthread
 		23086, -- [UNUSED] Letter Cookie, Thottbot
 		23388, -- Tranquillien Tabard
+		23855, -- Spellfire Cloth
 		25677, -- Terokkar Chokeberry, Thottbot
 		32911, -- Empty Brewfest Stein
 		33007, -- Grimbooze's Secret Recipe
@@ -56,6 +57,17 @@ pages = {
 --		20965, -- Cut Ruby
 --		21772, -- Cut Sapphire
 --		21773, -- Cut Opal
+	},
+	["ITEM: Beta JWC Designs"] = {
+		23130, -- Design: Teardrop Blood Garnet
+		23131, -- Design: Bold Blood Garnet
+		23135, -- Design: Inscribed Flame Spessarite
+		23137, -- Design: Glinting Flame Spessarite
+		23140, -- Design: Radiant Deep Peridot
+		23141, -- Design: Jagged Deep Peridot
+		23148, -- Design: Brilliant Golden Draenite
+		23152, -- Design: Solid Azure Moonstone
+		23153, -- Design: Sparkling Azure Moonstone
 	},
 	["ITEM: Unlocked"] = {
 		119,   -- Deprecated Rogue's Vest
@@ -127,7 +139,7 @@ pages = {
 		37489, -- Izzard's Ever Flavor
 		37496, -- Binary Brew
 		37497, -- Autumnal Acorn Ale
-		37498, -- Wild Winter Pilsner
+		37498, -- Bartlett's Bitter Brew
 		37499, -- Lord of Frost's Private Label
 		37899, -- Izzard's Ever Flavor
 		37906, -- Binary Brew
@@ -154,7 +166,13 @@ pages = {
 		40484, -- Deprecated Glyph of the White Bear
 		40948, -- Deprecated Glyph of the Red Lynx
 		43336, -- Deprecated Glyph of the Black Bear
+		43337, -- Deprecated Glyph of the Forest Lynx
 		43362, -- Glyph of the Bear Cub
+		43383, -- Deprecated Glyph of the Artic Wolf
+		43384, -- Deprecated Glyph of the Black Wolf
+		43614, -- Broken Wrath Elixir
+		43620, -- Broken Spellpower Elixir
+		43621, -- Broken Noggenfogger Elixir
 	},
 	["ITEM: Removed From Game"] = {
 		1254,  -- Lesser Firestone (DEPRECATED)
@@ -168,6 +186,7 @@ pages = {
 		5379,  -- Broken Boot Knife
 		5522,  -- Spellstone (DEPRECATED)
 		5530,  -- (Deprecated) Blinding Powder
+		7678,  -- Recipe: Thistle Tea
 		8425,  -- Parrot Droppings
 		8426,  -- Large Ruffled Feather
 		8427,  -- Mutilated Rat Carcass
@@ -203,10 +222,10 @@ pages = {
 		19110, -- Cold Forged Blade
 		19111, -- Winteraxe Epaulets
 		19113, -- Yeti Hide Bracers
+		20086, -- Broken Dusksteel Throwing Knife
 		20256, -- Warsong Gulch Ribbon of Sacrifice
 		22128, -- Master Firestone (DEPRECATED)
 		22646, -- Master Spellstone (DEPRECATED)
-		15754, -- Design: Teardrop Blood Garnet
 		24140, -- Blackened Urn
 		32895, -- Scroll of the Maelstrom
 		33012, -- Terokkar Lilac
@@ -224,6 +243,10 @@ pages = {
 		22630, -- Atiesh, Greatstaff of the Guardian
 		22631, -- Atiesh, Greatstaff of the Guardian
 		22632, -- Atiesh, Greatstaff of the Guardian
+		23025, -- Seal of the Damned
+		23548, -- Might of the Scourge
+		23663, -- Girdle of Elemental Fury
+		23665, -- Leggings of Elemental Fury
 	},
 	["ITEM: Misc - NTL"] = {
 		1386,  -- Thistlewood Axe, Emerald Dream EU

@@ -25,8 +25,9 @@ local toget = {}
 local processed = { ["cached"] = {}, ["failed"] = {} }
 local skip = {}
 
-local currentQuestId
-local lastQuestId
+local quest_toget = {}
+local quest_processed = {}
+local quest_skip = {}
 
 local Tooltips = {}
 local UnusedTooltips = {}
@@ -451,6 +452,54 @@ function Weagle:HandleSniffRequest(msg)
 	Weagle:SniffItems(items)
 end
 
+function Weagle:HandleQuestSniffRequest(msg)
+	if not msg then return end
+	msg = gsub(msg, "quest ", "")
+	msg = gsub(msg, "quest", tostring(Weagle_data.Quest_last))
+	
+	Weagle:Print("Processing quests: " .. msg)
+	
+	local quests = {}
+	
+	if tonumber(msg) then
+		quests = {tonumber(msg)}
+	
+	elseif msg:match("%-") then
+		local first, last = msg:match("(%d+)%-(%d+)")
+		first, last = tonumber(first), tonumber(last)
+		
+		if first < last then
+			if last > WeagleLib_MaxIDs.Quest then -- Avoid freezes
+				Weagle:Print("Warning: last > max quest id, replacing by " .. WeagleLib_MaxIDs.Quest)
+				last = WeagleLib_MaxIDs.Quest
+			end
+			for i = first, last do
+				table.insert(quests, i)
+			end
+		else
+			if first > WeagleLib_MaxIDs.Quest then -- Avoid freezes
+				Weagle:Print("Warning: first > max quest id, replacing by " .. WeagleLib_MaxIDs.Quest)
+				first = WeagleLib_MaxIDs.Quest
+			end
+			local range = first - last
+			local id = first
+			
+			for i = 0, range do
+				table.insert(quests, id)
+				id = id - 1
+			end
+		end
+	
+	elseif msg:match(',') then
+		for id in msg:gmatch('(%d+)') do
+			table.insert(quests, tonumber(id))
+		end
+	
+	else return end
+	
+	Weagle:SniffQuests(quests)
+end
+
 
 function Weagle:SniffItems(items)
 	for k, v in pairs(items) do
@@ -461,11 +510,20 @@ function Weagle:SniffItems(items)
 	Weagle:GrabData()
 end
 
+function Weagle:SniffQuests(quests)
+	for k, v in pairs(quests) do
+		quest_toget[#quest_toget+1] = v
+	end
+	Weagle:CancelAllTimers()
+	Weagle:GrabQuestData()
+end
+
 function Weagle:StopSniffing()
 	Weagle:CancelAllTimers() -- TODO: :CancelTimer(handle) etc
 	Weagle:Print("Item processing cancelled.")
 	Weagle:ShowStats()
 	toget = {}
+	quest_toget = {}
 end
 
 function Weagle:GrabData()
@@ -547,5 +605,28 @@ function Weagle:GrabData()
 		self:CancelAllTimers() -- TODO use handle
 		Weagle:Print("Item processing finished.")
 		Weagle:ShowStats()
+	end
+end
+
+function Weagle:GrabQuestData()
+	if quest_toget[1] then
+		local id = quest_toget[1]
+		Weagle:Print("Processing quest #" .. id)
+		
+		if Weagle_data.Item_showtooltip then
+			ItemRefTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
+			ItemRefTooltip:SetHyperlink("quest:" .. id)
+			ItemRefTooltip:Show()
+		else
+			WeagleHiddenQuestTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
+			WeagleHiddenQuestTooltip:SetHyperlink("quest:" .. id)
+			WeagleHiddenQuestTooltip:Show()
+		end
+		Weagle:ScheduleTimer("GrabQuestData", QUEST_SNIFF_DELAY)
+		
+		table.remove(quest_toget, 1)
+	else
+		self:CancelAllTimers() -- TODO use handle
+		Weagle:Print("Quest processing finished.")
 	end
 end

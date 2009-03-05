@@ -58,6 +58,13 @@ Weagle_Options = {
 			func = function(msg) Weagle:HandleSniffRequest(msg["input"]) end,
 			guiHidden = true,
 		},
+		quest = {
+			name = "Sniff quests",
+			type = "execute",
+			desc = "Gather specific quests",
+			func = function(msg) Weagle:HandleQuestSniffRequest(msg["input"]) end,
+			guiHidden = true,
+		},
 		quests = {
 			name = "Sniff all quests",
 			type = "execute",
