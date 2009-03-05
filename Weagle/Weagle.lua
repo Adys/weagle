@@ -43,14 +43,16 @@ function tableitems(t) -- Lua sucks
 	return i
 end
 
+local function O(opt)
+	return Weagle_data[opt]
+end
+
 function Weagle:ResetSettings()
 	Weagle_data = Weagle_DefaultSettings
 	Weagle_data.itemdbc = {}
 	
 	Weagle:Print("All saved settings have been reset. Don't forget to run /weagle scandbc.")
 end
-
-if not Weagle_data then Weagle:ResetSettings() end
 
 function Weagle:ChatCommand(input)
 	if not input then
@@ -67,7 +69,7 @@ end
 
 function Weagle:OnInitialize()
 	DEFAULT_CHAT_FRAME:SetMaxLines(5000)
-	LibStub("AceConfig-3.0"):RegisterOptionsTable("Weagle", options, {"weagle", "wdb"})
+	LibStub("AceConfig-3.0"):RegisterOptionsTable("Weagle", Weagle_Options, {"weagle", "wdb"})
 	self.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("Weagle", "Weagle")
 	
 	self:RegisterChatCommand("rl", ReloadUI)
@@ -337,7 +339,7 @@ end
 
 function Weagle:ShowStats()
 	Weagle:Print("Items: |cff00ff00" .. tableitems(processed.cached) .. "|r cached, |cffff0000" .. tableitems(processed.failed) .."|r failed, |cffffff00" .. tableitems(processed.cached)+tableitems(processed.failed) .. "|r requests in total. Type |cffffff00/wdb resetstats|r to reset the statistics.")
-	Weagle:Print("Last item processed: |cffffff00" .. Weagle_data.Item_last .. "|r")
+	Weagle:Print("Last item processed: |cffffff00" .. O("Item_last") .. "|r")
 end
 
 function Weagle:ResetStats()
@@ -399,7 +401,7 @@ end
 function Weagle:HandleSniffRequest(msg)
 	if not msg then return end
 	msg = gsub(msg, "item ", "")
-	msg = gsub(msg, "last", tostring(Weagle_data.Item_last))
+	msg = gsub(msg, "last", tostring(O("Item_last")))
 	
 	Weagle:Print("Processing items: " .. msg)
 	
@@ -455,7 +457,7 @@ end
 function Weagle:HandleQuestSniffRequest(msg)
 	if not msg then return end
 	msg = gsub(msg, "quest ", "")
-	msg = gsub(msg, "quest", tostring(Weagle_data.Quest_last))
+	msg = gsub(msg, "quest", tostring(O("Quest_last")))
 	
 	Weagle:Print("Processing quests: " .. msg)
 	
@@ -537,7 +539,7 @@ function Weagle:GrabData()
 			processed.cached[id] = true
 			Weagle_data.Item_last = id
 		else
-			if Weagle_data.Item_showfailed then
+			if O("Item_showfailed") then
 				Weagle:Print('Item #' .. previous ..': |cffff0000Processing failed.|r ' .. #toget .. ' left')
 			end
 			
@@ -553,8 +555,8 @@ function Weagle:GrabData()
 	if toget[1] then -- there are still items to process
 		local id = toget[1]
 		
-		if GetItemIcon(id) == nil and Weagle_data.Item_ignoredbc == false then -- We check if the item exists first
-			if Weagle_data.Item_showskipped then
+		if GetItemIcon(id) == nil and O("Item_ignoredbc") == false then -- We check if the item exists first
+			if O("Item_showskipped") then
 				Weagle:Print('Item #' .. id..': |cffffff00Skipping invalid item.|r')
 			end
 			
@@ -566,7 +568,7 @@ function Weagle:GrabData()
 		if IsItemCached(id) then
 			local _, link = GetItemInfo(id)
 			
-			if Weagle_data.Item_showcached then
+			if O("Item_showcached") then
 				Weagle:Print('Item #' .. id ..': |c00FFFF00Skipping cached item. |r' .. link)
 			end
 			
@@ -576,7 +578,7 @@ function Weagle:GrabData()
 			return Weagle:GrabData()
 			
 		elseif processed.failed[id] then
-			if Weagle_data.Item_showskipped then
+			if O("Item_showskipped") then
 				Weagle:Print("Item #" .. id ..": |c00FFFF00Skipping previously processed item. |r")
 			end
 			
@@ -587,7 +589,7 @@ function Weagle:GrabData()
 			return Weagle:GrabData()
 			
 		else
-			if Weagle_data.Item_showtooltip then
+			if O("Item_Showtooltip") then
 				ItemRefTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
 				ItemRefTooltip:SetHyperlink("item:" .. id)
 				ItemRefTooltip:Show()
@@ -611,9 +613,8 @@ end
 function Weagle:GrabQuestData()
 	if quest_toget[1] then
 		local id = quest_toget[1]
-		Weagle:Print("Processing quest #" .. id)
 		
-		if Weagle_data.Item_showtooltip then
+		if O("Quest_showtooltip") then
 			ItemRefTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
 			ItemRefTooltip:SetHyperlink("quest:" .. id)
 			ItemRefTooltip:Show()

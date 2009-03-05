@@ -125,15 +125,17 @@ Weagle_DefaultSettings = {
 	["Item_showfailed"]		= true,
 	["Item_showskipped"]		= false,
 	["Item_showtooltip"]		= false,
+	["Quest_showtooltip"]		= false,
 	
 	-- Preferences
 	["Icon_invalid"]			= "interface/icons/inv_misc_questionmark",
 	
 	-- Throttles
-	["Quest_sniffamt"]		= 100,
-	["Quest_throttle"]		= 2.0,
 	["Item_throttle"]			= 0.8,
 	["Item_invalidthrottle"]	= 4.5,
+	["Quest_batchamount"]		= 100,
+	["Quest_batchthrottle"]		= 2.0,
+	["Quest_throttle"]		= 0.1,
 	
 	-- Misc
 	["Item_last"] = 1,

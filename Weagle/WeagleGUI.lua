@@ -1,6 +1,6 @@
 local maxitems = 100
 local DEFAULT_LIST = "ITEM: Bookmarks"
-local DEFAULT_INVALID_ICON = Weagle_data.icon_invalid
+local DEFAULT_INVALID_ICON = "interface/icons/inv_misc_questionmark"
 
 WeagleGUI = Weadgets:NewPanel("WeagleGUI")
 
