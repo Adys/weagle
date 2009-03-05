@@ -15,11 +15,6 @@ Weagle.name = "Weagle"
 
 local options = Weagle_Options
 
-local QUEST_SNIFF_AMOUNT = 100
-local QUEST_SNIFF_DELAY  = 2
-local ITEM_FAILED_DELAY  = 4.5
-local ITEM_SNIFF_DELAY   = 0.8
-
 local previous
 local toget = {}
 local processed = { ["cached"] = {}, ["failed"] = {} }
@@ -364,7 +359,7 @@ function Weagle:SniffQuestsRange(qf, ql)
 end
 
 function Weagle:QuestSniffer()
-	questnext = currentQuestId + QUEST_SNIFF_AMOUNT - 1
+	questnext = currentQuestId + O("Quest_batchamount") - 1
 	
 	Weagle:Print("[QUESTS] Caching Quests: " .. currentQuestId .. "-" .. questnext .. "...")
 	
@@ -390,7 +385,7 @@ function Weagle:QuestSniffer()
 	currentQuestId = questnext + 1
 
 	if(currentQuestId < lastQuestId) then
-		Weagle:ScheduleTimer("QuestSniffer", QUEST_SNIFF_DELAY)
+		Weagle:ScheduleTimer("QuestSniffer", O("Quest_throttle"))
 	else
 		Weagle:Print("[QUESTS] Sniffing finished.")
 	end
@@ -548,7 +543,7 @@ function Weagle:GrabData()
 			
 			processed.failed[id] = true
 			Weagle_data.Item_last = previous
-			Weagle:ScheduleTimer("GrabData", ITEM_FAILED_DELAY)
+			Weagle:ScheduleTimer("GrabData", O("Item_invalidthrottle"))
 			previous = nil
 			return
 		end
@@ -596,7 +591,7 @@ function Weagle:GrabData()
 				WeagleHiddenItemTooltip:Show()
 			end
 			previous = id
-			Weagle:ScheduleTimer("GrabData", ITEM_SNIFF_DELAY)
+			Weagle:ScheduleTimer("GrabData", O("Item_throttle"))
 		end
 		
 		table.remove(toget, 1)
@@ -610,7 +605,7 @@ end
 function Weagle:GrabQuestData()
 	if quest_toget[1] then
 		local id = quest_toget[1]
-		
+		print(id, O("Quest_throttle"))
 		if O("Quest_showtooltip") then
 			ItemRefTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
 			ItemRefTooltip:SetHyperlink("quest:" .. id)
@@ -620,7 +615,7 @@ function Weagle:GrabQuestData()
 			WeagleHiddenQuestTooltip:SetHyperlink("quest:" .. id)
 			WeagleHiddenQuestTooltip:Show()
 		end
-		Weagle:ScheduleTimer("GrabQuestData", QUEST_SNIFF_DELAY)
+		Weagle:ScheduleTimer("GrabQuestData", O("Quest_throttle"))
 		
 		table.remove(quest_toget, 1)
 	else
