@@ -169,6 +169,9 @@ GetSpellExtInfo = GetSpellInfo
 
 function GetCreatureInfo(id) -- GenerateGUID
 	local hexid = strupper(string.format("%x", id))
+	if id < 4096 then hexid = "0" .. hexid end
+	if id < 256 then hexid = "0" .. hexid end
+	if id < 16 then hexid = "0" .. hexid end
 	local guid = "0xF13000" .. hexid .. "000000" -- Adding 373 at the end removes the mob type (humanoid...)
 	local name = GetTooltipLine("unit:" .. guid, 1)
 	if not name then return end
