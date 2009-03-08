@@ -121,7 +121,7 @@ Weagle_Options = {
 Weagle_DefaultSettings = {
 	-- Settings
 	["Item_ignoredbc"]		= false,
-	["Item_showcached"]		= true,
+	["Item_showcached"]		= false,
 	["Item_showcaching"]		= true,
 	["Item_showfailed"]		= true,
 	["Item_showskipped"]		= false,
@@ -136,7 +136,7 @@ Weagle_DefaultSettings = {
 	["Item_throttle"]			= 0.8,
 	["Item_invalidthrottle"]	= 4.5,
 	["Quest_batchamount"]		= 100,
-	["Quest_batchthrottle"]		= 2.0,
+	["Quest_batchthrottle"]		= 5.0,
 	["Quest_throttle"]		= 0.1,
 	
 	-- Misc

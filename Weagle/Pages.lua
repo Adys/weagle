@@ -1,3 +1,7 @@
+blacklist = {
+
+}
+
 pages = {
 	["ITEM: Bookmarks"] = {
 		23458, -- OK

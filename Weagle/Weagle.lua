@@ -38,6 +38,13 @@ function tableitems(t) -- Lua sucks
 	return i
 end
 
+function tablein(t, i)
+	for k,v in pairs(t) do
+		if i==v then return true end
+	end
+	return false
+end
+
 local function O(opt)
 	return Weagle_data[opt]
 end
@@ -580,6 +587,15 @@ function Weagle:GrabData()
 			
 			return Weagle:GrabData()
 			
+		elseif tablein(id, blacklist) then
+			printif(O("Item_showblacklisted"), "Item #" .. id ..": |c00FFFF00Skipping blacklisted item. |r")
+			
+			Weagle_data.Item_last = id
+			table.remove(toget, 1)
+			skip[id] = 1
+			
+			return Weagle:GrabData()
+		
 		else
 			if O("Item_Showtooltip") then
 				ItemRefTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
