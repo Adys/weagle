@@ -38,7 +38,7 @@ function tableitems(t) -- Lua sucks
 	return i
 end
 
-function tablein(t, i)
+function tablein(i, t)
 	for k,v in pairs(t) do
 		if i==v then return true end
 	end
@@ -560,8 +560,8 @@ function Weagle:GrabData()
 	if toget[1] then -- there are still items to process
 		local id = toget[1]
 		
-		if GetItemIcon(id) == nil and O("Item_ignoredbc") == false then -- We check if the item exists first
-			printif(O("Item_showskipped"), 'Item #' .. id..': |cffffff00Skipping invalid item.|r')
+		if not GetItemIcon(id) and O("Item_usedbc") then -- We check if the item exists first
+			printif(O("Item_showinvalid"), 'Item #' .. id..': |cffffff00Skipping invalid item.|r')
 			
 			Weagle_data.Item_last = id
 			table.remove(toget, 1)
@@ -577,17 +577,19 @@ function Weagle:GrabData()
 			table.remove(toget, 1)
 			
 			return Weagle:GrabData()
-			
-		elseif processed.failed[id] then
-			printif(O("Item_showskipped"), "Item #" .. id ..": |c00FFFF00Skipping previously processed item. |r")
+		end
+		
+		if O("Item_dontreprocess") and processed.failed[id] then
+			printif(O("Item_showprocessed"), "Item #" .. id ..": |c00FFFF00Skipping previously processed item. |r")
 			
 			Weagle_data.Item_last = id
 			table.remove(toget, 1)
 			skip[id] = 1
 			
 			return Weagle:GrabData()
-			
-		elseif tablein(id, blacklist) then
+		end
+		
+		if tablein(id, blacklist) then
 			printif(O("Item_showblacklisted"), "Item #" .. id ..": |c00FFFF00Skipping blacklisted item. |r")
 			
 			Weagle_data.Item_last = id
@@ -595,20 +597,19 @@ function Weagle:GrabData()
 			skip[id] = 1
 			
 			return Weagle:GrabData()
-		
-		else
-			if O("Item_Showtooltip") then
-				ItemRefTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
-				ItemRefTooltip:SetHyperlink("item:" .. id)
-				ItemRefTooltip:Show()
-			else
-				WeagleHiddenItemTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
-				WeagleHiddenItemTooltip:SetHyperlink("item:" .. id)
-				WeagleHiddenItemTooltip:Show()
-			end
-			previous = id
-			Weagle:ScheduleTimer("GrabData", O("Item_throttle"))
 		end
+		
+		if O("Item_Showtooltip") then
+			ItemRefTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
+			ItemRefTooltip:SetHyperlink("item:" .. id)
+			ItemRefTooltip:Show()
+		else
+			WeagleHiddenItemTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
+			WeagleHiddenItemTooltip:SetHyperlink("item:" .. id)
+			WeagleHiddenItemTooltip:Show()
+		end
+		previous = id
+		Weagle:ScheduleTimer("GrabData", O("Item_throttle"))
 		
 		table.remove(toget, 1)
 	else

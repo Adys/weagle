@@ -1,7 +1,7 @@
 local function toggle(name, value)
 	local t = {}
 	t.name = name
-	t.desc = name .. " toggle"
+	t.desc = name
 	t.type = "toggle"
 	t.get  = function() return Weagle_data[value] end
 	t.set  = function()
@@ -36,10 +36,15 @@ Weagle_Options = {
 			guiHidden = true,
 		},
 		
-		ignoredbc   = toggle("Item.dbc ignore", "Item_ignoredbc"),
-		showfailed  = toggle("Failed process feedback", "Item_showfailed"),
-		showcached  = toggle("Cached process feedback", "Item_showcached"),
-		showskipped = toggle("Skipped process feedback", "Item_showskipped"),
+		dontreprocess	= toggle("Don't process items twice in a session", "Item_dontreprocess"),
+		usedbc		= toggle("Use Item.dbc for validity checks", "Item_usedbc"),
+		
+		showblacklisted	= toggle("Feedback when skipping blacklisted items", "Item_blacklisted"),
+		showcached		= toggle("Feedback when skipping items already cached", "Item_showcached"),
+		showcaching		= toggle("Feedback when successfuly caching an item", "Item_showcaching"),
+		showfailed		= toggle("Feedback when an item query failed", "Item_showfailed"),
+		showfailed		= toggle("Feedback when skipping an invalid item", "Item_showinvalid"),
+		showprocessed	= toggle("Feedback when skipping items already processed", "Item_showprocessed"),
 		
 		findach		= findobj("Achievement"),
 		findcreature	= findobj("Creature"),
@@ -120,11 +125,13 @@ Weagle_Options = {
 
 Weagle_DefaultSettings = {
 	-- Settings
-	["Item_ignoredbc"]		= false,
+	["Item_usedbc"]			= true,
+	["Item_dontreprocess"]		= true,
+	["Item_showblacklisted"]	= true,
 	["Item_showcached"]		= false,
 	["Item_showcaching"]		= true,
 	["Item_showfailed"]		= true,
-	["Item_showskipped"]		= false,
+	["Item_showinvalid"]		= false,
 	["Item_showtooltip"]		= false,
 	["Quest_showtooltip"]		= false,
 	["Quest_showcaching"]		= true,
