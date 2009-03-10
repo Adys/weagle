@@ -56,6 +56,16 @@ Weagle_Options = {
 		
 		findtal = findtalent,
 		
+		findstructure = {
+			name = "Show itemcache.wdb structure",
+			type = "execute",
+			desc = "Print every cached, uncached and lacking entry from Item.dbc",
+			func = function(msg)
+				msg = gsub(msg["input"], msg[1] .. " ", "")
+				Weagle:FindStructure(msg)
+			end,
+		},
+		
 		item = {
 			name = "Sniff items",
 			type = "execute",

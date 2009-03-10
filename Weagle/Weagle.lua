@@ -344,6 +344,40 @@ function Weagle:ScanItemDBC()
 	Weagle:Print("Saved " .. #items .. " items for this build.")
 end
 
+function Weagle:FindStructure(msg)
+	local items = {}
+	if tonumber(msg) then
+		items = {tonumber(msg)}
+	
+	elseif msg:match("%-") then
+		local first, last = msg:match("(%d+)%-(%d+)")
+		first, last = tonumber(first), tonumber(last)
+		
+		if first < last then
+			for i = first, last do
+				table.insert(items, i)
+			end
+		else
+			local range = first - last
+			local id = first
+			
+			for i = 0, range do
+				table.insert(items, id)
+				id = id - 1
+			end
+		end
+	end
+	
+	for k,v in pairs(items) do
+		if GetItemInfo(v) then
+			Weagle:Print("Item #"..v..": |cff00ff00Cached|r - " .. GetItemLink(v))
+		elseif GetItemIcon(v) then
+			Weagle:Print("Item #"..v..": |cffffff00Not cached|r")
+		else
+			Weagle:Print("Item #"..v..": |cffff0000Missing from game files|r")
+		end
+	end
+end
 
 function Weagle:ShowStats()
 	Weagle:Print("Items: |cff00ff00" .. tableitems(processed.cached) .. "|r cached, |cffff0000" .. tableitems(processed.failed) .."|r failed, |cffffff00" .. tableitems(processed.cached)+tableitems(processed.failed) .. "|r requests in total. Type |cffffff00/wdb resetstats|r to reset the statistics.")
