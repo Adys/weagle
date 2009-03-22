@@ -34,13 +34,22 @@ SERVER = GetRealmName()
 
 function tableitems(t) -- Lua sucks
 	i=0
-	for k,v in pairs(t) do i=i+1 end
+	for k, v in pairs(t) do i=i+1 end
 	return i
 end
 
 function tablein(i, t)
-	for k,v in pairs(t) do
-		if i==v then return true end
+	for k, v in pairs(t) do
+		if i == v then return true end
+	end
+	return false
+end
+
+function tableindex(t, i)
+	i = 1
+	for k, v in pairs(t) do
+		if i == v then return i end
+		i = i+1
 	end
 	return false
 end
