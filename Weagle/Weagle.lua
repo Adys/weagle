@@ -45,15 +45,6 @@ function tablein(i, t)
 	return false
 end
 
-function tableindex(t, i)
-	i = 1
-	for k, v in pairs(t) do
-		if i == v then return i end
-		i = i+1
-	end
-	return false
-end
-
 local function O(opt)
 	return Weagle_data[opt]
 end

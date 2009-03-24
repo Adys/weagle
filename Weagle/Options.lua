@@ -43,7 +43,7 @@ Weagle_Options = {
 		showcached		= toggle("Feedback when skipping items already cached", "Item_showcached"),
 		showcaching		= toggle("Feedback when successfuly caching an item", "Item_showcaching"),
 		showfailed		= toggle("Feedback when an item query failed", "Item_showfailed"),
-		showfailed		= toggle("Feedback when skipping an invalid item", "Item_showinvalid"),
+		showinvalid		= toggle("Feedback when skipping an invalid item", "Item_showinvalid"),
 		showprocessed	= toggle("Feedback when skipping items already processed", "Item_showprocessed"),
 		
 		findach		= findobj("Achievement"),
@@ -64,6 +64,7 @@ Weagle_Options = {
 				msg = gsub(msg["input"], msg[1] .. " ", "")
 				Weagle:FindStructure(msg)
 			end,
+			guiHidden = true,
 		},
 		
 		item = {

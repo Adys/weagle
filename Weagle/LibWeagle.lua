@@ -23,11 +23,16 @@ WeagleLib_MaxIDs = {
 
 -- Tooltip parsing
 
-function SetTooltipHack(link)
-	WeagleLibTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE") -- FUCK YOU WOW API BLARGHGHALAGHALAHH
-	WeagleLibTooltip:SetHyperlink("spell:1") -- FUCK YOU WOW API BLARGHGHALAGHALAHH
-	WeagleLibTooltip:Show() -- FUCK YOU WOW API BLARGHGHALAGHALAHH
+local function SetTooltipHack(link) -- XXX
+	WeagleLibTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
+	WeagleLibTooltip:SetHyperlink("spell:1")
+	WeagleLibTooltip:Show()
 	WeagleLibTooltip:SetHyperlink(link)
+end
+
+local function UnsetTooltipHack() -- XXX
+	WeagleLibTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
+	WeagleLibTooltip:Hide()
 end
 
 function ScanTooltip(link)
@@ -43,7 +48,7 @@ function ScanTooltip(link)
 		if left then
 			tooltiptxt = tooltiptxt .. left
 			if right then
-				tooltiptxt = tooltiptxt .. " " .. right .. "\n"
+				tooltiptxt = tooltiptxt .. "\t" .. right .. "\n"
 			else
 				tooltiptxt = tooltiptxt .. "\n"
 			end
@@ -52,21 +57,20 @@ function ScanTooltip(link)
 		end
 	end
 	
-	WeagleLibTooltip:Hide() -- FUCK YOU WOW API BLARGHGHALAGHALAHH
+	UnsetTooltipHack()
 	return tooltiptxt
 end
 
 function GetTooltipLine(link, line, side)
-	local side = side or "Left"
+	side = side or "Left"
 	SetTooltipHack(link)
 	
 	local lines = WeagleLibTooltip:NumLines()
-	if line > lines then return end
+	if line > lines then return UnsetTooltipHack() end
 	
 	local text = _G["WeagleLibTooltipText"..side..line]:GetText()
 	
-	WeagleLibTooltip:Hide()
-	
+	UnsetTooltipHack()
 	return text
 end
 
@@ -78,8 +82,7 @@ function GetTooltipLines(link, ...)
 		lines[#lines+1] = _G["WeagleLibTooltipTextLeft"..v]:GetText()
 	end
 	
-	WeagleLibTooltip:Hide()
-	
+	UnsetTooltipHack()
 	return unpack(lines)
 end
 
