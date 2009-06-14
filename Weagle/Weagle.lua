@@ -47,7 +47,7 @@ TooltipAmt = 0
 -- Core --
 ----------
 
-Weagle = LibStub("AceAddon-3.0"):NewAddon("Weagle", "AceConsole-3.0", "AceHook-3.0", "AceTimer-3.0")
+Weagle = LibStub("AceAddon-3.0"):NewAddon("Weagle", "AceConsole-3.0", "AceTimer-3.0")
 Weagle.name = "Weagle"
 local CWEAGLE = "|cff33ff99Weagle|r"
 
@@ -125,10 +125,6 @@ function Weagle:OnInitialize()
 	end
 	
 	pages["ITEM: Item.dbc"] = Weagle_data.itemdbc
-end
-
-function Weagle:OnProfileEnable()
-
 end
 
 
