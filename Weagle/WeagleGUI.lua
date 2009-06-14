@@ -1,4 +1,4 @@
-local maxitems = 100
+local maxitems = 500
 local DEFAULT_LIST = "ITEM: Bookmarks"
 local DEFAULT_INVALID_ICON = "interface/icons/inv_misc_questionmark"
 

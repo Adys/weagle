@@ -266,23 +266,23 @@ end
 
 -- Unit/NPC functions
 
-function GetUnitId(unit)
-	guid = UnitGUID(unit)
-	id = tonumber(string.sub(guid,6,12), 16)
-	return id
-end
+--function GetUnitId(unit)
+--	guid = UnitGUID(unit)
+--	id = tonumber(string.sub(guid,6,12), 16)
+--	return id
+--end
 
-function GetUnitInfo(unit)
-	local guid = UnitGUID(unit)
-	local id = GetUnitId(unit)
-	local name, title = UnitName(unit)
-	local lvl = UnitLevel(unit)
-	local health = UnitHealthMax(unit)
-	local power = UnitManaMax(unit)
-	local powertype = UnitPowerType(unit)
-	
-	return guid, id, name, title, lvl, health, power, powertype
-end
+--function GetUnitInfo(unit)
+--	local guid = UnitGUID(unit)
+--	local id = GetUnitId(unit)
+--	local name, title = UnitName(unit)
+--	local lvl = UnitLevel(unit)
+--	local health = UnitHealthMax(unit)
+--	local power = UnitManaMax(unit)
+--	local powertype = UnitPowerType(unit)
+--	
+--	return guid, id, name, title, lvl, health, power, powertype
+--end
 
 
 -- IsCached functions

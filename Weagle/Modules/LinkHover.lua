@@ -5,16 +5,16 @@ mod.modName = "Link Hover"
 
 local strmatch = _G.string.match
 local linkTypes = {
-	achievement = true,
-	channel = false,
-	enchant = true,
-	glyph = true,
-	item = true,
-	player = false,
-	quest = true,
-	spell = true,
-	talent = true,
-	unit = true,
+	achievement	= true,
+	channel	= false,
+	enchant	= true,
+	glyph		= true,
+	item		= true,
+	player	= false,
+	quest		= true,
+	spell		= true,
+	talent	= true,
+	unit		= true,
 }
 
 function mod:OnEnable()

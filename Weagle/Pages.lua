@@ -4,33 +4,77 @@ blacklist = {
 
 pages = {
 	["ITEM: Bookmarks"] = {
-		44842, -- Red Dragonhawk Mount
-		33147, -- Formula: Enchant Cloak - Subtlety
-		19986, -- Pirate's Eye Patch
-		28499, -- Arakkoa Hunter's Supplies
-		22736, -- Andonisus, Reaper of Souls
-		23462, -- High Warlord's Tome of Destruction
-		13254, -- Astral Guard
-		23457, -- High Warlord's Destroyer
-		21588, -- Wristguards of Elemental Fury
-		25455, -- Phosphorescent Globe
-		32624, -- OK
-		32625, -- OK
-		32626, -- OK
-		32628, -- OK
-		32630, -- OK
-		32631, -- OK
-		31576, -- OK
-		31575, -- OK
+		17,    -- Martin Fury
+		12947, -- Alex's Ring of Audacity
+		35218, -- Pattern: Carapace of Sun and Shadow
+		35548, -- Pattern: Robe of Eternal Light
+		35549, -- Pattern: Sun-Drenched Scale Chestguard
+		35840, -- Stone Hunk O' Gargoyle
+		100,   -- Deprecated Dwarven Squire's Pants
+		138,   -- Deprecated War Harness
+		1356,  -- q137
+		2668,  -- q260
+		2669,  -- q260
+		2688,  -- q316
+		4868,  -- q807
+		7425,  -- q2059
+		9572,  -- q3111
+		13811, -- q5530
+		13812, -- q5532
+		16025, -- q6201
+		19065, -- q7741
+		20651, -- q316
+		22780, -- q316
+		23074, -- [PH] Goblin Tooth
+		23647, -- q9615
+		23648, -- q9653
+		23649, -- q9651
+		23650, -- q9656
+		23651, -- q9661
+		23689, -- q9411
+		23696, -- q9459
+		23698, -- q9482
+		23699, -- q9481
+		23700, -- q9479
+		23701, -- q9480
+		23904, -- q9613
+		23905, -- q9652
+		23911, -- q9650
+		23912, -- q9657
+		23914, -- q9655
+		23916, -- q9652
+		24068, -- q9657
+		31469, -- q10787
+		34071, -- q11435
+		35775, -- q11992
+		35776, -- q11992
+		35777, -- q11992
+		35778, -- q11992
 		31559, -- OK
-		20393, -- OK
-		20706, -- OK
-		13906, -- OK
-		31560, -- OK
-		35518, -- OK
-		35533, -- OK
-		35546, -- OK
 		31568, -- OK
+		31575, -- OK
+		31576, -- OK
+		35517, -- OK
+		35518, -- OK
+		35519, -- OK
+		35520, -- OK
+		35521, -- OK
+		35522, -- OK
+		35523, -- OK
+		35524, -- OK
+		35525, -- OK
+		35526, -- OK
+		35527, -- OK
+		35529, -- OK
+		35528, -- OK
+		35530, -- OK
+		35531, -- OK
+		35533, -- OK
+		35535, -- OK
+		35538, -- OK
+		35541, -- OK
+		35544, -- OK
+		35546, -- OK
 		35530, -- OK
 		35553, -- OK
 		35520, -- OK
@@ -38,34 +82,56 @@ pages = {
 		35531, -- OK
 		35525, -- OK
 		35523, -- OK
+		41753, -- Brunnhildar Great Axe
+		41750, -- Brunnhildar Harpoon
+		41756, -- Heart's Blood Signet
+		41757, -- Vest of Unyielding Companionship
+		41758, -- Blood-Bond Helm
+		41759, -- Shackles of Perpetual Friendship
+		42170, -- Silver Brooch
+		43733, -- Crown of Faith
+		43739, -- Dreadnaught Battleplate
+		43767, -- Earthshatter Hauberk
+		44627, -- Bottle of Peaked Dalaran Red
+		44629, -- Cask of Peaked Dalaran Red
+		17968, -- Charged Scale of Onyxia
+		6437,  -- Flayed Demon Skin (old)
+		44842, -- Red Dragonhawk Mount
+		33147, -- Formula: Enchant Cloak - Subtlety
+		19986, -- Pirate's Eye Patch
+		21587, -- Wristguards of Castigation
+		21588, -- Wristguards of Elemental Fury
+		22564, -- Formula: Arcane Dust
+		22736, -- Andonisus, Reaper of Souls
+		25455, -- Phosphorescent Globe
+		28499, -- Arakkoa Hunter's Supplies
+		36829, -- Supremely Slimy Ichor
+		36830, -- Gratuitously Gelatinous Goo
 		5632,  -- Cowardly Flight Potion
-		7986,  -- Plans: Ornate Mithril Breastplate
 		6343,  -- Formula: Imbue Chest - Spirit
 		6345,  -- Formula: Imbue Cloak - Protection
 		6376,  -- Formula: Enchant Boots - Minor Stamina
 		7192,  -- Plans: Goblin Rocket Boots
-		7987,  -- Plans: Ornate Mithril Helm
-		7988,  -- Plans: Ornate Mithril Boots
+		7986,  -- Plans: Ornate Mithril Breastplate
 		15769, -- Pattern: Onyxia Scale Cloak
 		16057, -- Explorer's Knapsack
 		20590, -- Sturdy Female Undead Mask
 		32972, -- Beer Goggles
-		6834,  -- Black Tuxedo
 		16340, -- First Sergeant's Cloak
 		7427,  -- Cerulean Talisman
-		7725,  -- Tabard of the Scarlet Crusade DEPRECATED
 		41757, -- Vest of Unyielding Companionship
 		38317, -- Prepared Drakkari Offering
-		39709, -- Verdant Tundra Boots
+		23457, -- High Warlord's Destroyer
 		23461, -- High Warlord's Quickblade
+		23462, -- High Warlord's Tome of Destruction
 		1217,  -- Unknown Reward
-		100,   -- Deprecated Dwarven Squire's Pants
 		6183,  -- Unlit Poor Torch
 		6516,  -- Imp Summoning Scroll
 		6544,  -- Voidwalker Summoning Scroll
 		6623,  -- Succubus Summoning Scroll
 		6988,  -- Felhunter Summoning Scroll
 		13092, -- Dragonstalker Tunic
+		39303, -- DEPRECATED Swift Flying Carpet
 		34126, -- Recipe: Shoveltusk Soup
 		36967, -- Grimoire of Fire Shield (Rank 7)
 		18970, -- Ring of Critical Testing 2
@@ -83,49 +149,64 @@ pages = {
 		3675,  -- Extinguished Torch
 		4930,  -- Handmade Leather Bag
 		5010,  -- Inscribed Gold Ring
+		34141, -- Dark Iron Ale Keg
 		34503, -- Box of Adamantite Shells
 		34544, -- Essence of the Immortals
 		34548, -- Cache of the Shattered Sun
 		34644, -- Copper Writing Nib DEPRECATED
 		34835, -- Omar's Gem of POWAH
 		5005,  -- Emberspark Pendant
-		33797, -- Portable Brewfest Keg
 		34805, -- QA Test Ring +100 Spell Hit Rating
 		7548,  -- Onyx Choker
-		21587, -- Wristguards of Castigation
-		37485, -- Clam Collector Gauntlets
-		37312, -- Carrot on a Stick
 		37313, -- Riding Crop
+		37385, -- Seared Harness
+		37386, -- Ruby Heart Spaulders
+		37400, -- Whalehunter Cuffs
+		37420, -- Sharkproof Boots
+		37433, -- Layered Scale Boots
+		37485, -- Clam Collector Gauntlets
+		38654, -- Corvus' Report
+		38640, -- Dense Frostweave Bandage
+		38958, -- Scroll of Enchant Weapon - Exceptional Intellect
+		38983, -- Scroll of Enchant Shield - Mighty Stamina
+		39153, -- Manual: Dense Frostweave Bandage
+		39644, -- Recipe: Kungaloosh
+		39692, -- Recipe: Succulent Orca Stew
+		39903, -- Argent Crusade Gratuity
 		40355, -- Azure Whelpling
 		17000, -- Band of the Wraith
 		5106,  -- Red Defias Mask
-		36919, -- Cardinal Ruby
 		28045, -- Cloak of the Demon Stalker
 		22781, -- Polar Bear Collar
+		37837, -- Fat Lute
 		37878, -- Worg's Blood Elixir
 		43097, -- Fur Lining - Attack Power
 		36897, -- Fel Spellstone
-		7551,  -- Entwined Opaline Talisman
-		41741, -- Cobalt Rod
 		6130,  -- Trapper's Shirt
 		2444,  -- Ornate Buckler
 		27719, -- Aldor Leggings of Puissance
 		30203, -- Mantle of the Fire Festival
 		32148, -- Chancellor's Ringmail Chestguard
 		37400, -- Whalehunter Cuffs
+		36896, -- Demonic Spellstone
+		36897, -- Fel Spellstone
+		36955, -- Grimoire of Firebolt (Rank 9)
+		36959, -- Grimoire of Blood Pact (Rank 7)
+		36960, -- Grimoire of Fire Shield (Rank 7)
+		36964, -- Grimoire of Sacrifice (Rank 8)
+		36965, -- Grimoire of Sacrifice (Rank 9)
+		36966, -- Grimoire of Consume Shadows (Rank 8)
 		36967, -- Grimoire of Consume Shadows (Rank 9)
+		36968, -- Grimoire of Suffering (Rank 7)
 		36970, -- Grimoire of Suffering (Rank 8)
 		34661, -- Massacre Sword
 		40582, -- Scourgestone
 		43517, -- Penguin Egg
+		43471, -- Rork Red Ribbon
 		24315, -- Pattern: Heavy Netherweave Net
 		7426,  -- Cerulean Ring
 		7996,  -- Lucky Fishing Hat
-		41585, -- Slag Covered Metal
 		23567, -- zzOLD[PH] Silithus PvP Dust [DEP]
-		44754, -- Severed Boar Tusk
-		44755, -- Gory Snout
-		24288, -- Greater Spellthread
 		4196,  -- Feathered Mantle
 		23885, -- Schematic: Remote Mail Terminal
 		5000,  -- Coral Band
@@ -143,6 +224,7 @@ pages = {
 		25968, -- Shalassi Sentry's Epaulets
 		25969, -- Rapscallion's Touch
 		25970, -- Shalassi Oracle's Sandals
+		25988, -- Glowing Alabaster Ring
 		25990, -- Smooth Soapstone Band
 		25991, -- Seamless Stone Band
 		25994, -- Rune of Force
@@ -152,14 +234,14 @@ pages = {
 		28043, -- Demon Stalker Pendant
 		28054, -- Fleshripper's Bladed Chestplate
 		29237, -- Warpath Bracers
+		21162, -- Bloated Oily Blackmouth
+		21164, -- Bloated Rockscale Cod
 		21168, -- Baby Shark
+		37510, -- Wristguards of Edification
+		37511, -- Crucible Waistguard
+		37544, -- Drakebone Necklace
 		37706, -- Hardened Saronite Bar
-		38640, -- Dense Frostweave Bandage
-		39153, -- Manual: Dense Frostweave Bandage
-		31469, -- q10787
-		23904, -- q9613
 		32824, -- Tigole's Trashbringer
-		32911, -- Empty Brewfest Stein
 		37827, -- Brewfest Kodo
 		37919, -- Test Scott K Bow
 		44924, -- Arcanite Ripper (NEW)
@@ -170,40 +252,47 @@ pages = {
 		6116,  -- Apprentice's Robe
 		7953,
 		11364, -- Tabard of Stormwind
-		12947, -- Alex's Ring of Audacity
 		13325, -- Fluorescent Green Mechanostrider (?)
 		13337, -- Monster - Staff, Feathered Gold
-		14586, -- Monster - Mace2H, Fist of Omokk
+		31824, -- Monster - Work Wrench
+		39741, -- Monster - Axe, 2H Hardened Skirmisher (1H as 2H - Lightning)
+		39742, -- Monster - Staff, Red Jeweled with Low Purple Glow
 		40534, -- Monster - Axe, 1H Northrend C02 Blue
+		40599, -- QA Test Ring +300 Hit Rating
+		41606, -- zzDEPRECATED Master's Spellthread
 		14889,
 		16085, -- Artisan First Aid - Heal Thyself
 		16339, -- Commander's Steed
 		17019, -- ZZold Arcane Dust
 		17024, -- Wild Root
 		17027, -- Scented Candle
-		17195, -- Fake Mistletoe
-		17442, -- Frostwolf Assault Orders
 		17967, -- Refined Scale of Onyxia
 		19879, -- Alex's Test Beatdown Staff
-		21878, -- ZZOLD Spellthread
 		22045, -- Test QARaid Uber Ammo Lockbox
 		23086, -- [UNUSED] Letter Cookie
 		23388, -- Tranquillien Tabard
+		21878, -- ZZOLD Spellthread
 		23854, -- Shadoweave Cloth
 		23855, -- Spellfire Cloth
+		24288, -- Greater Spellthread
 		25677, -- Terokkar Chokeberry, Thottbot
+		25704, -- ??? Reagent for s32485 32487 32488 32489 b6080
 		32876, -- Monster - Black Temple - Crossbow - Dragonmaw Sky Stalker
 		32911, -- Empty Brewfest Stein
 		33007, -- Grimbooze's Secret Recipe
 		33063, -- Really Tough Brewfest Bread
 		33957, -- Witches Band
-		32457, -- Arakkoa Fetish
-		37740, -- Brutal Gladiator's Swift Judgement
 		38282, -- Bland Two-Handed Blade
 		38587, -- Empty Brewfest Stein
 		30845, -- Glyph of Chromatic Warding
-		34661, -- Massacre Sword
+		35626, -- Eternal Mana [PH]
 		36919, -- Cardinal Ruby
+		37089, -- Honeycone
+		37090, -- Quickpoppy
+		37100, -- Silver Ink
+		37210, -- Seafarer Cinch
+		37225, -- Sweltering Sandals
+		37273, -- Crimson Keeper Mitts
 		37298, -- Competitor's Souvenir
 		5663,  -- Horn of the Red Wolf
 		5874,  -- Harness: Black Ram
@@ -224,21 +313,32 @@ pages = {
 		20965, -- Cut Ruby
 		21772, -- Cut Sapphire
 		21773, -- Cut Opal
+		23359,
+		27782,
+		30562,
+		33130,
+		33136,
+		26527, -- 68 TEST Green Cloth Ring
+		27169, -- 66 TEST Green Rogue/Hunter Ring
+		27183, -- 66 TEST Green Rogue/Hunter Necklace
 	},
---	["ITEM: Deadlinks"] = {
---		7948,  -- is221
---		7949,  -- is221
---		7950,  -- is221
---		7951,  -- is221
---		7952,  -- is221
---		7953,  -- is221
---	},
+--[[	["ITEM: Deadlinks"] = {
+		7948,  -- is221
+		7949,  -- is221
+		7950,  -- is221
+		7951,  -- is221
+		7952,  -- is221
+		7953,  -- is221
+	},
 	["ITEM: Sunwell Patterns"] = {
 		35205, -- Pattern: Hands of Eternal Light, Kult der Verdammten
+		35213, -- Pattern: Fletcher's Gloves of the Phoenix, Silvermoon EU
+		35215, -- Pattern: Sun-Drenched Scale Gloves, Thaurissan RAF
 	},
 	["ITEM: Itemset Dummies"] = {
 		43733, -- Crown of Faith
 		43739, -- Dreadnaught Battleplate
+		43767, -- Earthshatter Hauberk
 		43777, -- Frostfire Circlet
 	},
 	["ITEM: 26-27k"] = {
@@ -246,7 +346,74 @@ pages = {
 		27169, -- 66 TEST Green Rogue/Hunter Ring
 		27183, -- 66 TEST Green Rogue/Hunter Necklace
 	},
+--]]	
+	["ITEM: Tournament - TBC"] = {
+		35396, -- Enchant 2H Weapon - Major Agility
+		35397, -- Enchant 2H Weapon - Savagery
+		35398, -- Enchant Boots - Boar's Speed
+		35399, -- Enchant Boots - Cat's Swiftness
+		35400, -- Enchant Boots - Dexterity
+		35417, -- Enchant Boots - Fortitude
+		35418,
+		35419,
+		35420,
+		35421,
+		35422,
+		35423, -- Enchant Bracer - Major Intellect
+		35424, -- Enchant Bracer - Restore Mana Prime
+		35425,
+		35426,
+		35427, -- Enchant Bracer - Superior Healing
+		35428,
+		35429, -- Enchant Chest - Exceptional Stats
+		35430,
+		35431,
+		35432, -- Enchant Cloak - Greater Agility
+		35433, -- Enchant Cloak - Greater Arcane Resistance
+		35434,
+		35435, -- Enchant Cloak - Major Resistance
+		35436,
+		35437,
+		35438,
+		35439,
+		35440, -- Enchant Gloves - Major Healing
+		35441, -- Enchant Gloves - Major Spellpower
+		35442,
+		35443,
+		35444, -- Enchant Ring - Healing Power
+		35445,
+		35446,
+		35447, -- Enchant Ring - Striking
+		35448, -- Enchant Shield - Intellect
+		35449,
+		35450,
+		35451, -- Enchant Shield - Shield Block
+		35452,
+		35453,
+		35454, -- Enchant Weapon - Major Healing
+		35455,
+		35456,
+		35457,
+		35458,
+		35459,
+		35460,
+		35461,
+		35462, -- Enchant Weapon - Sunfire
+		35728, -- Greater Inscription of the Blade
+		35729, -- Greater Inscription of the Knight
+		35730, -- Greater Inscription of the Oracle
+		35731, -- Greater Inscription of the Orb
+	},
+	["ITEM: Tournament - WLK"] = {
+	
+	},
 	["ITEM: Magelo Arena"] = {
+		40884, -- LK Honor 4 Plate DPS Boots
+		41683, -- LK Arena 4 Rogue Shoulders
+		41759,
+		42170,
+		42171,
+		42206,
 		42217,
 		42222,
 		42618,
@@ -319,33 +486,6 @@ pages = {
 		42344,
 		42563,
 		42388,
-		
-	},
-	["ITEM: Tournament - TBC"] = {
-		35396, -- Enchant 2H Weapon - Major Agility
-		35397, -- Enchant 2H Weapon - Savagery
-		35398, -- Enchant Boots - Boar's Speed
-		35399, -- Enchant Boots - Cat's Swiftness
-		35400, -- Enchant Boots - Dexterity
-		35417, -- Enchant Boots - Fortitude
-		35423, -- Enchant Bracer - Major Intellect
-		35424, -- Enchant Bracer - Restore Mana Prime
-		35427, -- Enchant Bracer - Superior Healing
-		35429, -- Enchant Chest - Exceptional Stats
-		35432, -- Enchant Cloak - Greater Agility
-		35433, -- Enchant Cloak - Greater Arcane Resistance
-		35435, -- Enchant Cloak - Major Resistance
-		35440, -- Enchant Gloves - Major Healing
-		35441, -- Enchant Gloves - Major Spellpower
-		35444, -- Enchant Ring - Healing Power
-		35447, -- Enchant Ring - Striking
-		35448, -- Enchant Shield - Intellect
-		35451, -- Enchant Shield - Shield Block
-		35454, -- Enchant Weapon - Major Healing
-		35728, -- Greater Inscription of the Blade
-		35729, -- Greater Inscription of the Knight
-		35730, -- Greater Inscription of the Oracle
-		35731, -- Greater Inscription of the Orb
 	},
 	["ITEM: Beta JWC Designs"] = {
 		23130, -- Design: Teardrop Blood Garnet
@@ -370,6 +510,7 @@ pages = {
 		5418,  -- Weapon of Mass Destruction (test)
 		14062, -- Kodo Mount
 		17782, -- Talisman of Binding Shard
+		20834, -- Ornate Spyglass XT
 		21560, -- Small Purple Rocket
 		21591, -- Large Purple Rocket
 		44743, -- Cultist Acolyte's Hood Target
@@ -377,14 +518,13 @@ pages = {
 	},
 	["ITEM: Misc"] = {
 		1281,  -- Deprecated Quiver (TEST), Kil'Jaeden
-		6437,  -- Flayed Demon Skin (old)
 		6766,  -- Flayed Demon Skin (old2)
 		6836,  -- Dress Shoes
 		6987,  -- Fish Scale
 		10664, -- A Note to Magus Rimtori
+		17195, -- Fake Mistletoe
 		17242, -- Key to Salem's Chest
 		17262, -- James' Key
-		17968, -- Charged Scale of Onyxia
 		18565, -- Vessel of Rebirth DEPRECATED, Alexstrasza US
 		18566, -- Essence of the Firelord DEPRECATED
 		19322, -- zzDEPRECATED Warsong Mark of Honor
@@ -392,12 +532,16 @@ pages = {
 		20978, -- Apprentice's Staff
 		23162, -- Foror's Crate of Endless Resist Gear Storage
 		29805, -- Socrethar's Head
+		37148, -- Singed Page
+		38539, -- Sack of Gold
 		38605, -- McCarty's Notes
-		38538, -- Riding Crop
+		38629, -- Orders from the Lich King
+		41585, -- Slag Covered Metal
 		42440, -- Gigaflux Dimensional Transporter
 		43307, -- Arena Points
 		43308, -- Honor Points
 	},
+--		31560, -- OK, Thrall US
 	["ITEM: Test Gems"] = {
 		23233, -- Red Bryanite of Strength stuff
 		23234, -- Blue Bryanite of Agility
@@ -415,16 +559,29 @@ pages = {
 		34835, -- Omar's Gem of POWAH
 		37430, -- Solid Sky Sapphire (Unused)
 		38292, -- Test Living Ruby
+		38538, -- Riding Crop
 		38498, -- QA Test Blank Purple Gem
 		40232, -- Test Dazzling Talasite
+		
+		23359,
+		27782,
+		30562,
+		33130,
+		33136,
+
 	},
 	["ITEM: Monster"] = {
+		1911,  -- Monster - Tool, Wrench Small
 		2715,  -- Monster - Item, Lantern - Round
 		13337, -- Monster - Staff, Feathered Gold
 		14586, -- Monster - Mace2H, Fist of Omokk
+		31824, -- Monster - Work Wrench
 		32876, -- Monster - Black Temple - Crossbow - Dragonmaw Sky Stalker
+		39741, -- Monster - Axe, 2H Hardened Skirmisher (1H as 2H - Lightning)
+		39742, -- Monster - Staff, Red Jeweled with Low Purple Glow
 		39754, -- Monster - Sword, Northrend Iron Dwarf
 		40534, -- Monster - Axe, 1H Northrend C02 Blue
+		45692, -- Monster - Sword, Vargul (Blue) (2H)
 	},
 	["ITEM: Brew of the Month"] = {
 		37488, -- Wild Winter Pilsner
@@ -442,27 +599,48 @@ pages = {
 	},
 	["ITEM: Spell Lock"] = {
 		1450,  -- Potion of Fervor
+		4228,  -- Book of Moonfire IV, s23549
 		5024,  -- Frost Vial
+		5108,  -- Dark Iron Leather
 		5517,  -- Tiny Bronze Key
 		5518,  -- Tiny Iron Key
 		8147,  -- Tiny Copper Key
 		8148,  -- Tiny Silver Key
 		10719, -- Mobile Alarm
 		13460, -- Greater Holy Protection Potion
+		17442, -- Frostwolf Assault Orders
 		18582, -- The Twin Blades of Azzinoth
 		18583, -- Warglaive of Azzinoth (Right)
 		18584, -- Warglaive of Azzinoth (Left)
+		19642, -- iCoke Prize Voucher, s23975 "Create iCoke Prize Voucher"
 		19932, -- UNUSED Empowered Mojo Bundle
 		20487, -- Lok'delar, Stave of the Ancient Keepers DEP
 		20488, -- Rhok'delar, Longbow of the Ancient Keepers DEP
 		21786, -- Cut Azerothian Diamond
+		22474, -- Meledor's Apprentice Badge
+		22475, -- Ralen's Apprentice Badge
+		22486, -- [UNUSED] Scourge Invasion Boss Summoner
+		23227, -- iCoke Gift Box Voucher, s29156 "Create iCoke Giftbox Voucher"
+		23616, -- Crushed Crystal Fragment, s29868 "Fished Up Crystal"
+		23712, -- White Tiger Cub, s30186 "Create Upperdeck Tiger Cub"
 		23820, -- Critter Enlarger
+		23895, -- Netted Goods, s30634 "Netted Goods"
+		23990, -- Completed Star Chart
+		24148, -- Partial Star Chart
+		24149, -- Unfinished Star Chart
 		24269, -- Heavy Netherweave Net
+		25840, -- Extract of the Afterlife, s32673 "Create Replacement Extract of the Afterlife"
 		25884, -- Primal Stone Statue
+		28048, -- Crude Explosives, s34362 "Summon Crude Explosives"
+		28471, -- Krasus's Compendium
 		29052, -- Warp Nether Extractor
+		32457, -- Arakkoa Fetish
 		32594, -- Ogrela Test Tunic
 		32595, -- Ogrela Reagent Dust
+		33062, -- zzOLD Empty Brewfest Sampler
+		33616, -- Unstable Mix
 		34044, -- B-Ball
+		34138, -- Enchanted White Wand
 		34139, -- Enchanted Crimson Wand
 		34144, -- Branch of Destruction
 		34145, -- Rod of Devastation
@@ -470,9 +648,24 @@ pages = {
 		34147, -- Silverstave
 		34148, -- Purified Silverstave
 		34149, -- Lightstave
+		34660, -- Silver Writing Nib DEPRECATED
+		34663, -- Silver Quill DEPRECATED
+		37312, -- Carrot on a Stick
+		38387, -- Grizzled Hat
+		38388, -- Cap of the North
 		38389, -- Comfy Raccoonskin Hat
+		38390, -- The Rugged Marksman
+		38619, -- Scroll of Enchant Weapon - Major Spirit
+		38630, -- Runebladed Axe
+		39707, -- Verdant Tundra Cap
+		39708, -- Verdant Tundra Shoulderpads
+		39709, -- Verdant Tundra Boots
+		39710, -- Verdant Tundra Belt
+		39711, -- Verdant Tundra Bracers
 		40484, -- Deprecated Glyph of the White Bear
 		40948, -- Deprecated Glyph of the Red Lynx
+		41741, -- Cobalt Rod
+		43002, -- Inflatable Land Mines
 		43336, -- Deprecated Glyph of the Black Bear
 		43337, -- Deprecated Glyph of the Forest Lynx
 		43362, -- Glyph of the Bear Cub
@@ -481,19 +674,26 @@ pages = {
 		43614, -- Broken Wrath Elixir
 		43620, -- Broken Spellpower Elixir
 		43621, -- Broken Noggenfogger Elixir
+		44451, -- Runed Cobalt Rod
+		44555, -- Swift Mooncloth Carpet
 		44556, -- Swift Spellfire Carpet
+		44557, -- Swift Ebonweave Carpet
 	},
 	["ITEM: Removed From Game"] = {
-		16319, -- Grimoire of Firebolt (Rank 6)
 		7748,  -- Forcestone Buckler
+		7987,  -- Plans: Ornate Mithril Helm, Ragnaros EU
+		7988,  -- Plans: Ornate Mithril Boots, Ragnaros EU
 		13148, -- Chillpike
 		13248, -- Burstshot Harquebus
+		13254, -- Astral Guard
 		13493, -- Recipe: Greater Arcane Elixir
 		13950, -- Detention Strap
 		14473, -- Pattern: Ghostweave Belt
 		14488, -- Pattern: Runecloth Boots
 		14495, -- Pattern: Ghostweave Pants
+		16319, -- Grimoire of Firebolt (Rank 6)
 		17733, -- Fist of Stone
+		32896, -- Scroll of the Sun, Silvermoon EU
 		1254,  -- Lesser Firestone (DEPRECATED)
 		3107,  -- Broken Keen Throwing Knife
 		3108,  -- Broken Heavy Throwing Dagger
@@ -560,7 +760,6 @@ pages = {
 		34140, -- Dark Iron Tankard
 	},
 	["ITEM: RFG - Naxx"] = {
-		21588, -- Wristguards of Elemental Fury
 		22364, -- Desecrated Handguards
 		22520, -- The Phylactery of Kel'Thuzad
 		22589, -- Atiesh, Greatstaff of the Guardian
@@ -584,6 +783,8 @@ pages = {
 		28833, -- High Warlord's Lamellar Helm
 		28834, -- High Warlord's Lamellar Legguards
 		28872, -- High Warlord's Wyrmhide Helm
+		28873, -- High Warlord's Wyrmhide Legguards
+		28917, -- High Warlord's Bonegrinder
 		28942, -- Grand Marshal's Bonegrinder
 		28993, -- Marshal's Mail Girdle
 		31640, -- Grand Marshal's Ringmail Chestguard
@@ -616,36 +817,48 @@ pages = {
 		32765, -- Flaskataur's Tears
 		32766, -- Flaskataur's Flask of Flaskocity
 		32767, -- Flaskataur's Flask of Pretty Good Power
+		35721, -- Flaskataur's Lamp
+		35722, -- Foror's Wipe Neutralizer
 	},
 	["ITEM: Misc - NTL"] = {
 		1166,  -- Dented Buckler, Korgath US
 		1167,  -- Small Targe, Stormrage US
 		1193,  -- Banded Buckler, Draenor US
 		1386,  -- Thistlewood Axe, Emerald Dream EU
+		1911,  -- Monster - Tool, Wrench Small, Azshara EU
 		2133,  -- Small Shield, Stormrage US
 		2377,  -- Round Buckler, Cenarion Circle US
 		4111,  -- Master Hunter's Rifle, Alexstrasza US
 		5623,  -- Amethyst Phial, Ravencrest EU
 		6619,  -- Manual: The Path of Defense, Bloodfeather
+		6834,  -- Black Tuxedo, Area 52 (RAF)
+		7551,  -- Entwined Opaline Talisman, Skywall US (RAF)
+		7725,  -- Tabard of the Scarlet Crusade DEPRECATED, Aman'Thul
 		7994,  -- Plans: Orcish War Leggings, Bloodfeather
 		8628,  -- Reins of the Spotted Nightsaber, Alexstrasza US
 		9380,  -- Jang'thraze the Protector, Archimonde
 		13262, -- Ashbringer, Saurfang
+		14586, -- Monster - Mace2H, Fist of Omokk, Barthilas US (RAF)
 		17142, -- Shard of the Defiler, Archimonde
 		18964, -- Turtle Egg (Loggerhead), Suramar
+		18968, -- Ring of Critical Testing, Azshara EU
 		19112, -- Frozen Steel Vambraces, Windrunner/Grim Batol EU
+		20593, -- Sturdy Male Human Mask, Stormscale EU
 		22737, -- Atiesh, Greatstaff of the Guardian, Bronze Dragonflight EU / Suramar EU
---		23684, -- Crystal Infused Bandage [PH], Stormrage
-		25596, -- Peep's Whistle, Archimonde
+--		23684, -- Crystal Infused Bandage [PH], Stormrage EU
+		25596, -- Peep's Whistle, Archimonde EU
 		25967, -- Eagle Crested Pauldrons, Draenor US
-		28596, -- Design: Bright Blood Garnet
-		32896, -- Scroll of the Sun, Silvermoon EU
-		33986, -- Indalamar's Ring of 200 Crit, Archimonde
+		27965, -- TEST 130 Epic Paladin DPS Chest, Lightning's Blade
+		33986, -- Indalamar's Ring of 200 Crit, Archimonde EU
 		36519, -- Moonlit Katana, Bronze Dragonflight
+		36547, -- Jester's Stick, Argent Dawn EU
+		36589, -- Segmenting Broadaxe, Argent Dawn EU
 		37311, -- Skybreaker Whip, Tichondrius US
 		37739, -- Brutal Gladiator's Blade of Alacrity, Archimonde
 		38994, -- Scroll of Enchant Weapon - Exceptional Healing, Illidan US
 		39754, -- Monster - Sword, Northrend Iron Dwarf, Aman'Thul
+		45692, -- Monster - Sword, Vargul (Blue) (2H), Kazzak EU
+		45860, -- Crystal Tiara, Mazrigos EU
 	},
 	["ITEM: Stationeries"] = {
 		8164,  -- Test Stationery
@@ -656,6 +869,7 @@ pages = {
 		34171, -- Winter Stationery
 	},
 	["Wowhead 3.1 NEW"] = {
+		45605,
 		45246,
 		45448,
 		45685,
@@ -674,6 +888,7 @@ pages = {
 		45147,
 		45315,
 		45876,
+		46351,
 		45892,
 		45972,
 		45203,
@@ -695,6 +910,7 @@ pages = {
 		45479,
 		45256,
 		45886,
+		46350,
 		45695,
 		45934,
 		45128,
@@ -709,16 +925,19 @@ pages = {
 		45205,
 		45327,
 		45872,
-		45130,
+		46342,
 		45261,
 		45137,
+		46339,
 		45309,
+		45130,
 		45210,
 		45086,
 		45296,
 		45257,
 		45170,
 		45511,
+		45713,
 		45991,
 		45992,
 		45858,
@@ -734,13 +953,14 @@ pages = {
 		45049,
 		45752,
 		45729,
+		45073,
 		45751,
 		45728,
-		45176,
-		45177,
-		45178,
-		45179,
 		45061,
+		45178,
+		45176,
+		45179,
+		45177,
 		45150,
 		46172,
 		46197,
@@ -760,6 +980,7 @@ pages = {
 		45514,
 		45253,
 		45186,
+		46344,
 		45832,
 		45422,
 		45369,
@@ -790,6 +1011,7 @@ pages = {
 		46080,
 		45156,
 		45209,
+		41864,
 		46139,
 		46133,
 		46195,
@@ -802,15 +1024,19 @@ pages = {
 		45367,
 		45388,
 		45394,
+		45135,
 		45483,
 		45258,
 		45441,
 		45567,
 		45566,
 		45275,
+		41893,
+		45549,
 		45146,
 		45291,
 		45423,
+		45520,
 		46135,
 		46188,
 		46163,
@@ -865,9 +1091,11 @@ pages = {
 		46062,
 		45556,
 		45830,
+		45548,
 		45829,
 		45555,
 		45185,
+		45547,
 		45491,
 		45709,
 		46076,
@@ -875,6 +1103,7 @@ pages = {
 		46078,
 		45211,
 		45181,
+		41298,
 		46185,
 		46160,
 		46192,
@@ -900,6 +1129,7 @@ pages = {
 		45149,
 		45108,
 		45462,
+		41767,
 		46189,
 		46158,
 		46183,
@@ -932,6 +1162,7 @@ pages = {
 		46204,
 		45227,
 		45300,
+		45543,
 		45711,
 		45363,
 		45415,
@@ -969,6 +1200,7 @@ pages = {
 		45504,
 		45274,
 		45844,
+		45544,
 		45845,
 		45143,
 		45307,
@@ -979,7 +1211,9 @@ pages = {
 		45562,
 		45513,
 		45249,
+		41055,
 		45563,
+		46346,
 		45701,
 		45183,
 		45221,
@@ -1006,6 +1240,8 @@ pages = {
 		46175,
 		46180,
 		46156,
+		46120,
+		46115,
 		46166,
 		46151,
 		45502,
@@ -1042,13 +1278,15 @@ pages = {
 		46154,
 		46173,
 		46178,
+		46111,
+		46118,
+		46146,
 		46162,
 		45167,
 		45225,
 		45334,
 		45712,
 		45676,
-		46146,
 		45375,
 		45381,
 		45374,
@@ -1075,6 +1313,8 @@ pages = {
 		45160,
 		45594,
 		45134,
+		40847,
+		40849,
 		45248,
 		46181,
 		46176,
@@ -1089,6 +1329,7 @@ pages = {
 		45841,
 		45267,
 		45842,
+		45708,
 		45936,
 		45371,
 		45384,
@@ -1128,6 +1369,7 @@ pages = {
 		45834,
 		45268,
 		45228,
+		46340,
 		45376,
 		45370,
 		45383,
@@ -1144,7 +1386,10 @@ pages = {
 		45319,
 		45138,
 		45224,
+		42075,
+		45541,
 		45322,
+		46341,
 		45704,
 		45973,
 		45873,
@@ -1153,12 +1398,14 @@ pages = {
 		45626,
 		45271,
 		45115,
-		45853,
 		45854,
+		45853,
+		45851,
 		45852,
 		45850,
-		45851,
 		45849,
+		45067,
+		44802,
 		45887,
 		45450,
 		45877,
@@ -1166,7 +1413,6 @@ pages = {
 		45707,
 		46104,
 		45280,
-		45037,
 		45670,
 		45668,
 		45671,
@@ -1187,6 +1433,8 @@ pages = {
 		45574,
 		45584,
 		45583,
+		44803,
+		44800,
 		45998,
 		45485,
 		45443,
@@ -1196,13 +1444,17 @@ pages = {
 		45822,
 		45116,
 		45823,
+		42035,
 		45193,
 		45262,
 		45480,
+		45539,
 		45821,
 		45819,
+		45538,
 		45236,
 		45447,
+		46343,
 		45696,
 		45285,
 		45206,
@@ -1217,8 +1469,11 @@ pages = {
 		45813,
 		45153,
 		45627,
+		45540,
 		45250,
 		45451,
+		42116,
+		42117,
 		45113,
 		45456,
 		45503,
@@ -1282,14 +1537,14 @@ pages = {
 		45063,
 		45057,
 		45047,
-		44601,
 		44817,
-		44599,
 		37490,
+		44792,
 		45021,
 		45020,
 		45019,
 		45018,
+		44818,
 		45014,
 		45015,
 		45017,
@@ -1300,6 +1555,10 @@ pages = {
 		45276,
 		45277,
 		45621,
+		46377,
+		46378,
+		46379,
+		46376,
 		45006,
 		45007,
 		45008,
@@ -1309,6 +1568,7 @@ pages = {
 		44791,
 		44854,
 		44855,
+		44871,
 		45056,
 		45060,
 		46026,
@@ -1327,6 +1587,7 @@ pages = {
 		45603,
 		45604,
 		45602,
+		46372,
 		45625,
 		45731,
 		45733,
@@ -1386,6 +1647,7 @@ pages = {
 		44835,
 		44852,
 		44853,
+		44793,
 		46108,
 		45100,
 		45094,
@@ -1410,6 +1672,8 @@ pages = {
 		45059,
 		46027,
 		45050,
+		41747,
+		41719,
 		45862,
 		45879,
 		45883,
@@ -1453,8 +1717,10 @@ pages = {
 		45660,
 		45661,
 		45986,
+		44794,
 		46007,
 		45984,
+		45072,
 		44839,
 		45724,
 		46114,
@@ -1468,6 +1734,7 @@ pages = {
 		45981,
 		45978,
 		45979,
+		46359,
 		45980,
 		46001,
 		46003,
@@ -1476,6 +1743,7 @@ pages = {
 		45999,
 		45977,
 		46023,
+		46361,
 		45190,
 		45195,
 		45199,
@@ -1513,6 +1781,7 @@ pages = {
 		45595,
 		45596,
 		45589,
+		46109,
 		46308,
 		46099,
 		46100,
@@ -1530,5 +1799,47 @@ pages = {
 		45721,
 		45718,
 		45722,
+		45723,
+		46004,
+		46005,
+		44981,
+		45192,
+		45122,
+		44978,
+		45328,
+		45905,
+		44806,
+		45903,
+		45058,
+		45062,
+		45083,
+		45281,
+		45080,
+		45046,
+		45082,
+		45902,
+		45045,
+		45064,
+		45070,
+		45323,
+		45278,
+		45121,
+		45904,
+		44986,
+		45000,
+		45003,
+		45005,
+		45814,
+		45788,
+		45815,
+		45786,
+		45816,
+		45787,
+		45784,
+		45817,
+		45035,
+		45034,
+		45796,
+		45798
 	},
 }

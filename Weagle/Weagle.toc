@@ -1,17 +1,16 @@
-## Interface: 30000
+## Interface: 30100
 ## Title: Weagle
 ## Author: Adys
-## Version: 3.0
+## Version: 4.0pre
 ## Notes: Datamining suite
-## URL: http://devcub.com
-## OptionalDeps: Ace3
-## DefaultState: Enabled
+## eMail: adys@mmo-champion.com
+## URL: http://sigrie.com
 ## LoadOnDemand: 0
+## DefaultState: enabled
 ## SavedVariables: Weagle_data
 
 LibWeagle.lua
 LibWeadgets.lua
-Libs.xml
 
 Pages.lua
 Options.lua

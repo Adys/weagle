@@ -1,6 +1,10 @@
+------------
+-- Weagle --
+------------
+
+-- © 2009 - Jerome Leclanche for MMO-Champion
 
 --[[ TODO
-
 Need to implement a nice function to use whispers/says optimally to speed up the caching process.
 
 Implementing a few panels to regroup some stuff. My original plan was to have a settings panel, and a panel
@@ -10,10 +14,11 @@ No rush: Id like to make some useful off-functions, like something to reveal map
 --]]
 
 
-Weagle = LibStub("AceAddon-3.0"):NewAddon("Weagle", "AceConsole-3.0", "AceEvent-3.0", "AceHook-3.0", "AceTimer-3.0")
-Weagle.name = "Weagle"
+------------
+-- Locals --
+------------
 
-local options = Weagle_Options
+local options = Weagle_Options -- from Options.lua
 
 local previous
 local toget = {}
@@ -27,10 +32,28 @@ local quest_skip = {}
 local Tooltips = {}
 local UnusedTooltips = {}
 
-TooltipAmt = 0
+
+-------------
+-- Globals --
+-------------
 
 VERSION, BUILD, COMPILED, TOC = GetBuildInfo()
 SERVER = GetRealmName()
+
+TooltipAmt = 0
+
+
+----------
+-- Core --
+----------
+
+Weagle = LibStub("AceAddon-3.0"):NewAddon("Weagle", "AceConsole-3.0", "AceHook-3.0", "AceTimer-3.0")
+Weagle.name = "Weagle"
+local CWEAGLE = "|cff33ff99Weagle|r"
+
+function Weagle:Print(...)
+	return print(CWEAGLE .. ":", ...)
+end
 
 function tableitems(t) -- Lua sucks
 	i=0
@@ -54,6 +77,9 @@ local function printif(cond, msg)
 		Weagle:Print(msg)
 	end
 end
+
+
+--------------------------------
 
 function Weagle:ResetSettings()
 	Weagle_data = Weagle_DefaultSettings
