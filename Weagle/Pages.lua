@@ -4,7 +4,6 @@ blacklist = {
 
 pages = {
 	["ITEM: Bookmarks"] = {
-		17,    -- Martin Fury
 		12947, -- Alex's Ring of Audacity
 		35548, -- Pattern: Robe of Eternal Light
 		35549, -- Pattern: Sun-Drenched Scale Chestguard
@@ -195,7 +194,6 @@ pages = {
 		34661, -- Massacre Sword
 		40582, -- Scourgestone
 		43517, -- Penguin Egg
-		43471, -- Rork Red Ribbon
 		24315, -- Pattern: Heavy Netherweave Net
 		7426,  -- Cerulean Ring
 		7996,  -- Lucky Fishing Hat
@@ -261,7 +259,6 @@ pages = {
 		22045, -- Test QARaid Uber Ammo Lockbox
 		23086, -- [UNUSED] Letter Cookie
 		23388, -- Tranquillien Tabard
-		21878, -- ZZOLD Spellthread
 		23854, -- Shadoweave Cloth
 		23855, -- Spellfire Cloth
 		24288, -- Greater Spellthread
@@ -491,6 +488,7 @@ pages = {
 		23153, -- Design: Sparkling Azure Moonstone
 	},
 	["ITEM: Unlocked"] = {
+		17,    -- Martin Fury
 		119,   -- Deprecated Rogue's Vest
 		128,   -- Deprecated Tauren Trapper's Pants
 		192,   -- Martin Thunder
@@ -522,6 +520,7 @@ pages = {
 		19322, -- zzDEPRECATED Warsong Mark of Honor
 		20310, -- Demon Flayed Skin
 		20978, -- Apprentice's Staff
+		21878, -- zzDEPRECATED Spellthread
 		23074, -- [PH] Goblin Tooth
 		23162, -- Foror's Crate of Endless Resist Gear Storage
 		29805, -- Socrethar's Head
@@ -591,6 +590,24 @@ pages = {
 		37906, -- Binary Brew
 		37909, -- Lord of Frost's Private Label
 	},
+	--[[
+	["SPELL: Unlocker"] = {
+		[491] = 5517,
+		[857] = 5518,
+		[10165] = 8147,
+		[10166] = 8148,
+		[60890] = 5024,
+		-- 23975 Create iCoke Prize Voucher 19642
+		[26905] = 21786,
+		[27910] = 22474,
+		[27909] = 22475,
+		--[] = 22486, ????
+		[31121] = 24149,
+		[51762] = 38630,
+		[45381] = { 34660, 34663 }
+		[60618] = { 44451, 41741 }
+	},
+	--]]
 	["ITEM: Spell Lock"] = {
 		1450,  -- Potion of Fervor
 		4228,  -- Book of Moonfire IV, s23549
@@ -613,7 +630,7 @@ pages = {
 		21786, -- Cut Azerothian Diamond
 		22474, -- Meledor's Apprentice Badge
 		22475, -- Ralen's Apprentice Badge
-		22486, -- [UNUSED] Scourge Invasion Boss Summoner
+		22486, -- [UNUSED] Scourge Invasion Boss Summoner -- Spell deleted? 
 		23227, -- iCoke Gift Box Voucher, s29156 "Create iCoke Giftbox Voucher"
 		23616, -- Crushed Crystal Fragment, s29868 "Fished Up Crystal"
 		23712, -- White Tiger Cub, s30186 "Create Upperdeck Tiger Cub"
@@ -687,7 +704,6 @@ pages = {
 		14495, -- Pattern: Ghostweave Pants
 		16319, -- Grimoire of Firebolt (Rank 6)
 		17733, -- Fist of Stone
-		32896, -- Scroll of the Sun, Silvermoon EU
 		1254,  -- Lesser Firestone (DEPRECATED)
 		3107,  -- Broken Keen Throwing Knife
 		3108,  -- Broken Heavy Throwing Dagger
@@ -746,6 +762,7 @@ pages = {
 		22646, -- Master Spellstone (DEPRECATED)
 		24140, -- Blackened Urn
 		32895, -- Scroll of the Maelstrom
+		32896, -- Scroll of the Sun
 		33012, -- Terokkar Lilac
 		33014, -- Fine Poking Stick
 		33976, -- Brewfest Ram
@@ -838,7 +855,6 @@ pages = {
 		6619,  -- Manual: The Path of Defense, Bloodfeather
 		6834,  -- Black Tuxedo, Area 52 (RAF)
 		7551,  -- Entwined Opaline Talisman, Skywall US (RAF)
-		7725,  -- Tabard of the Scarlet Crusade DEPRECATED, Aman'Thul
 		7994,  -- Plans: Orcish War Leggings, Bloodfeather
 		8628,  -- Reins of the Spotted Nightsaber, Alexstrasza US
 		13262, -- Ashbringer, Saurfang
@@ -850,11 +866,7 @@ pages = {
 		22737, -- Atiesh, Greatstaff of the Guardian, Bronze Dragonflight EU / Suramar EU
 		25967, -- Eagle Crested Pauldrons, Draenor US
 		27965, -- TEST 130 Epic Paladin DPS Chest, Lightning's Blade
-		36519, -- Moonlit Katana, Bronze Dragonflight
-		36547, -- Jester's Stick, Argent Dawn EU
-		36589, -- Segmenting Broadaxe, Argent Dawn EU
 		37311, -- Skybreaker Whip, Tichondrius US
-		37739, -- Brutal Gladiator's Blade of Alacrity, Archimonde
 		38994, -- Scroll of Enchant Weapon - Exceptional Healing, Illidan US
 		39754, -- Monster - Sword, Northrend Iron Dwarf, Aman'Thul
 		45692, -- Monster - Sword, Vargul (Blue) (2H), Kazzak EU
@@ -862,9 +874,19 @@ pages = {
 	},
 	["ITEM: Unlocked - Stormrage"] = {
 		22736, -- Andonisus, Reaper of Souls
---		23684, -- Crystal Infused Bandage [PH]
+		23684, -- Crystal Infused Bandage [PH]
 		25970, -- Shalassi Oracle's Sandals
 		41606, -- zzDEPRECATED Master's Spellthread
+	},
+	["ITEM: Unlocked - Kil'jaeden"] = {
+		7725,  -- Tabard of the Scarlet Crusade DEPRECATED, Aman'Thul
+		32618, -- [DEPRECATED]Crystalforged Darkrune
+		36519, -- Moonlit Katana, Bronze Dragonflight
+		36547, -- Jester's Stick, Argent Dawn EU
+		36589, -- Segmenting Broadaxe, Argent Dawn EU
+		41605, -- zzDEPRECATED Sanctified Spellthread
+		41606, -- zzDEPRECATED Master's Spellthread
+		43471, -- Rork Red Ribbon
 	},
 	["ITEM: Unlocked - Archimonde"] = {
 		9380,  -- Jang'thraze the Protector
@@ -872,6 +894,7 @@ pages = {
 		25596, -- Peep's Whistle
 		33986, -- Indalamar's Ring of 200 Crit
 		34126, -- Recipe: Shoveltusk Soup
+		37739, -- Brutal Gladiator's Blade of Alacrity
 		39692, -- Recipe: Succulent Orca Stew
 		46246, -- Deathbringer Shoulderpads
 		43748, -- Dreadnaught Shoulderplates

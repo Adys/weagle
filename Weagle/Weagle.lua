@@ -37,9 +37,6 @@ local UnusedTooltips = {}
 -- Globals --
 -------------
 
-VERSION, BUILD, COMPILED, TOC = GetBuildInfo()
-SERVER = GetRealmName()
-
 TooltipAmt = 0
 
 
