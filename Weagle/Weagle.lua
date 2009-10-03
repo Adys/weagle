@@ -140,6 +140,10 @@ function Weagle_SetItemRef(link, text, button)
 		end
 	elseif l == "channel" then
 		return Legacy_SetItemRef(link, text, button) -- We don't care about channel links either
+	elseif l == "GMChat" then
+		return Legacy_SetItemRef(link, text, button) -- Nor GM links
+	elseif l == "playerGM" then
+		return Legacy_SetItemRef(link, text, button) -- Nor GM links
 	elseif l == "trade" then
 		return Legacy_SetItemRef(link, text, button) -- You got the trick
 	end
