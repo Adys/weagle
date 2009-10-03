@@ -11,19 +11,6 @@ local function toggle(name, value)
 	return t
 end
 
-local function findobj(name)
-	local t = {}
-	t.name = "Find " .. name
-	t.desc = "Find " .. name .. "s by name or id"
-	t.type = "execute"
-	t.func = function(msg)
-		msg = gsub(msg["input"], msg[1] .. " ", "") -- Yeah well fuck Ace
-		QuickFindAPIObject(msg, name)
-	end
-	t.guiHidden = true
-	return t
-end
-
 Weagle_Options = {
 	type = "group",
 	desc = "A badass fucking datamining war machine.",
@@ -45,16 +32,6 @@ Weagle_Options = {
 		showfailed		= toggle("Feedback when an item query failed", "Item_showfailed"),
 		showinvalid		= toggle("Feedback when skipping an invalid item", "Item_showinvalid"),
 		showprocessed	= toggle("Feedback when skipping items already processed", "Item_showprocessed"),
-		
-		findach		= findobj("Achievement"),
-		findcreature	= findobj("Creature"),
-		findglyph		= findobj("Glyph"),
-		finditem		= findobj("Item"),
-		findquest		= findobj("Quest"),
-		findspell		= findobj("Spell"),
-		findtalent		= findobj("Talent"),
-		
-		findtal = findtalent,
 		
 		findstructure = {
 			name = "Show itemcache.wdb structure",
