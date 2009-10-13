@@ -206,7 +206,7 @@ function Weagle:CreateTooltip(link)
 	end
 	
 	tinsert(UISpecialFrames, f:GetName()) -- Make it closable with esc
-	-- <TODO> Better garbage collection: need to hook CloseSpecialWindows </TODO>
+	-- TODO Better garbage collection: need to hook CloseSpecialWindows
 end
 
 function Weagle:UnusedTooltipExists()
@@ -656,15 +656,10 @@ function Weagle:GrabData()
 			return Weagle:GrabData()
 		end
 		
-		if O("Item_Showtooltip") then
-			ItemRefTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
-			ItemRefTooltip:SetHyperlink("item:" .. id)
-			ItemRefTooltip:Show()
-		else
-			WeagleHiddenItemTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
-			WeagleHiddenItemTooltip:SetHyperlink("item:" .. id)
-			WeagleHiddenItemTooltip:Show()
-		end
+		
+		WeagleHiddenItemTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
+		WeagleHiddenItemTooltip:SetHyperlink("item:" .. id)
+		WeagleHiddenItemTooltip:Show()
 		previous = id
 		Weagle:ScheduleTimer("GrabData", O("Item_throttle"))
 		
@@ -680,15 +675,9 @@ function Weagle:GrabQuestData()
 	if quest_toget[1] then
 		local id = quest_toget[1]
 		printif(O("Quest_showcaching"), "Quest #" .. id .. ": Processing...")
-		if O("Quest_showtooltip") then
-			ItemRefTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
-			ItemRefTooltip:SetHyperlink("quest:" .. id)
-			ItemRefTooltip:Show()
-		else
-			WeagleHiddenQuestTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
-			WeagleHiddenQuestTooltip:SetHyperlink("quest:" .. id)
-			WeagleHiddenQuestTooltip:Show()
-		end
+		WeagleHiddenQuestTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
+		WeagleHiddenQuestTooltip:SetHyperlink("quest:" .. id)
+		WeagleHiddenQuestTooltip:Show()
 		Weagle:ScheduleTimer("GrabQuestData", O("Quest_throttle"))
 		
 		table.remove(quest_toget, 1)
