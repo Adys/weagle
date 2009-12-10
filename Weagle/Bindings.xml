@@ -1,5 +1,0 @@
-﻿<Bindings>
-	<Binding name="Toggle Weagle UI" description="Shows the main Weagle panel" header="Weagle">
-		WeagleGUI:Toggle()
-	</Binding>
-</Bindings>
