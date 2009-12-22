@@ -38,7 +38,11 @@ Weagle.settings = {
 			if input == "cached" then
 				return Weagle:GetRecentlyCached()
 			elseif input == "count" then
-				return Weagle:Print(Weagle:CountCachedItems())
+				local cached = 0;
+				for i=1, Weagle.settings.item.max do
+					if GetItemInfo(i) then cached = cached + 1 end
+				end
+				return Weagle:Print("Total cached items:", cached)
 			elseif input == "scandbc" then
 				Weagle:ScanItemDBC()
 			elseif input == "stop" then
