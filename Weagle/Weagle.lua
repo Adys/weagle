@@ -37,19 +37,27 @@ Weagle.settings = {
 		chatcommand = function(input)
 			if input == "cached" then
 				return Weagle:GetRecentlyCached()
+			
 			elseif input == "count" then
 				local cached = 0;
-				for i=1, Weagle.settings.item.max do
+				for i=1, ITEMS.max do
 					if GetItemInfo(i) then cached = cached + 1 end
 				end
 				return Weagle:Print("Total cached items:", cached)
+			
 			elseif input == "scandbc" then
 				Weagle:ScanItemDBC()
+			
 			elseif input == "stop" then
 				return Weagle:StopSniffing() -- TODO item handle only
+			
+			elseif input == "spells" then
+				return Weagle:ScanSpellList()
+			
 			elseif input:match("%d+") then
 				return Weagle:HandleSniffRequest(input)
 			end
+			
 			Weagle:Print("Usage: /weagle item [cached|stop|...]")
 		end
 	},
@@ -60,13 +68,13 @@ Weagle.settings = {
 		cached = {},
 		max = 35000,
 		settings = {
-			throttle_batch = 5.0,  -- Wait time after every batch
+			throttle_batch = 3.0,  -- Wait time after every batch
 			show_batches   = true, -- Feedback on processed batches
 			batch_amount   = 100,  -- How many objects per batch
 		},
 		chatcommand = function(input)
+			Weagle:Print("fixme: use entire range")
 			Weagle:SniffQuestsRange(1, Weagle.settings.quest.max)
-			return Weagle:Print("TODO")
 		end
 	}
 }
@@ -91,6 +99,17 @@ end
 ITEMS = Weagle.settings.item
 QUESTS = Weagle.settings.quest
 
+local function RED(text)
+	return "|cffff0000" .. text .. "|r"
+end
+
+local function GREEN(text)
+	return "|cff00ff00" .. text .. "|r"
+end
+
+local function YELLOW(text)
+	return "|cffffff00" .. text .. "|r"
+end
 
 local function chatcommand(input)
 	local command
@@ -113,6 +132,21 @@ local function chatcommand(input)
 	Weagle:Print("Usage: /weagle [item|quest] ...")
 end
 
+local function GetSpellRealLink(id) -- GetSpellLink is broken
+	local name = GetSpellInfo(id)
+	if not name then return end
+	local link = GetSpellLink(id)
+	
+	if not link then -- Spell exists but is unlinkable
+		link = "|cff71d5ff|Hspell:" .. id .. "|h[" .. name .. "]|h|r"
+	end
+	return link
+end
+
+local function CreateSpellLink(id, name) -- Create the spell link for spells that still exist serverside
+	return ("|cff71d5ff|Hspell:%i|h[%s]|h|r"):format(id, name)
+end
+
 
 function Weagle:ResetSettings()
 	Weagle_data = Weagle_DefaultSettings
@@ -128,7 +162,7 @@ function Weagle:OnInitialize()
 	CreateFrame("GameTooltip", "WeagleQuestTooltip", UIParent, "GameTooltipTemplate")
 	
 	if not Weagle_data then
-		Weagle:ResetSettings()
+		self:ResetSettings()
 	end
 	
 	pages["ITEM: Item.dbc"] = Weagle_data.itemdbc
@@ -136,14 +170,16 @@ end
 
 
 function Weagle:GameInfo()
-	Weagle:Print("WoW version "..VERSION.."."..BUILD..", TOC "..TOC.." compiled on "..COMPILED.." - Server: "..SERVER)
+	self:Print("WoW version "..VERSION.."."..BUILD..", TOC "..TOC.." compiled on "..COMPILED.." - Server: "..SERVER)
 end
 
 function Weagle:GetRecentlyCached()
+	local i = 0
 	for k, v in pairs(ITEMS.cached) do
-		Weagle:Print("Recently cached: Item #" .. k .. " - " .. GetItemLink(k))
+		self:Print("Recently cached: Item #" .. k, GetItemLink(k))
+		i = i+1
 	end
-	Weagle:Print(tableitems(ITEMS.cached) .. " items found.")
+	self:Print(GREEN(i) .. " items found.")
 end
 
 function Weagle:ScanItemDBC()
@@ -151,13 +187,12 @@ function Weagle:ScanItemDBC()
 	local items = Weagle_data.itemdbc
 	
 	for i = 1, ITEMS.max do
-		local icon = GetItemIcon(i)
-		if icon then
+		if GetItemIcon(i) then
 			items[#items+1] = i
 		end
 	end
 	
-	Weagle:Print("Saved " .. #items .. " items for this build.")
+	Weagle:Print("Saved " .. YELLOW(#items) .. " items for this build.")
 end
 
 function Weagle:FindStructure(msg)
@@ -186,37 +221,28 @@ function Weagle:FindStructure(msg)
 	
 	for k,v in pairs(items) do
 		if GetItemInfo(v) then
-			Weagle:Print("Item #"..v..": |cff00ff00Cached|r - " .. GetItemLink(v))
+			self:Print(("Item #%i:"):format(v), GREEN("Cached:"), GetItemLink(v))
 		elseif GetItemIcon(v) then
-			Weagle:Print("Item #"..v..": |cffffff00Not cached|r")
+			self:Print(("Item #%i:"):format(v), YELLOW("Not cached"))
 		else
-			Weagle:Print("Item #"..v..": |cffff0000Missing from game files|r")
+			self:Print(("Item #%i:"):format(v), RED("Missing from game files"))
 		end
 	end
 end
 
 function Weagle:ShowStats()
-	Weagle:Print("Items: |cff00ff00" .. tableitems(ITEMS.cached) .. "|r cached, |cffff0000" .. tableitems(ITEMS.failed) .. "|r failed, |cffffff00" .. tableitems(ITEMS.cached)+tableitems(ITEMS.failed) .. "|r requests in total. Type |cffffff00/wdb resetstats|r to reset the statistics.")
-	Weagle:Print("Last item processed: |cffffff00" .. Weagle_data.Item_last .. "|r")
+	local cached = tableitems(ITEMS.cached)
+	local failed = tableitems(ITEMS.failed)
+	self:Print(("Items: %s cached, %s failed, %s requests in total"):format(GREEN(cached), RED(failed), YELLOW(cached+failed)))
+	self:Print("Last item processed:", YELLOW(Weagle_data.Item_last))
 end
 
 function Weagle:ResetStats()
-	ITEMS.processed = { ["cached"] = {}, ["failed"] = {} }
-	Weagle:Print("Statistics have been reset")
-end
-
--- ===================================
--- Quest Sniffer
--- ===================================
-function Weagle:SniffQuestsRange(qf, ql)
-	Weagle:Print("[QUESTS] Processing: " .. qf .. "-" .. ql)
-	currentQuestId = tonumber(qf)
-	lastQuestId = tonumber(ql)
-	Weagle:QuestSniffer()
+	ITEMS.processed = { cached = {}, failed = {} }
+	self:Print("Statistics have been reset")
 end
 
 function Weagle:HandleSniffRequest(msg)
-	print(msg)
 	msg = gsub(msg, "last", tostring(Weagle_data.Item_last))
 	
 	Weagle:Print("Processing items: " .. msg)
@@ -260,7 +286,7 @@ function Weagle:HandleSniffRequest(msg)
 	
 	else return end
 	
-	Weagle:SniffItems(items)
+	self:SniffItems(items)
 end
 
 function Weagle:SniffItems(items)
@@ -286,17 +312,17 @@ function Weagle:GrabData()
 		local _, link = GetItemInfo(ITEMS.previous)
 		if link then
 			if ITEMS.settings.show_caching then
-				self:Print("Item #" .. id .. ': |cff00ff00Caching...|r ' .. link .. ' - ' .. #ITEMS.get .. ' left')
+				self:Print(("Item #%i:"):format(id), GREEN("Caching..."), link, ("%i left"):format(#ITEMS.get))
 			end
 			ITEMS.cached[id] = true
 			Weagle_data.Item_last = id
 		else
 			if ITEMS.settings.show_failed then
-				self:Print("Item #" .. ITEMS.previous ..': |cffff0000Processing failed.|r ' .. #ITEMS.get .. ' left')
+				self:Print(("Item #%i:"):format(id), RED("Failed."), ("%i left"):format(#ITEMS.get))
 			end
 			ITEMS.failed[id] = true
 			Weagle_data.Item_last = ITEMS.previous
-			Weagle:ScheduleTimer("GrabData", 4.5)
+			self:ScheduleTimer("GrabData", 4.5)
 			ITEMS.previous = nil
 			return
 		end
@@ -309,22 +335,22 @@ function Weagle:GrabData()
 		if ITEMS.settings.use_dbc then
 			if not GetItemIcon(id) then -- We check if the item exists in Item.dbc
 				if ITEMS.settings.show_invalid then
-					Weagle:Print("Item #" .. id..': |cffffff00Skipping invalid item.|r')
+					self:Print(("Item #%i:"):format(id), YELLOW("Skipping invalid item"))
 				end
 				table.remove(ITEMS.get, 1)
-				return Weagle:GrabData()
+				return self:GrabData()
 			end
 		end
 		
 		if GetItemInfo(id) then
 			local _, link = GetItemInfo(id)
 			if ITEMS.settings.show_cached then
-				Weagle:Print('Item #' .. id ..': |c00FFFF00Skipping cached item. |r' .. link)
+				self:Print(("Item #%i:"):format(id), YELLOW("Skipping cached item"), link)
 			end
 			Weagle_data.Item_last = id
 			table.remove(ITEMS.get, 1)
 			
-			return Weagle:GrabData()
+			return self:GrabData()
 		end
 		
 		if ITEMS.failed[id] then
@@ -332,16 +358,16 @@ function Weagle:GrabData()
 			table.remove(ITEMS.get, 1)
 			ITEMS.skip[id] = 1
 			
-			return Weagle:GrabData()
+			return self:GrabData()
 		end
 		
 		if tablein(id, blacklist) then
-			Weagle:Print("Item #" .. id ..": |c00FFFF00Skipping blacklisted item. |r")
+			self:Print(("Item #%i:"):format(id), YELLOW("Skipping blacklisted item"))
 			
 			table.remove(ITEMS.get, 1)
 			ITEMS.skip[id] = 1
 			
-			return Weagle:GrabData()
+			return self:GrabData()
 		end
 		
 		WeagleItemTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
@@ -353,8 +379,57 @@ function Weagle:GrabData()
 		table.remove(ITEMS.get, 1)
 	else
 		self:CancelAllTimers() -- TODO use handle
-		Weagle:Print("Item processing finished.")
-		Weagle:ShowStats()
+		self:Print("Item processing finished.")
+		self:ShowStats()
+	end
+end
+
+
+function Weagle:ScanSpellList()
+	local name, link, i
+	local ids = {}
+	for k, v in pairs(WEAGLE_SPELLS) do
+		link = GetSpellRealLink(k) or CreateSpellLink(k, DELETED_SPELLS[k])
+		i = 0
+		for _k, _v in pairs(v) do
+			if not GetItemInfo(_v) then
+				i = i+1
+				table.insert(ids, _v)
+			end
+			if i > 0 then
+				SendChatMessage(link, "WHISPER", nil, UnitName("player"))
+			end
+		end
+	end
+	self:SniffItems(ids)
+end
+
+
+--[[
+-- Quests
+--]]
+
+function Weagle:SniffQuestsRange(qf, ql)
+	Weagle:Print("[QUESTS] Processing: " .. qf .. "-" .. ql)
+	currentQuestId = tonumber(qf)
+	lastQuestId = tonumber(ql)
+	Weagle:QuestSniffer()
+end
+
+function Weagle:QuestSniffer()
+	questnext = currentQuestId + QUESTS.settings.batch_amount - 1
+	Weagle:Print("[QUESTS] Caching Quests: " .. currentQuestId .. "-" .. questnext .. "...")
+	
+	for toqsniff = currentQuestId, questnext do
+		WeagleQuestTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
+		WeagleQuestTooltip:SetHyperlink("quest:" .. toqsniff)
+	end
+	
+	currentQuestId = questnext + 1
+	if currentQuestId < lastQuestId then
+		Weagle:ScheduleTimer("QuestSniffer", QUESTS.settings.throttle_batch)
+	else
+		Weagle:Print("[QUESTS] Sniffing finished.")
 	end
 end
 
@@ -362,3 +437,6 @@ end
 SLASH_WEAGLE1 = "/weagle"
 SLASH_WEAGLE2 = "/wdb"
 SlashCmdList["WEAGLE"] = chatcommand
+
+SLASH_PICKUP1 = "/pickup"
+SlashCmdList["PICKUP"] = PickupItem

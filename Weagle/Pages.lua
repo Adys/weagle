@@ -2,6 +2,98 @@ blacklist = {
 
 }
 
+DELETED_SPELLS = {
+	[23975] = "Create iCoke Prize Voucher",
+	[29156] = "Create iCoke Giftbox Voucher",
+	[29868] = "Fished Up Crystal",
+	[30186] = "Create Upperdeck Tiger Cub",
+	[30634] = "Netted Goods",
+	[32673] = "Create Replacement Extract of the Afterlife",
+	[34362] = "Summon Crude Explosives",
+	[44515] = "Enchanted White Wand",
+	[44516] = "Enchanted Crimson Wand",
+	[44646] = "Branch of Destruction",
+	[44648] = "Red Death",
+	[44649] = "Silverstave",
+	[44650] = "Purified Silverstave",
+	[44651] = "Lightstave",
+-- 	[57284] = "Restore Darkmoon Card",
+-- 	[62087] = "Aquatic Riding Ray",
+}
+
+WEAGLE_SPELLS = {
+	[68]    = {1963},  -- Deprecated Bone Chips
+	[491]   = {5517},  -- Tiny Bronze Key
+	[857]   = {5518},  -- Tiny Iron Key
+	[898]   = {1450},  -- Potion of Fervor
+	[5268]  = {5108},  -- Dark Iron Leather
+	[7364]  = {6182},  -- Dim Torch
+	[12551] = {5024},  -- Frost Vial
+	[10165] = {8147},  -- Tiny Copper Key
+	[10166] = {8148},  -- Tiny Silver Key
+	[11760] = {9441},  -- Acceptable Hyena Sample
+	[11761] = {9438},  -- Acceptable Hyena Sample
+	[12719] = {10579}, -- Explosive Arrow
+	[16195] = {12440,  -- Charm Pouch (DND)
+	           12442,  -- Knucklebone Pouch (DND)
+	           12443}, -- Magic Knucklebone (DND)
+	[21088] = {1024},  -- Plate Helmet D2 (test)
+	[21464] = {17362}, -- Ryson's Beacon
+	[21465] = {17363}, -- Ryson's Beacon
+	[21541] = {17224}, -- Scrying Scope
+	[21542] = {17364}, -- Scrying Scope
+	[21654] = {17442}, -- Frostwolf Assault Orders
+	[23193] = {20487}, -- Lok'delar, Stave of the Ancient Keepers DEP
+	[23194] = {20488}, -- Rhok'delar, Longbow of the Ancient Keepers DEP
+	[23549] = {4228},  -- Book of Moonfire IV
+	[23975] = {19642}, -- iCoke Prize Voucher
+	[24263] = {19932}, -- UNUSED Empowered Mojo Bundle
+	[24715] = {20393}, -- Treat Bag
+	[26905] = {21786}, -- Cut Azerothian Diamond
+	[27910] = {22474}, -- Meledor's Apprentice Badge
+	[27909] = {22475}, -- Ralen's Apprentice Badge
+	[28250] = {22486}, -- [UNUSED] Scourge Invasion Boss Summoner
+	[29156] = {23227}, -- iCoke Gift Box Voucher
+	[29868] = {23616}, -- Crushed Crystal Fragment
+	[30186] = {23712}, -- White Tiger Cub
+	[30555] = {23840}, -- Remote Mail Terminal
+	[31118] = {24148}, -- Partial Star Chart
+	[31120] = {24149}, -- Unfinished Star Chart
+	[32673] = {25840}, -- Extract of the Afterlife
+	[34362] = {28048}, -- Crude Explosives
+	[34894] = {29052}, -- Warp Nether Extractor
+	[42414] = {33797}, -- Portable Brewfest Keg
+--	[42440] = {33062}, -- zzOLD Empty Brewfest Sampler
+	[42986] = {36799}, -- Mana Opal
+	[44015] = {34044}, -- B-Ball
+	[45381] = {34660,  -- Silver Writing Nib DEPRECATED
+	           34663}, -- Silver Quill DEPRECATED
+	[48534] = {37312}, -- Carrot on a Stick
+	[51762] = {38606,  -- Battle-worn Axe
+	           38630}, -- Runebladed Axe
+	[56139] = {42381}, -- Anguish Ale
+--	[57284] = {42953}, -- Strange Envelope
+	[57380] = {43002}, -- Inflatable Land Mines
+	[58295] = {40484}, -- Deprecated Glyph of the White Bear
+	[59042] = {43614}, -- Broken Wrath Elixir
+	[59066] = {43620}, -- Broken Spellpower Elixir
+	[59070] = {43621}, -- Broken Noggenfogger Elixir
+	[60618] = {41741,  -- Cobalt Rod
+	           44451}, -- Runed Cobalt Rod
+--	[60890] = {5024},  -- Frost Vial
+	[67824] = {48945}, -- Gnomish Thinking Cap
+	[69996] = {49768}, -- Runescroll of Brilliance
+	[71462] = {50307}, -- Infernal Spear
+--	[72995] = {49888}, -- Shadow's Edge
+-- 	[44515] = {34138}, -- Enchanted White Wand
+-- 	[44516] = {34139}, -- Enchanted Crimson Wand
+-- 	[44646] = {34144}, -- Branch of Destruction
+-- 	[44648] = {34146}, -- Red Death
+-- 	[44649] = {34147}, -- Silverstave
+-- 	[44650] = {34148}, -- Purified Silverstave
+-- 	[44651] = {34149}, -- Lightstave
+}
+
 pages = {
 	["ITEM: Bookmarks"] = {
 		12947, -- Alex's Ring of Audacity
@@ -596,84 +688,33 @@ pages = {
 		37906, -- Binary Brew
 		37909, -- Lord of Frost's Private Label
 	},
-	--[[
-	["SPELL: Unlocker"] = {
-		[491] = 5517,
-		[857] = 5518,
-		[10165] = 8147,
-		[10166] = 8148,
-		[60890] = 5024,
-		-- 23975 Create iCoke Prize Voucher 19642
-		[26905] = 21786,
-		[27910] = 22474,
-		[27909] = 22475,
-		--[] = 22486, ????
-		[31121] = 24149,
-		[51762] = 38630,
-		[45381] = { 34660, 34663 }
-		[60618] = { 44451, 41741 }
-	},
-	--]]
 	["ITEM: Spell Lock"] = {
-		1450,  -- Potion of Fervor
-		4228,  -- Book of Moonfire IV, s23549
-		5024,  -- Frost Vial
 		5108,  -- Dark Iron Leather
-		5517,  -- Tiny Bronze Key
-		5518,  -- Tiny Iron Key
-		8147,  -- Tiny Copper Key
-		8148,  -- Tiny Silver Key
 		10719, -- Mobile Alarm
 		13460, -- Greater Holy Protection Potion
 		17442, -- Frostwolf Assault Orders
 		18582, -- The Twin Blades of Azzinoth
 		18583, -- Warglaive of Azzinoth (Right)
 		18584, -- Warglaive of Azzinoth (Left)
-		19642, -- iCoke Prize Voucher, s23975 "Create iCoke Prize Voucher"
-		19932, -- UNUSED Empowered Mojo Bundle
-		20487, -- Lok'delar, Stave of the Ancient Keepers DEP
-		20488, -- Rhok'delar, Longbow of the Ancient Keepers DEP
-		21786, -- Cut Azerothian Diamond
-		22474, -- Meledor's Apprentice Badge
-		22475, -- Ralen's Apprentice Badge
-		22486, -- [UNUSED] Scourge Invasion Boss Summoner -- Spell deleted? 
-		23227, -- iCoke Gift Box Voucher, s29156 "Create iCoke Giftbox Voucher"
-		23616, -- Crushed Crystal Fragment, s29868 "Fished Up Crystal"
-		23712, -- White Tiger Cub, s30186 "Create Upperdeck Tiger Cub"
 		23820, -- Critter Enlarger
 		23895, -- Netted Goods, s30634 "Netted Goods"
 		23990, -- Completed Star Chart
 		24148, -- Partial Star Chart
 		24149, -- Unfinished Star Chart
 		24269, -- Heavy Netherweave Net
-		25840, -- Extract of the Afterlife, s32673 "Create Replacement Extract of the Afterlife"
 		25884, -- Primal Stone Statue
-		28048, -- Crude Explosives, s34362 "Summon Crude Explosives"
 		28471, -- Krasus's Compendium
-		29052, -- Warp Nether Extractor
 		32457, -- Arakkoa Fetish
 		32594, -- Ogrela Test Tunic
 		32595, -- Ogrela Reagent Dust
 		33062, -- zzOLD Empty Brewfest Sampler
 		33616, -- Unstable Mix
-		34044, -- B-Ball
-		34138, -- Enchanted White Wand
-		34139, -- Enchanted Crimson Wand
-		34144, -- Branch of Destruction
-		34145, -- Rod of Devastation
-		34146, -- Red Death
-		34147, -- Silverstave
-		34148, -- Purified Silverstave
-		34149, -- Lightstave
-		34660, -- Silver Writing Nib DEPRECATED
-		34663, -- Silver Quill DEPRECATED
 		37312, -- Carrot on a Stick
 		38387, -- Grizzled Hat
 		38388, -- Cap of the North
 		38389, -- Comfy Raccoonskin Hat
 		38390, -- The Rugged Marksman
 		38619, -- Scroll of Enchant Weapon - Major Spirit
-		38630, -- Runebladed Axe
 		39707, -- Verdant Tundra Cap
 		39708, -- Verdant Tundra Shoulderpads
 		39709, -- Verdant Tundra Boots
@@ -681,17 +722,11 @@ pages = {
 		39711, -- Verdant Tundra Bracers
 		40484, -- Deprecated Glyph of the White Bear
 		40948, -- Deprecated Glyph of the Red Lynx
-		41741, -- Cobalt Rod
-		43002, -- Inflatable Land Mines
 		43336, -- Deprecated Glyph of the Black Bear
 		43337, -- Deprecated Glyph of the Forest Lynx
 		43362, -- Glyph of the Bear Cub
 		43383, -- Deprecated Glyph of the Artic Wolf
 		43384, -- Deprecated Glyph of the Black Wolf
-		43614, -- Broken Wrath Elixir
-		43620, -- Broken Spellpower Elixir
-		43621, -- Broken Noggenfogger Elixir
-		44451, -- Runed Cobalt Rod
 		44555, -- Swift Mooncloth Carpet
 		44556, -- Swift Spellfire Carpet
 		44557, -- Swift Ebonweave Carpet
@@ -896,7 +931,7 @@ pages = {
 		41606, -- zzDEPRECATED Master's Spellthread
 	},
 	["ITEM: Unlocked - Kil'jaeden"] = {
-		7725,  -- Tabard of the Scarlet Crusade DEPRECATED, Aman'Thul
+		7725,  -- Tabard of the Scarlet Crusade DEPRECATED
 		32618, -- [DEPRECATED]Crystalforged Darkrune
 		36519, -- Moonlit Katana, Bronze Dragonflight
 		36547, -- Jester's Stick, Argent Dawn EU
