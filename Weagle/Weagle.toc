@@ -1,4 +1,4 @@
-## Interface: 30200
+## Interface: 40000
 ## Title: Weagle
 ## Author: Adys
 ## Version: 4.0.0
