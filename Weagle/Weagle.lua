@@ -7,14 +7,34 @@ Weagle = LibStub("AceAddon-3.0"):NewAddon("Weagle", "AceConsole-3.0", "AceTimer-
 
 local VERSION, BUILD, COMPILED, TOC = GetBuildInfo()
 BUILD, TOC = tonumber(BUILD), tonumber(TOC)
+SERVER = GetRealmName()
+LOCALE = GetLocale()
+REAL_LOCALE = GetCVar("locale")
+PORTAL, REALMLIST, ACCOUNT = GetCVar("portal"), GetCVar("realmlist"), GetCVar("accountname")
 
 Weagle.NAME = "Weagle"
 Weagle.CNAME = "|cff33ff99" .. Weagle.NAME .. "|r"
 Weagle.VERSION = "4.0.0"
 
+-- Slashcommand aliases
+SLASH_PICKUP1 = "/pickup"
+SlashCmdList["PICKUP"] = PickupItem
+SLASH_RELOAD1 = "/rl"
+SlashCmdList["RELOAD"] = ReloadUI
+SLASH_GXRESTART1 = "/gx"
+SlashCmdList["GXRESTART"] = RestartGx
+SLASH_SXRESTART1 = "/sx"
+SlashCmdList["SXRESTART"] = Sound_GameSystem_RestartSoundSystem
+
 function Weagle:Print(...)
-	return print(Weagle.CNAME .. ":", ...)
+	return print(self.CNAME .. ":", ...)
 end
+
+Weagle.alias = {
+	items = "item",
+	quests = "quest",
+	spells = "spell",
+}
 
 Weagle.settings = {
 	item = {
@@ -51,9 +71,6 @@ Weagle.settings = {
 			elseif input == "stop" then
 				return Weagle:StopSniffing() -- TODO item handle only
 			
-			elseif input == "spells" then
-				return Weagle:ScanSpellList()
-			
 			elseif input:match("%d+") then
 				return Weagle:HandleSniffRequest(input)
 			end
@@ -73,31 +90,47 @@ Weagle.settings = {
 			batch_amount   = 100,  -- How many objects per batch
 		},
 		chatcommand = function(input)
-			Weagle:Print("fixme: use entire range")
+			Weagle:Print("fixme: use entire range", input)
 			Weagle:SniffQuestsRange(1, Weagle.settings.quest.max)
 		end
-	}
+	},
+	
+	spell = {
+		chatcommand = function(input)
+			Weagle:ScanSpellList()
+		end
+	},
+	
+	message = {
+		get = {},
+		settings = {
+			throttle = 0.1,
+			type = "WHISPER",
+			target = UnitName("player"),
+		}
+	},
 }
+
+ITEMS = Weagle.settings.item
+QUESTS = Weagle.settings.quest
+MESSAGES = Weagle.settings.message
 
 -------------
 -- Helpers --
 -------------
 
-function tableitems(t) -- Lua sucks
+local function tableitems(t) -- Lua sucks
 	i=0
 	for k, v in pairs(t) do i=i+1 end
 	return i
 end
 
-function tablein(i, t)
+local function tablein(i, t)
 	for k, v in pairs(t) do
 		if i == v then return true end
 	end
 	return false
 end
-
-ITEMS = Weagle.settings.item
-QUESTS = Weagle.settings.quest
 
 local function RED(text)
 	return "|cffff0000" .. text .. "|r"
@@ -115,21 +148,30 @@ local function chatcommand(input)
 	local command
 	command, input = input:match("(%w+)%W*(.*)")
 	if command then
-		if Weagle.settings[command] then
+		command = Weagle.alias[command] or command
+		if command == "info" then
+			local tpl = "WoW %s.%s (%s/%s), TOC %s, compiled on %s"
+			local tpl2 = "Connected as %s on %s :: %s :: %s"
+			Weagle:Print(tpl:format(VERSION, BUILD, REAL_LOCALE, LOCALE, TOC, COMPILED))
+			Weagle:Print(tpl2:format(ACCOUNT or "(unknown)", PORTAL, REALMLIST, SERVER))
+			return
+		elseif command == "resetstats" then
+			return Weagle:ResetStats()
+		elseif command == "stats" then
+			return Weagle:ShowStats()
+		elseif command == "stop" then
+			return Weagle:StopSniffing()
+		elseif Weagle.settings[command] and Weagle.settings[command].chatcommand then
 			return Weagle.settings[command].chatcommand(input:trim())
-		else
-			if command == "info" then
-				return Weagle:GameInfo()
-			elseif command == "resetstats" then
-				return Weagle:ResetStats()
-			elseif command == "stats" then
-				return Weagle:ShowStats()
-			elseif command == "stop" then
-				return Weagle:StopSniffing()
-			end
 		end
 	end
 	Weagle:Print("Usage: /weagle [item|quest] ...")
+end
+
+-- WoW API helpers
+local function GetItemLink(id)
+	local _, link = GetItemInfo(id)
+	return link
 end
 
 local function GetSpellRealLink(id) -- GetSpellLink is broken
@@ -138,12 +180,13 @@ local function GetSpellRealLink(id) -- GetSpellLink is broken
 	local link = GetSpellLink(id)
 	
 	if not link then -- Spell exists but is unlinkable
-		link = "|cff71d5ff|Hspell:" .. id .. "|h[" .. name .. "]|h|r"
+		link = ("|cff71d5ff|Hspell:%i|h[%s]|h|r"):format(id, name)
 	end
 	return link
 end
 
 local function CreateSpellLink(id, name) -- Create the spell link for spells that still exist serverside
+	if not id or not name then return end
 	return ("|cff71d5ff|Hspell:%i|h[%s]|h|r"):format(id, name)
 end
 
@@ -168,11 +211,6 @@ function Weagle:OnInitialize()
 	pages["ITEM: Item.dbc"] = Weagle_data.itemdbc
 end
 
-
-function Weagle:GameInfo()
-	self:Print("WoW version "..VERSION.."."..BUILD..", TOC "..TOC.." compiled on "..COMPILED.." - Server: "..SERVER)
-end
-
 function Weagle:GetRecentlyCached()
 	local i = 0
 	for k, v in pairs(ITEMS.cached) do
@@ -192,7 +230,7 @@ function Weagle:ScanItemDBC()
 		end
 	end
 	
-	Weagle:Print("Saved " .. YELLOW(#items) .. " items for this build.")
+	self:Print("Saved " .. YELLOW(#items) .. " items for this build.")
 end
 
 function Weagle:FindStructure(msg)
@@ -245,7 +283,7 @@ end
 function Weagle:HandleSniffRequest(msg)
 	msg = gsub(msg, "last", tostring(Weagle_data.Item_last))
 	
-	Weagle:Print("Processing items: " .. msg)
+	self:Print("Processing items: " .. msg)
 	
 	local items = {}
 	
@@ -259,7 +297,7 @@ function Weagle:HandleSniffRequest(msg)
 		
 		if first < last then
 			if last > max then -- Avoid freezes
-				Weagle:Print("Warning: last > max item id, replacing by " .. max)
+				self:Print("Warning: last > max item id, replacing by " .. max)
 				last = max
 			end
 			for i = first, last do
@@ -267,7 +305,7 @@ function Weagle:HandleSniffRequest(msg)
 			end
 		else
 			if first > max then -- Avoid freezes
-				Weagle:Print("Warning: first > max item id, replacing by " .. max)
+				self:Print("Warning: first > max item id, replacing by " .. max)
 				first = max
 			end
 			local range = first - last
@@ -293,15 +331,14 @@ function Weagle:SniffItems(items)
 	for k, v in pairs(items) do
 		ITEMS.get[#ITEMS.get+1] = v
 	end
---	if not Weagle:IsEventScheduled('Weagle:DataGrabber') then -- TODO
-	Weagle:CancelAllTimers()
-	Weagle:GrabData()
+	self:CancelTimer(ITEMS.handle, true)
+	self:GrabData()
 end
 
 function Weagle:StopSniffing()
-	Weagle:CancelAllTimers() -- TODO: :CancelTimer(handle) etc
-	Weagle:Print("Item processing cancelled.")
-	Weagle:ShowStats()
+	self:CancelAllTimers()
+	self:Print("Item processing cancelled.")
+	self:ShowStats()
 	ITEMS.get = {}
 	QUESTS.get = {}
 end
@@ -322,7 +359,7 @@ function Weagle:GrabData()
 			end
 			ITEMS.failed[id] = true
 			Weagle_data.Item_last = ITEMS.previous
-			self:ScheduleTimer("GrabData", 4.5)
+			ITEMS.handle = self:ScheduleTimer("GrabData", 4.5)
 			ITEMS.previous = nil
 			return
 		end
@@ -374,7 +411,7 @@ function Weagle:GrabData()
 		WeagleItemTooltip:SetHyperlink("item:" .. id)
 		WeagleItemTooltip:Show()
 		ITEMS.previous = id
-		Weagle:ScheduleTimer("GrabData", 0.8)
+		ITEMS.handle = self:ScheduleTimer("GrabData", 0.8)
 		
 		table.remove(ITEMS.get, 1)
 	else
@@ -384,23 +421,47 @@ function Weagle:GrabData()
 	end
 end
 
+function Weagle:SendMessages(messages)
+	for k, v in pairs(messages) do
+		MESSAGES.get[#MESSAGES.get+1] = v
+	end
+	
+	MESSAGES.handle = self:ScheduleTimer("SendNextMessage", MESSAGES.settings.throttle)
+end
+
+function Weagle:SendNextMessage()
+	local msg = MESSAGES.get[1]
+	
+	if msg then
+		table.remove(MESSAGES.get, 1)
+		SendChatMessage(msg, MESSAGES.settings.type, nil, MESSAGES.settings.target)
+		MESSAGES.handle = self:ScheduleTimer("SendNextMessage", MESSAGES.settings.throttle)
+	else
+		self:GrabData()
+	end
+end
 
 function Weagle:ScanSpellList()
 	local name, link, i
 	local ids = {}
+	local links = {}
 	for k, v in pairs(WEAGLE_SPELLS) do
 		link = GetSpellRealLink(k) or CreateSpellLink(k, DELETED_SPELLS[k])
-		i = 0
-		for _k, _v in pairs(v) do
-			if not GetItemInfo(_v) then
-				i = i+1
-				table.insert(ids, _v)
-			end
-			if i > 0 then
-				SendChatMessage(link, "WHISPER", nil, UnitName("player"))
+		if link then
+			i = 0
+			for _k, _v in pairs(v) do
+				if not GetItemInfo(_v) then
+					i = i+1
+					table.insert(ids, _v)
+				end
+				if i > 0 then
+					table.insert(links, link)
+					self:SniffItems(WEAGLE_SPELLS)
+				end
 			end
 		end
 	end
+	self:SendMessages(links)
 	self:SniffItems(ids)
 end
 
@@ -410,15 +471,15 @@ end
 --]]
 
 function Weagle:SniffQuestsRange(qf, ql)
-	Weagle:Print("[QUESTS] Processing: " .. qf .. "-" .. ql)
+	self:Print("[QUESTS] Processing: " .. qf .. "-" .. ql)
 	currentQuestId = tonumber(qf)
 	lastQuestId = tonumber(ql)
-	Weagle:QuestSniffer()
+	self:QuestSniffer()
 end
 
 function Weagle:QuestSniffer()
 	questnext = currentQuestId + QUESTS.settings.batch_amount - 1
-	Weagle:Print("[QUESTS] Caching Quests: " .. currentQuestId .. "-" .. questnext .. "...")
+	self:Print("[QUESTS] Caching Quests: " .. currentQuestId .. "-" .. questnext .. "...")
 	
 	for toqsniff = currentQuestId, questnext do
 		WeagleQuestTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
@@ -427,9 +488,9 @@ function Weagle:QuestSniffer()
 	
 	currentQuestId = questnext + 1
 	if currentQuestId < lastQuestId then
-		Weagle:ScheduleTimer("QuestSniffer", QUESTS.settings.throttle_batch)
+		QUESTS.handle = self:ScheduleTimer("QuestSniffer", QUESTS.settings.throttle_batch)
 	else
-		Weagle:Print("[QUESTS] Sniffing finished.")
+		self:Print("[QUESTS] Sniffing finished.")
 	end
 end
 
@@ -437,6 +498,3 @@ end
 SLASH_WEAGLE1 = "/weagle"
 SLASH_WEAGLE2 = "/wdb"
 SlashCmdList["WEAGLE"] = chatcommand
-
-SLASH_PICKUP1 = "/pickup"
-SlashCmdList["PICKUP"] = PickupItem
