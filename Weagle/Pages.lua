@@ -3,9 +3,14 @@ blacklist = {
 }
 
 DELETED_SPELLS = {
+--	[6441]  = "Explosive Shells",
+--	[6442]  = "Explosive Shells",
+--	[6619]  = "Cowardly Flight Potion",
 	[23975] = "Create iCoke Prize Voucher",
 	[29156] = "Create iCoke Giftbox Voucher",
 	[29868] = "Fished Up Crystal",
+	[30021] = "Crystal Infused Bandage",
+--	[30047] = "Crystal Throat Lozenge",
 	[30186] = "Create Upperdeck Tiger Cub",
 	[30634] = "Netted Goods",
 	[32673] = "Create Replacement Extract of the Afterlife",
@@ -17,8 +22,17 @@ DELETED_SPELLS = {
 	[44649] = "Silverstave",
 	[44650] = "Purified Silverstave",
 	[44651] = "Lightstave",
+	[48118] = "Silver Ink",
 -- 	[57284] = "Restore Darkmoon Card",
 -- 	[62087] = "Aquatic Riding Ray",
+	[68807] = "Create Tuskarr Kite",
+	[68811] = "Create Spectral Tiger Cub",
+	[75032] = "Create Wooly White Rhino",
+	[75034] = "Create Blazing Hippogryph",
+	[75084] = "Create Instant Statue Pedestal",
+	[75101] = "Create Landro's Gift Box",
+	[75162] = "Create Ethereal Portal",
+	[75191] = "Create Paint Bomb",
 }
 
 WEAGLE_SPELLS = {
@@ -27,63 +41,153 @@ WEAGLE_SPELLS = {
 	[857]   = {5518},  -- Tiny Iron Key
 	[898]   = {1450},  -- Potion of Fervor
 	[5268]  = {5108},  -- Dark Iron Leather
+--	[6441]  = {5105},  -- Explosive Shell
+--	[6619]  = {5632},  -- Deprecated Cowardly Flight Potion
 	[7364]  = {6182},  -- Dim Torch
 	[12551] = {5024},  -- Frost Vial
 	[10165] = {8147},  -- Tiny Copper Key
 	[10166] = {8148},  -- Tiny Silver Key
+	[11759] = {9440},  -- Acceptable Basilisk Sample
 	[11760] = {9441},  -- Acceptable Hyena Sample
 	[11761] = {9438},  -- Acceptable Hyena Sample
 	[12719] = {10579}, -- Explosive Arrow
+	[12900] = {10719}, -- Mobile Alarm
 	[16195] = {12440,  -- Charm Pouch (DND)
 	           12442,  -- Knucklebone Pouch (DND)
 	           12443}, -- Magic Knucklebone (DND)
+	[17579] = {13460}, -- Greater Holy Protection Potion
 	[21088] = {1024},  -- Plate Helmet D2 (test)
+	[21398] = {17353}, -- Stormpike Assault Orders
 	[21464] = {17362}, -- Ryson's Beacon
 	[21465] = {17363}, -- Ryson's Beacon
 	[21541] = {17224}, -- Scrying Scope
 	[21542] = {17364}, -- Scrying Scope
 	[21654] = {17442}, -- Frostwolf Assault Orders
+	[22990] = {18582,  -- The Twin Blades of Azzinoth
+	           18583,  -- Warglaive of Azzinoth (Right)
+	           18584}, -- Warglaive of Azzinoth (Left)
 	[23193] = {20487}, -- Lok'delar, Stave of the Ancient Keepers DEP
 	[23194] = {20488}, -- Rhok'delar, Longbow of the Ancient Keepers DEP
 	[23549] = {4228},  -- Book of Moonfire IV
 	[23975] = {19642}, -- iCoke Prize Voucher
 	[24263] = {19932}, -- UNUSED Empowered Mojo Bundle
 	[24715] = {20393}, -- Treat Bag
+	[26901] = {21979}, -- Gift of Adoration: Darnassus
+	[26904] = {21785}, -- Cut Emerald
 	[26905] = {21786}, -- Cut Azerothian Diamond
+	[27700] = {22176,  -- Homemade Bread
+	           22283}, -- Sack of Homemade Bread
+	[27701] = {22143,  -- Stormwind Guard's Card
+	           22284}, -- Bundle of Cards
+	[27702] = {22117,  -- Pledge of Loyalty: Stormwind
+	           22285}, -- Stormwind Pledge Collection
+	[27703] = {22141,  -- Ironforge Guard's Card
+	           22287}, -- Parcel of Cards
+	[27704] = {22119,  -- Pledge of Loyalty: Ironforge
+	           22286}, -- Ironforge Pledge Collection
+	[27706] = {22173,  -- Dwarven Homebrew
+	           22288}, -- Case of Homebrew
+	[27708] = {21960,  -- Handmade Woodcraft
+	           22291}, -- Box of Woodcrafts
+	[22709] = {22140,  -- Sentinel's Card
+	           22289}, -- Stack of Cards
+	[27710] = {22120,  -- Pledge of Loyalty: Darnassus
+	           22290}, -- Darnassus Pledge Collection
+	[27711] = {22142,  -- Grunt's Card
+	           22293}, -- Package of Cards
+	[27712] = {22175,  -- Freshly Baked Pie
+	           22292}, -- Box of Fresh Pies
+	[27713] = {22123,  -- Pledge of Loyalty: Orgrimmar
+	           22294}, -- Orgrimmar Pledge Collection
+	[27714] = {22177,  -- Freshly Picked Flowers
+	           22296}, -- Basket of Flowers
+	[27715] = {22144,  -- Bluffwatcher's Card
+	           22295}, -- Satchel of Cards
+	[27716] = {22122,  -- Pledge of Loyalty: Thunder Bluff
+	           22297}, -- Thunder Bluff Pledge Collection
+	[27717] = {22174,  -- Romantic Poem
+	           22298}, -- Book of Romantic Poems
+	[27718] = {22145,  -- Guardian's Moldy Card
+	           22299}, -- Sheaf of Cards
+	[27719] = {22121,  -- Pledge of Loyalty: Undercity
+	           22300}, -- Undercity Pledge Collection
 	[27910] = {22474}, -- Meledor's Apprentice Badge
 	[27909] = {22475}, -- Ralen's Apprentice Badge
 	[28250] = {22486}, -- [UNUSED] Scourge Invasion Boss Summoner
 	[29156] = {23227}, -- iCoke Gift Box Voucher
 	[29868] = {23616}, -- Crushed Crystal Fragment
+--	[30047] = {23683, 23567},
 	[30186] = {23712}, -- White Tiger Cub
+	[30549] = {23820}, -- Critter Enlarger
 	[30555] = {23840}, -- Remote Mail Terminal
+	[30634] = {23895}, -- Netted Goods
 	[31118] = {24148}, -- Partial Star Chart
 	[31120] = {24149}, -- Unfinished Star Chart
+	[31120] = {23990}, -- Completed Star Chart
+	[32574] = {25748,  -- (Deprecated)Mana Bomb Schematics - Page 2
+	           25749,  -- (Deprecated)Mana Bomb Schematics - Page 3
+	           25750,  -- (Deprecated)Mana Bomb Schematics - Page 4
+	           25752}, -- (Deprecated)Mana Bomb Schematics
+	[32575] = {25747}, -- (Deprecated)Mana Bomb Schematics - Page 1
 	[32673] = {25840}, -- Extract of the Afterlife
 	[34362] = {28048}, -- Crude Explosives
+	[34384] = {28471}, -- Krasus's Compendium
 	[34894] = {29052}, -- Warp Nether Extractor
+	[36408] = {30325}, -- Ravenous Ravager Egg
+	[40164] = {32457}, -- Arakkoa Fetish
+	[40406] = {32498}, -- Fortune Coin
 	[42414] = {33797}, -- Portable Brewfest Keg
 --	[42440] = {33062}, -- zzOLD Empty Brewfest Sampler
+	[40558] = {32594,  -- Ogrela Test Tunic
+	           32595}, -- Ogrela Reagent Dust}
 	[42986] = {36799}, -- Mana Opal
 	[44015] = {34044}, -- B-Ball
 	[45381] = {34660,  -- Silver Writing Nib DEPRECATED
 	           34663}, -- Silver Quill DEPRECATED
+	[48236] = {37158}, -- Five of Rogues
+	[48238] = {37157}, -- Four of Rogues
 	[48534] = {37312}, -- Carrot on a Stick
+	[50969] = {38378}, -- Wyrmscale Leg Armor
+	[50974] = {38389}, -- Comfy Raccoonskin Hat
+	[50975] = {38390}, -- The Rugged Marksman
 	[51762] = {38606,  -- Battle-worn Axe
 	           38630}, -- Runebladed Axe
+	[56123] = {42342}, -- Bag of Popcorn
+	[56125] = {42350}, -- Bag of Peanuts
 	[56139] = {42381}, -- Anguish Ale
+--	[56964] = {40948}, -- Deprecated Glyph of the Red Lynx
 --	[57284] = {42953}, -- Strange Envelope
 	[57380] = {43002}, -- Inflatable Land Mines
+	[58290] = {43336}, -- Deprecated Glyph of the Black Bear
+	[58293] = {43337}, -- Deprecated Glyph of the Forest Lynx
+	[58294] = {40948}, -- Deprecated Glyph of the Red Lynx
 	[58295] = {40484}, -- Deprecated Glyph of the White Bear
+	[58309] = {43362}, -- zzOLDGlyph of the Bear Cub
+	[58334] = {43383}, -- Deprecated Glyph of the Arctic Wolf
+	[58335] = {43384}, -- Deprecated Glyph of the Black Wolf
 	[59042] = {43614}, -- Broken Wrath Elixir
 	[59066] = {43620}, -- Broken Spellpower Elixir
 	[59070] = {43621}, -- Broken Noggenfogger Elixir
 	[60618] = {41741,  -- Cobalt Rod
 	           44451}, -- Runed Cobalt Rod
 --	[60890] = {5024},  -- Frost Vial
+	[63361] = {45229}, -- [ph] Mark of the Scourge Boss 01
+	[63362] = {45230}, -- [ph] Mark of the Scourge Boss 02
+	[63363] = {45231}, -- [ph] Mark of the Scourge Boss 03
 	[67824] = {48945}, -- Gnomish Thinking Cap
+	[68807] = {49287}, -- Tuskarr Kite
+	[68811] = {49343}, -- Spectral Tiger Cub
 	[69996] = {49768}, -- Runescroll of Brilliance
+	[71067] = {37706}, -- Hardened Saronite Bar
 	[71462] = {50307}, -- Infernal Spear
+	[74905] = {53510}, -- Captured Frog
+	[75032] = {54068}, -- Wooly White Rhino
+	[75034] = {54068}, -- Blazing Hippogryph
+	[75084] = {54212}, -- Instant Statue Pedestal
+	[75101] = {54218}, -- Landro's Gift Box
+	[75162] = {54452}, -- Ethereal Portal
+	[75191] = {54455}, -- Paint Bomb
+	[75209] = {54467}, -- Tabard Lost & Found
 --	[72995] = {49888}, -- Shadow's Edge
 -- 	[44515] = {34138}, -- Enchanted White Wand
 -- 	[44516] = {34139}, -- Enchanted Crimson Wand
@@ -94,8 +198,10 @@ WEAGLE_SPELLS = {
 -- 	[44651] = {34149}, -- Lightstave
 }
 
-pages = {
-	["ITEM: Bookmarks"] = {
+pages = {}
+
+pages.items = {
+	["bookmarks"] = {
 		12947, -- Alex's Ring of Audacity
 		35548, -- Pattern: Robe of Eternal Light
 		35549, -- Pattern: Sun-Drenched Scale Chestguard
@@ -396,7 +502,7 @@ pages = {
 		27169, -- 66 TEST Green Rogue/Hunter Ring
 		27183, -- 66 TEST Green Rogue/Hunter Necklace
 	},
---[[	["ITEM: Deadlinks"] = {
+--[[	["deadlinks"] = {
 		7948,  -- is221
 		7949,  -- is221
 		7950,  -- is221
@@ -404,13 +510,13 @@ pages = {
 		7952,  -- is221
 		7953,  -- is221
 	},
-	["ITEM: Sunwell Patterns"] = {
+	["sunwell"] = {
 		35205, -- Pattern: Hands of Eternal Light, Kult der Verdammten
 		35213, -- Pattern: Fletcher's Gloves of the Phoenix, Silvermoon EU
 		35215, -- Pattern: Sun-Drenched Scale Gloves, Thaurissan RAF
 		35218, -- Pattern: Carapace of Sun and Shadow, Vek'Nilash
 	},
-	["ITEM: Itemset Dummies"] = {
+	["itemset"] = {
 		43733, -- Crown of Faith
 		43739, -- Dreadnaught Battleplate
 		43767, -- Earthshatter Hauberk
@@ -418,13 +524,13 @@ pages = {
 		46246, -- Deathbringer Shoulderpads
 		43748, -- Dreadnaught Shoulderplates
 	},
-	["ITEM: 26-27k"] = {
+	["deadrange"] = {
 		26527, -- 68 TEST Green Cloth Ring
 		27169, -- 66 TEST Green Rogue/Hunter Ring
 		27183, -- 66 TEST Green Rogue/Hunter Necklace
 	},
 --]]	
-	["ITEM: Tournament - TBC"] = {
+	["tournament"] = {
 		35396, -- Enchant 2H Weapon - Major Agility
 		35397, -- Enchant 2H Weapon - Savagery
 		35398, -- Enchant Boots - Boar's Speed
@@ -481,10 +587,7 @@ pages = {
 		35730, -- Greater Inscription of the Oracle
 		35731, -- Greater Inscription of the Orb
 	},
-	["ITEM: Tournament - WLK"] = {
-	
-	},
-	["ITEM: Magelo Arena"] = {
+	["magelo"] = {
 		41759,
 		42170,
 		42171,
@@ -562,7 +665,7 @@ pages = {
 		42563,
 		42388,
 	},
-	["ITEM: Beta JWC Designs"] = {
+	["jwc"] = {
 		23130, -- Design: Teardrop Blood Garnet
 		23131, -- Design: Bold Blood Garnet
 		23135, -- Design: Inscribed Flame Spessarite
@@ -573,7 +676,7 @@ pages = {
 		23152, -- Design: Solid Azure Moonstone
 		23153, -- Design: Sparkling Azure Moonstone
 	},
-	["ITEM: Unlocked - Bloodhoof"] = {
+	["unlocked"] = {
 		17,    -- Martin Fury
 		119,   -- Deprecated Rogue's Vest
 		128,   -- Deprecated Tauren Trapper's Pants
@@ -592,13 +695,17 @@ pages = {
 		20834, -- Ornate Spyglass XT
 		21560, -- Small Purple Rocket
 		21591, -- Large Purple Rocket
+		22736, -- Andonisus, Reaper of Souls
+		23684, -- Crystal Infused Bandage [PH]
+		25970, -- Shalassi Oracle's Sandals
 		37249, -- Monster - Bow, 7th Legion Sentinel
 		37309, -- Monster - Special Arrow (Thori'dal)
 		37579, -- Monster - Mace1H, Prince Arthas
+		41606, -- zzDEPRECATED Master's Spellthread
 		44743, -- Cultist Acolyte's Hood Target
 		44946, -- Scroll of Enchant Weapon - Titanguard
 	},
-	["ITEM: Misc"] = {
+	["misc"] = {
 		1281,  -- Deprecated Quiver (TEST), Kil'Jaeden
 		6766,  -- Flayed Demon Skin (old2)
 		6836,  -- Dress Shoes
@@ -628,8 +735,7 @@ pages = {
 		43307, -- Arena Points
 		43308, -- Honor Points
 	},
---		31560, -- OK, Thrall US
-	["ITEM: Test Gems"] = {
+	["testgems"] = {
 		23233, -- Red Bryanite of Strength stuff
 		23234, -- Blue Bryanite of Agility
 		23235, -- Yellow Bryanite of Stamina
@@ -656,7 +762,7 @@ pages = {
 		33130,
 		33136,
 	},
-	["ITEM: Monster"] = {
+	["monster"] = {
 		1911,  -- Monster - Tool, Wrench Small
 		2715,  -- Monster - Item, Lantern - Round
 		12860, -- Monster - Item, Book - Blue Offhand
@@ -674,7 +780,7 @@ pages = {
 		40534, -- Monster - Axe, 1H Northrend C02 Blue
 		45692, -- Monster - Sword, Vargul (Blue) (2H)
 	},
-	["ITEM: Brew of the Month"] = {
+	["botm"] = {
 		37488, -- Wild Winter Pilsner
 		37489, -- Izzard's Ever Flavor
 		37490, -- Aromatic Honey Brew
@@ -688,33 +794,20 @@ pages = {
 		37906, -- Binary Brew
 		37909, -- Lord of Frost's Private Label
 	},
-	["ITEM: Spell Lock"] = {
-		5108,  -- Dark Iron Leather
-		10719, -- Mobile Alarm
-		13460, -- Greater Holy Protection Potion
-		17442, -- Frostwolf Assault Orders
-		18582, -- The Twin Blades of Azzinoth
-		18583, -- Warglaive of Azzinoth (Right)
-		18584, -- Warglaive of Azzinoth (Left)
-		23820, -- Critter Enlarger
+	["spelllock"] = {
 		23895, -- Netted Goods, s30634 "Netted Goods"
 		23990, -- Completed Star Chart
 		24148, -- Partial Star Chart
 		24149, -- Unfinished Star Chart
 		24269, -- Heavy Netherweave Net
 		25884, -- Primal Stone Statue
-		28471, -- Krasus's Compendium
-		32457, -- Arakkoa Fetish
-		32594, -- Ogrela Test Tunic
-		32595, -- Ogrela Reagent Dust
-		33062, -- zzOLD Empty Brewfest Sampler
 		33616, -- Unstable Mix
 		37312, -- Carrot on a Stick
 		38387, -- Grizzled Hat
 		38388, -- Cap of the North
 		38389, -- Comfy Raccoonskin Hat
 		38390, -- The Rugged Marksman
-		38619, -- Scroll of Enchant Weapon - Major Spirit
+		38916, -- Scroll of Enchant Weapon - Major Spirit
 		39707, -- Verdant Tundra Cap
 		39708, -- Verdant Tundra Shoulderpads
 		39709, -- Verdant Tundra Boots
@@ -731,7 +824,7 @@ pages = {
 		44556, -- Swift Spellfire Carpet
 		44557, -- Swift Ebonweave Carpet
 	},
-	["ITEM: Removed From Game"] = {
+	["rfg"] = {
 		7748,  -- Forcestone Buckler
 		7987,  -- Plans: Ornate Mithril Helm, Ragnaros EU
 		7988,  -- Plans: Ornate Mithril Boots, Ragnaros EU
@@ -765,6 +858,7 @@ pages = {
 		9653,  -- Speedy Racer Goggles
 		10590, -- Pocked Black Box
 		11743, -- Rockfist
+		11813, -- Formula: Smoking Heart of the Mountain
 		13173, -- Broken Flightblade Throwing Axe
 		13247, -- Quartermaster Zigris' Footlocker
 		13602, -- Greater Spellstone (DEPRECATED)
@@ -811,7 +905,7 @@ pages = {
 		34028, -- "Honorary Brewer" Hand Stamp
 		34140, -- Dark Iron Tankard
 	},
-	["ITEM: RFG - Naxx"] = {
+	["naxx60"] = {
 		22364, -- Desecrated Handguards
 		22520, -- The Phylactery of Kel'Thuzad
 		22589, -- Atiesh, Greatstaff of the Guardian
@@ -828,7 +922,7 @@ pages = {
 		23663, -- Girdle of Elemental Fury
 		23665, -- Leggings of Elemental Fury
 	},
-	["ITEM: RFG - Honor"] = {
+	["rfghonor"] = {
 		23458, -- High Warlord's Spellblade
 		23459, -- High Warlord's Battle Mace
 		28724, -- Grand Marshal's Lamellar Legguards
@@ -841,7 +935,7 @@ pages = {
 		28993, -- Marshal's Mail Girdle
 		31640, -- Grand Marshal's Ringmail Chestguard
 	},
-	["ITEM: Bloodstained Fortune"] = {
+	["bloodstained"] = {
 		32788,
 		32689,
 		32790,
@@ -856,13 +950,14 @@ pages = {
 		32705,
 		32706,
 		32707,
+		32708,
 		32709,
 		32710,
 		32711,
 		32712,
 		32713,
 	},
-	["ITEM: PTR QA"] = {
+	["ptrqa"] = {
 		29887, -- Hunter 150 Epic Ammo Box
 		32549, -- Tier 5 Paladin Test Gear
 		32550, -- Tier 5 Paladin Test Gear Box 2
@@ -895,7 +990,7 @@ pages = {
 		45277,
 		45279,
 	},
-	["ITEM: Misc - NTL"] = {
+	["ntl"] = {
 		1166,  -- Dented Buckler, Korgath US
 		1167,  -- Small Targe, Stormrage US
 		1193,  -- Banded Buckler, Draenor US
@@ -924,13 +1019,7 @@ pages = {
 		45692, -- Monster - Sword, Vargul (Blue) (2H), Kazzak EU
 		45860, -- Crystal Tiara, Mazrigos EU
 	},
-	["ITEM: Unlocked - Stormrage"] = {
-		22736, -- Andonisus, Reaper of Souls
-		23684, -- Crystal Infused Bandage [PH]
-		25970, -- Shalassi Oracle's Sandals
-		41606, -- zzDEPRECATED Master's Spellthread
-	},
-	["ITEM: Unlocked - Kil'jaeden"] = {
+	["kiljaeden"] = {
 		7725,  -- Tabard of the Scarlet Crusade DEPRECATED
 		32618, -- [DEPRECATED]Crystalforged Darkrune
 		36519, -- Moonlit Katana, Bronze Dragonflight
@@ -940,7 +1029,7 @@ pages = {
 		41606, -- zzDEPRECATED Master's Spellthread
 		43471, -- Rork Red Ribbon
 	},
-	["ITEM: Unlocked - Archimonde"] = {
+	["archimonde"] = {
 		9380,  -- Jang'thraze the Protector
 		17142, -- Shard of the Defiler
 		25596, -- Peep's Whistle
@@ -951,7 +1040,7 @@ pages = {
 		46246, -- Deathbringer Shoulderpads
 		43748, -- Dreadnaught Shoulderplates
 	},
-	["ITEM: Stationeries"] = {
+	["stationeries"] = {
 		8164,  -- Test Stationery
 		9311,  -- Default Stationery
 		18154, -- Blizzard Stationery
@@ -959,24 +1048,30 @@ pages = {
 		22058, -- Valentine's Day Stationery
 		34171, -- Winter Stationery
 	},
-	["ITEM: Removed From 3.1"] = {
-		45749,
-		45759,
-		45748,
-		45754,
-		45750,
-		45730,
-		45049,
-		45752,
-		45729,
-		45751,
-		45728,
-		44822,
-		46101,
-		45035,
-		45034,
+	["patch310"] = {
+		45028, -- [PH] Bridle of the Ram
+		45029, -- [PH] Bridle of the Mechanostrider
+		45030, -- [PH] Bridle of the Elekk
+		45031, -- [PH] Bridle of the Nightsaber
+		45032, -- [PH] Bridle of the Wolf
+		45033, -- [PH] Bridle of the Raptor
+		45034, -- [PH] Bridle of the Kodo
+		45035, -- [PH] Bridle of the Hawkstrider
+		45036, -- [PH] Bridle of the Warhorse
+		45049, -- Jousting Lance [PH]
+		45728, -- Thalassian Lance [PH]
+		45729, -- Raider's Lance [PH]
+		45730, -- Forsaken Lance [PH]
+		45748, -- Darkspear Lance [PH]
+		45749, -- Brave's Lance [PH]
+		45750, -- Elekk Lance [PH]
+		45751, -- Spring-Loaded Mechano-Lance [PH]
+		45752, -- Mountaineer's Lance [PH]
+		45754, -- Darnassian Lance [PH]
+		45759, -- Cavalry Lance [PH]
+		46101, -- Blue Skeletal Warhorse
 	},
-	["ITEM: Stub"] = {
+	["stub"] = {
 		41,
 		42,
 		46,
@@ -9840,6 +9935,3 @@ pages = {
 		49238,
 	},
 }
-
-ARMORY = pages["ITEM: Armory"]
-STUB = pages["ITEM: Stub"]
