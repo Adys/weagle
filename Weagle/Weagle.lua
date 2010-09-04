@@ -3,7 +3,9 @@
 ------------
 -- © 2009 - Jerome Leclanche for MMO-Champion
 
-Weagle = LibStub("AceAddon-3.0"):NewAddon("Weagle", "AceConsole-3.0", "AceTimer-3.0")
+WEAGLE, Weagle = ...
+
+-- Weagle = LibStub("AceAddon-3.0"):NewAddon("Weagle", "AceConsole-3.0", "AceTimer-3.0")
 
 local VERSION, BUILD, COMPILED, TOC = GetBuildInfo()
 BUILD, TOC = tonumber(BUILD), tonumber(TOC)
@@ -25,6 +27,10 @@ SLASH_GXRESTART1 = "/gx"
 SlashCmdList["GXRESTART"] = RestartGx
 SLASH_SXRESTART1 = "/sx"
 SlashCmdList["SXRESTART"] = Sound_GameSystem_RestartSoundSystem
+DEFAULT_CHAT_FRAME:SetMaxLines(5000)
+
+-- Library embedding
+Weagle.LibTimer:Embed(Weagle)
 
 function Weagle:Print(...)
 	return print(self.CNAME .. ":", ...)
@@ -43,7 +49,7 @@ Weagle.settings = {
 		cached = {},
 		failed = {},
 		skip = {},
-		max = 60000,
+		max = 70000,
 		settings = {
 			throttle_cached = 0.8,   -- Wait time after every successful query
 			throttle_fail   = 4.5,   -- Wait time after every failed query
@@ -64,9 +70,6 @@ Weagle.settings = {
 					if GetItemInfo(i) then cached = cached + 1 end
 				end
 				return Weagle:Print("Total cached items:", cached)
-			
-			elseif input == "scandbc" then
-				Weagle:ScanItemDBC()
 			
 			elseif input == "stop" then
 				return Weagle:StopSniffing() -- TODO item handle only
@@ -111,9 +114,25 @@ Weagle.settings = {
 	},
 }
 
-ITEMS = Weagle.settings.item
-QUESTS = Weagle.settings.quest
-MESSAGES = Weagle.settings.message
+local ITEMS = Weagle.settings.item
+local QUESTS = Weagle.settings.quest
+local MESSAGES = Weagle.settings.message
+
+
+function Weagle:init()
+	CreateFrame("GameTooltip", "WeagleItemTooltip", UIParent, "GameTooltipTemplate")
+	CreateFrame("GameTooltip", "WeagleQuestTooltip", UIParent, "GameTooltipTemplate")
+	
+	if not Weagle_data then
+		self:ResetSettings()
+	end
+end
+
+function Weagle:ResetSettings()
+	Weagle_data = Weagle_DefaultSettings
+	
+	self:Print("All saved settings have been reset.")
+end
 
 -------------
 -- Helpers --
@@ -190,26 +209,9 @@ local function CreateSpellLink(id, name) -- Create the spell link for spells tha
 	return ("|cff71d5ff|Hspell:%i|h[%s]|h|r"):format(id, name)
 end
 
-
-function Weagle:ResetSettings()
-	Weagle_data = Weagle_DefaultSettings
-	Weagle_data.itemdbc = {}
-	
-	self:Print("All saved settings have been reset.")
-end
-
-function Weagle:OnInitialize()
-	DEFAULT_CHAT_FRAME:SetMaxLines(5000)
-	
-	CreateFrame("GameTooltip", "WeagleItemTooltip", UIParent, "GameTooltipTemplate")
-	CreateFrame("GameTooltip", "WeagleQuestTooltip", UIParent, "GameTooltipTemplate")
-	
-	if not Weagle_data then
-		self:ResetSettings()
-	end
-	
-	pages["ITEM: Item.dbc"] = Weagle_data.itemdbc
-end
+--[[
+ Weagle API
+--]]
 
 function Weagle:GetRecentlyCached()
 	local i = 0
@@ -218,19 +220,6 @@ function Weagle:GetRecentlyCached()
 		i = i+1
 	end
 	self:Print(GREEN(i) .. " items found.")
-end
-
-function Weagle:ScanItemDBC()
-	Weagle_data.itemdbc = {}
-	local items = Weagle_data.itemdbc
-	
-	for i = 1, ITEMS.max do
-		if GetItemIcon(i) then
-			items[#items+1] = i
-		end
-	end
-	
-	self:Print("Saved " .. YELLOW(#items) .. " items for this build.")
 end
 
 function Weagle:FindStructure(msg)
@@ -398,7 +387,7 @@ function Weagle:GrabData()
 			return self:GrabData()
 		end
 		
-		if tablein(id, blacklist) then
+		if tablein(id, WEAGLE_BLACKLIST) then
 			self:Print(("Item #%i:"):format(id), YELLOW("Skipping blacklisted item"))
 			
 			table.remove(ITEMS.get, 1)
@@ -495,6 +484,9 @@ function Weagle:QuestSniffer()
 end
 
 
+-- Register slash commands
 SLASH_WEAGLE1 = "/weagle"
 SLASH_WEAGLE2 = "/wdb"
 SlashCmdList["WEAGLE"] = chatcommand
+
+Weagle:init()
