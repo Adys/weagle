@@ -1,7 +1,7 @@
 ## Interface: 40000
 ## Title: Weagle
 ## Author: Adys
-## Version: 4.0.0
+## Version: 4.0.1
 ## Notes: Datamining suite
 ## eMail: adys@mmo-champion.com
 ## URL: http://sigrie.com
@@ -9,7 +9,6 @@
 ## DefaultState: enabled
 ## SavedVariables: Weagle_data
 
-LibWeagle.lua
-
+LibTimer.lua
 Pages.lua
 Weagle.lua
