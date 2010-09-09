@@ -415,11 +415,6 @@ local function OnEvent(this, event)
 	end
 	newlist.__ops = 0	-- Reset operation count
 	
-	-- And since we now have a count of the number of live timers, check that it's reasonable. Emit a warning if not.
-	if n>BUCKETS then
-		DEFAULT_CHAT_FRAME:AddMessage(MAJOR..": Warning: The addon/module '"..tostring(self).."' has "..n.." live timers. Surely that's not intended?")
-	end
-	
 	selfs[self] = newlist
 end
 

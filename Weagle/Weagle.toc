@@ -9,6 +9,7 @@
 ## DefaultState: enabled
 ## SavedVariables: Weagle_data
 
+LibStub.lua
 LibTimerU.lua
 Pages.lua
 Weagle.lua

@@ -30,7 +30,7 @@ SlashCmdList["SXRESTART"] = Sound_GameSystem_RestartSoundSystem
 DEFAULT_CHAT_FRAME:SetMaxLines(5000)
 
 -- Library embedding
-Weagle.LibTimer:Embed(Weagle)
+LibStub("LibTimer-1.0"):Embed(Weagle)
 
 function Weagle:Print(...)
 	return print(self.CNAME .. ":", ...)
@@ -120,8 +120,12 @@ local MESSAGES = Weagle.settings.message
 
 
 function Weagle:init()
-	CreateFrame("GameTooltip", "WeagleItemTooltip", UIParent, "GameTooltipTemplate")
-	CreateFrame("GameTooltip", "WeagleQuestTooltip", UIParent, "GameTooltipTemplate")
+	self.itemTooltip = CreateFrame("GameTooltip", "WeagleItemTooltip", UIParent, "GameTooltipTemplate")
+	self.QuestTooltip = CreateFrame("GameTooltip", "WeagleQuestTooltip", UIParent, "GameTooltipTemplate")
+	
+	self.itemTimerGroup = self.itemTooltip:CreateAnimationGroup()
+	self.itemTimerGroup:SetLooping("REPEAT")
+	self.itemTimer = self.itemTimerGroup:CreateAnimation("Animation")
 	
 	if not Weagle_data then
 		self:ResetSettings()
@@ -139,7 +143,7 @@ end
 -------------
 
 local function tableitems(t) -- Lua sucks
-	i=0
+	local i = 0
 	for k, v in pairs(t) do i=i+1 end
 	return i
 end
@@ -270,7 +274,7 @@ function Weagle:ResetStats()
 end
 
 function Weagle:HandleSniffRequest(msg)
-	msg = gsub(msg, "last", tostring(Weagle_data.Item_last))
+	msg = gsub(msg, "last", tostring(Weagle_data.Item_last or 1))
 	
 	self:Print("Processing items: " .. msg)
 	
@@ -320,7 +324,6 @@ function Weagle:SniffItems(items)
 	for k, v in pairs(items) do
 		ITEMS.get[#ITEMS.get+1] = v
 	end
-	self:CancelTimer(ITEMS.handle, true)
 	self:GrabData()
 end
 
@@ -333,10 +336,16 @@ function Weagle:StopSniffing()
 end
 
 function Weagle:GrabData()
-	if ITEMS.previous then -- last item has been cached
+	-- First we check whether the last item queried has been cached
+	-- If it is, we leave the routine running
+	-- If it isn't, we reschedule for later
+	if ITEMS.previous then
+		-- There has been a query before
+		-- Blank and reschedule
 		local id = ITEMS.previous
-		local _, link = GetItemInfo(ITEMS.previous)
-		if link then
+		ITEMS.previous = nil
+		local _, link = GetItemInfo(id)
+		if link then -- last item has been cached
 			if ITEMS.settings.show_caching then
 				self:Print(("Item #%i:"):format(id), GREEN("Caching..."), link, ("%i left"):format(#ITEMS.get))
 			end
@@ -349,12 +358,10 @@ function Weagle:GrabData()
 			ITEMS.failed[id] = true
 			Weagle_data.Item_last = ITEMS.previous
 			ITEMS.handle = self:ScheduleTimer("GrabData", 4.5)
-			ITEMS.previous = nil
 			return
 		end
-		ITEMS.previous = nil
 	end
-
+	
 	if ITEMS.get[1] then -- there are still items to process
 		local id = ITEMS.get[1]
 		
@@ -396,9 +403,8 @@ function Weagle:GrabData()
 			return self:GrabData()
 		end
 		
-		WeagleItemTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
-		WeagleItemTooltip:SetHyperlink("item:" .. id)
-		WeagleItemTooltip:Show()
+		self.itemTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
+		self.itemTooltip:SetHyperlink("item:" .. id)
 		ITEMS.previous = id
 		ITEMS.handle = self:ScheduleTimer("GrabData", 0.8)
 		
