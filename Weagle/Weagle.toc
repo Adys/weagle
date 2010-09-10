@@ -1,7 +1,7 @@
 ## Interface: 40000
 ## Title: Weagle
 ## Author: Adys
-## Version: 4.0.1
+## Version: 5.0.0
 ## Notes: Datamining suite
 ## eMail: adys@mmo-champion.com
 ## URL: http://sigrie.com

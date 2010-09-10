@@ -6,7 +6,7 @@
 WEAGLE, Weagle = ...
 Weagle.NAME = WEAGLE
 Weagle.CNAME = "|cff33ff99" .. Weagle.NAME .. "|r"
-Weagle.VERSION = "4.0.0"
+Weagle.VERSION = "5.0.0"
 
 -- Weagle = LibStub("AceAddon-3.0"):NewAddon("Weagle", "AceConsole-3.0", "AceTimer-3.0")
 
@@ -44,25 +44,15 @@ Weagle.settings = {
 		skip = {},
 		max = MAX_ID_ITEM,
 		settings = {
-			throttle_cached = 0.8,   -- Wait time after every successful query
-			throttle_fail   = 4.5,   -- Wait time after every failed query
 			show_cached     = false, -- Feedback on items already cached
 			show_caching    = true,  -- Feedback on successful item queries
 			show_failed     = true,  -- Feedback on failed item queries
 			show_invalid    = false, -- Feedback on invalid queries (not present in Item.dbc)
 			use_dbc         = true,  -- Use Item.dbc and skip item queries accordingly
-			no_reprocess    = true,  -- Don't process an item twice in a session
 		},
 		chatcommand = function(input)
 			if input == "cached" then
 				return Weagle:GetRecentlyCached()
-			
-			elseif input == "count" then
-				local cached = 0
-				for i=1, MAX_ID_ITEM do
-					if GetItemInfo(i) then cached = cached + 1 end
-				end
-				return Weagle:Print("Total cached items:", cached)
 			
 			elseif input == "stop" then
 				return Weagle:StopSniffing() -- TODO item handle only
@@ -119,12 +109,7 @@ local MESSAGES = Weagle.settings.message
 
 
 function Weagle:init()
-	self.itemTooltip = CreateFrame("GameTooltip", "WeagleItemTooltip", UIParent, "GameTooltipTemplate")
 	self.questTooltip = CreateFrame("GameTooltip", "WeagleQuestTooltip", UIParent, "GameTooltipTemplate")
-	
-	self.itemTimerGroup = self.itemTooltip:CreateAnimationGroup()
-	self.itemTimerGroup:SetLooping("REPEAT")
-	self.itemTimer = self.itemTimerGroup:CreateAnimation("Animation")
 	
 	WeagleLastItem = WeagleLastItem or 0
 end
@@ -225,46 +210,10 @@ function Weagle:GetRecentlyCached()
 	self:Print(GREEN(i) .. " items found.")
 end
 
-function Weagle:FindStructure(msg)
-	local items = {}
-	if tonumber(msg) then
-		items = {tonumber(msg)}
-	
-	elseif msg:match("%-") then
-		local first, last = msg:match("(%d+)%-(%d+)")
-		first, last = tonumber(first), tonumber(last)
-		
-		if first < last then
-			for i = first, last do
-				table.insert(items, i)
-			end
-		else
-			local range = first - last
-			local id = first
-			
-			for i = 0, range do
-				table.insert(items, id)
-				id = id - 1
-			end
-		end
-	end
-	
-	for k,v in pairs(items) do
-		if GetItemInfo(v) then
-			self:Print(("Item #%i:"):format(v), GREEN("Cached:"), GetItemLink(v))
-		elseif GetItemIcon(v) then
-			self:Print(("Item #%i:"):format(v), YELLOW("Not cached"))
-		else
-			self:Print(("Item #%i:"):format(v), RED("Missing from game files"))
-		end
-	end
-end
-
 function Weagle:ShowStats()
 	local cached = tableitems(ITEMS.cached)
 	local failed = tableitems(ITEMS.failed)
 	self:Print(("Items: %s cached, %s failed, %s requests in total"):format(GREEN(cached), RED(failed), YELLOW(cached+failed)))
-	self:Print("Last item processed:", YELLOW(WeagleLastItem))
 end
 
 function Weagle:ResetStats()
@@ -356,7 +305,7 @@ function Weagle:GrabData()
 			end
 			ITEMS.failed[id] = true
 			WeagleLastItem = ITEMS.previous
-			ITEMS.handle = self:ScheduleTimer("GrabData", 4.5)
+			ITEMS.handle = self:ScheduleTimer("GrabData", 0)
 			return
 		end
 	end
@@ -393,7 +342,7 @@ function Weagle:GrabData()
 			return self:GrabData()
 		end
 		
-		if tablein(id, WEAGLE_BLACKLIST) then
+		if tablein(id, Weagle.blacklist) then
 			self:Print(("Item #%i:"):format(id), YELLOW("Skipping blacklisted item"))
 			
 			table.remove(ITEMS.get, 1)
@@ -402,10 +351,9 @@ function Weagle:GrabData()
 			return self:GrabData()
 		end
 		
-		self.itemTooltip:SetOwner(UIParent, "ANCHOR_PRESERVE")
-		self.itemTooltip:SetHyperlink("item:" .. id)
+		GetItemInfo(id)
 		ITEMS.previous = id
-		ITEMS.handle = self:ScheduleTimer("GrabData", 0.8)
+		ITEMS.handle = self:ScheduleTimer("GrabData", 0)
 		
 		table.remove(ITEMS.get, 1)
 	else

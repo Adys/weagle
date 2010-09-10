@@ -69,7 +69,7 @@ local timerCache = nil
 	If this is ever LOWERED, all existing timers need to be enforced to have a delay >= 1/HZ on lib upgrade.
 	If this number is ever changed, all entries need to be rehashed on lib upgrade.
 	]]
-local HZ = 11
+local HZ = 45
 
 --[[
 	Prime for good distribution
