@@ -1,8 +1,10 @@
-WEAGLE_BLACKLIST = {
+local _, Weagle = ...
+
+Weagle.blacklist = {
 
 }
 
-DELETED_SPELLS = {
+Weagle.deleted_spells = {
 --	[6441]  = "Explosive Shells",
 --	[6442]  = "Explosive Shells",
 --	[6619]  = "Cowardly Flight Potion",
@@ -35,7 +37,7 @@ DELETED_SPELLS = {
 	[75191] = "Create Paint Bomb",
 }
 
-WEAGLE_SPELLS = {
+Weagle.spells = {
 	[68]    = {1963},  -- Deprecated Bone Chips
 	[491]   = {5517},  -- Tiny Bronze Key
 	[857]   = {5518},  -- Tiny Iron Key
