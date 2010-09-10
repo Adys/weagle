@@ -4,19 +4,19 @@
 -- © 2009 - Jerome Leclanche for MMO-Champion
 
 WEAGLE, Weagle = ...
+Weagle.NAME = WEAGLE
+Weagle.CNAME = "|cff33ff99" .. Weagle.NAME .. "|r"
+Weagle.VERSION = "4.0.0"
 
 -- Weagle = LibStub("AceAddon-3.0"):NewAddon("Weagle", "AceConsole-3.0", "AceTimer-3.0")
 
-local VERSION, BUILD, COMPILED, TOC = GetBuildInfo()
+-- Shortcut globals
+VERSION, BUILD, COMPILED, TOC = GetBuildInfo()
 BUILD, TOC = tonumber(BUILD), tonumber(TOC)
 SERVER = GetRealmName()
 LOCALE = GetLocale()
 REAL_LOCALE = GetCVar("locale")
 PORTAL, REALMLIST, ACCOUNT = GetCVar("portal"), GetCVar("realmlist"), GetCVar("accountname")
-
-Weagle.NAME = "Weagle"
-Weagle.CNAME = "|cff33ff99" .. Weagle.NAME .. "|r"
-Weagle.VERSION = "4.0.0"
 
 -- Slashcommand aliases
 SLASH_PICKUP1 = "/pickup"
@@ -32,15 +32,8 @@ DEFAULT_CHAT_FRAME:SetMaxLines(5000)
 -- Library embedding
 LibStub("LibTimer-1.0"):Embed(Weagle)
 
-function Weagle:Print(...)
-	return print(self.CNAME .. ":", ...)
-end
-
-Weagle.alias = {
-	items = "item",
-	quests = "quest",
-	spells = "spell",
-}
+local MAX_ID_ITEM  = 80000
+local MAX_ID_QUEST = 40000
 
 Weagle.settings = {
 	item = {
@@ -49,7 +42,7 @@ Weagle.settings = {
 		cached = {},
 		failed = {},
 		skip = {},
-		max = 70000,
+		max = MAX_ID_ITEM,
 		settings = {
 			throttle_cached = 0.8,   -- Wait time after every successful query
 			throttle_fail   = 4.5,   -- Wait time after every failed query
@@ -65,8 +58,8 @@ Weagle.settings = {
 				return Weagle:GetRecentlyCached()
 			
 			elseif input == "count" then
-				local cached = 0;
-				for i=1, ITEMS.max do
+				local cached = 0
+				for i=1, MAX_ID_ITEM do
 					if GetItemInfo(i) then cached = cached + 1 end
 				end
 				return Weagle:Print("Total cached items:", cached)
@@ -86,7 +79,7 @@ Weagle.settings = {
 		previous = nil,
 		get = {},
 		cached = {},
-		max = 35000,
+		max = MAX_ID_QUEST,
 		settings = {
 			throttle_batch = 3.0,  -- Wait time after every batch
 			show_batches   = true, -- Feedback on processed batches
@@ -114,6 +107,12 @@ Weagle.settings = {
 	},
 }
 
+Weagle.alias = {
+	items = "item",
+	quests = "quest",
+	spells = "spell",
+}
+
 local ITEMS = Weagle.settings.item
 local QUESTS = Weagle.settings.quest
 local MESSAGES = Weagle.settings.message
@@ -121,21 +120,17 @@ local MESSAGES = Weagle.settings.message
 
 function Weagle:init()
 	self.itemTooltip = CreateFrame("GameTooltip", "WeagleItemTooltip", UIParent, "GameTooltipTemplate")
-	self.QuestTooltip = CreateFrame("GameTooltip", "WeagleQuestTooltip", UIParent, "GameTooltipTemplate")
+	self.questTooltip = CreateFrame("GameTooltip", "WeagleQuestTooltip", UIParent, "GameTooltipTemplate")
 	
 	self.itemTimerGroup = self.itemTooltip:CreateAnimationGroup()
 	self.itemTimerGroup:SetLooping("REPEAT")
 	self.itemTimer = self.itemTimerGroup:CreateAnimation("Animation")
 	
-	if not Weagle_data then
-		self:ResetSettings()
-	end
+	WeagleLastItem = WeagleLastItem or 0
 end
 
-function Weagle:ResetSettings()
-	Weagle_data = Weagle_DefaultSettings
-	
-	self:Print("All saved settings have been reset.")
+function Weagle:Print(...)
+	return print(self.CNAME .. ":", ...)
 end
 
 -------------
@@ -155,16 +150,20 @@ local function tablein(i, t)
 	return false
 end
 
+local function color(color, text)
+	return ("|cff%s%s|r"):format(color, text)
+end
+
 local function RED(text)
-	return "|cffff0000" .. text .. "|r"
+	return color("ff0000", text)
 end
 
 local function GREEN(text)
-	return "|cff00ff00" .. text .. "|r"
+	return color("00ff00", text)
 end
 
 local function YELLOW(text)
-	return "|cffffff00" .. text .. "|r"
+	return color("ffff00", text)
 end
 
 local function chatcommand(input)
@@ -265,7 +264,7 @@ function Weagle:ShowStats()
 	local cached = tableitems(ITEMS.cached)
 	local failed = tableitems(ITEMS.failed)
 	self:Print(("Items: %s cached, %s failed, %s requests in total"):format(GREEN(cached), RED(failed), YELLOW(cached+failed)))
-	self:Print("Last item processed:", YELLOW(Weagle_data.Item_last))
+	self:Print("Last item processed:", YELLOW(WeagleLastItem))
 end
 
 function Weagle:ResetStats()
@@ -274,9 +273,9 @@ function Weagle:ResetStats()
 end
 
 function Weagle:HandleSniffRequest(msg)
-	msg = gsub(msg, "last", tostring(Weagle_data.Item_last or 1))
+	msg = gsub(msg, "last", tostring(WeagleLastItem))
 	
-	self:Print("Processing items: " .. msg)
+	self:Print("Processing items", msg)
 	
 	local items = {}
 	
@@ -315,7 +314,7 @@ function Weagle:HandleSniffRequest(msg)
 			table.insert(items, tonumber(id))
 		end
 	
-	else return end
+	else return end -- Nothing to do
 	
 	self:SniffItems(items)
 end
@@ -350,13 +349,13 @@ function Weagle:GrabData()
 				self:Print(("Item #%i:"):format(id), GREEN("Caching..."), link, ("%i left"):format(#ITEMS.get))
 			end
 			ITEMS.cached[id] = true
-			Weagle_data.Item_last = id
+			WeagleLastItem = id
 		else
 			if ITEMS.settings.show_failed then
 				self:Print(("Item #%i:"):format(id), RED("Failed."), ("%i left"):format(#ITEMS.get))
 			end
 			ITEMS.failed[id] = true
-			Weagle_data.Item_last = ITEMS.previous
+			WeagleLastItem = ITEMS.previous
 			ITEMS.handle = self:ScheduleTimer("GrabData", 4.5)
 			return
 		end
@@ -380,14 +379,14 @@ function Weagle:GrabData()
 			if ITEMS.settings.show_cached then
 				self:Print(("Item #%i:"):format(id), YELLOW("Skipping cached item"), link)
 			end
-			Weagle_data.Item_last = id
+			WeagleLastItem = id
 			table.remove(ITEMS.get, 1)
 			
 			return self:GrabData()
 		end
 		
 		if ITEMS.failed[id] then
-			Weagle_data.Item_last = id
+			WeagleLastItem = id
 			table.remove(ITEMS.get, 1)
 			ITEMS.skip[id] = 1
 			

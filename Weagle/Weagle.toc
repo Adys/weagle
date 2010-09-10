@@ -7,7 +7,7 @@
 ## URL: http://sigrie.com
 ## LoadOnDemand: 0
 ## DefaultState: enabled
-## SavedVariables: Weagle_data
+## SavedVariables: WeagleLastItem
 
 LibStub.lua
 LibTimerU.lua
