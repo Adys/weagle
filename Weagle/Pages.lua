@@ -231,3 +231,6 @@ Weagle.spells = {
 -- 	[44651] = {34149}, -- Lightstave
 }
 
+Weagle.db = {
+	--[[__ITEM-SPARSE.DB2__]]
+}

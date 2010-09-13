@@ -8,8 +8,6 @@ Weagle.NAME = WEAGLE
 Weagle.CNAME = "|cff33ff99" .. Weagle.NAME .. "|r"
 Weagle.VERSION = "5.0.0"
 
--- Weagle = LibStub("AceAddon-3.0"):NewAddon("Weagle", "AceConsole-3.0", "AceTimer-3.0")
-
 -- Shortcut globals
 VERSION, BUILD, COMPILED, TOC = GetBuildInfo()
 BUILD, TOC = tonumber(BUILD), tonumber(TOC)
@@ -49,6 +47,7 @@ Weagle.settings = {
 			show_failed     = true,  -- Feedback on failed item queries
 			show_invalid    = false, -- Feedback on invalid queries (not present in Item.dbc)
 			use_dbc         = true,  -- Use Item.dbc and skip item queries accordingly
+			use_db          = true,  -- Use Item-sparse.db2 page and skip item queries accordingly
 		},
 		chatcommand = function(input)
 			if input == "cached" then
@@ -323,6 +322,15 @@ function Weagle:GrabData()
 			end
 		end
 		
+		if ITEMS.settings.use_db then
+			if tablein(id, Weagle.db) then
+				table.remove(ITEMS.get, 1)
+				ITEMS.skip[id] = 1
+				
+				return self:GrabData()
+			end
+		end
+		
 		if GetItemInfo(id) then
 			local _, link = GetItemInfo(id)
 			if ITEMS.settings.show_cached then
@@ -387,8 +395,8 @@ function Weagle:ScanSpellList()
 	local name, link, i
 	local ids = {}
 	local links = {}
-	for k, v in pairs(WEAGLE_SPELLS) do
-		link = GetSpellRealLink(k) or CreateSpellLink(k, DELETED_SPELLS[k])
+	for k, v in pairs(Weagle.spells) do
+		link = GetSpellRealLink(k) or CreateSpellLink(k, Weagle.deleted_spells[k])
 		if link then
 			i = 0
 			for _k, _v in pairs(v) do
@@ -398,7 +406,7 @@ function Weagle:ScanSpellList()
 				end
 				if i > 0 then
 					table.insert(links, link)
-					self:SniffItems(WEAGLE_SPELLS)
+					self:SniffItems(Weagle.spells)
 				end
 			end
 		end
