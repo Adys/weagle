@@ -1,4 +1,4 @@
---- **LibTimer-3.0** provides a central facility for registering timers.
+--- **LibTimer-1.0** provides a central facility for registering timers.
 -- LibTimer supports one-shot timers and repeating timers. All timers are stored in an efficient
 -- data structure that allows easy dispatching and fast rescheduling. Timers can be registered, rescheduled
 -- or canceled at any time, even from within a running timer, without conflict or large overhead.\\
@@ -8,14 +8,14 @@
 -- All `:Schedule` functions will return a handle to the current timer, which you will need to store if you
 -- need to cancel or reschedule the timer you just registered.
 --
--- **LibTimer-3.0** can be embeded into your addon, either explicitly by calling LibTimer:Embed(MyAddon) or by 
+-- **LibTimer-1.0** can be embeded into your addon, either explicitly by calling LibTimer:Embed(MyAddon) or by 
 -- specifying it as an embeded library in your AceAddon. All functions will be available on your addon object
 -- and can be accessed directly, without having to explicitly call LibTimer itself.\\
 -- It is recommended to embed LibTimer, otherwise you'll have to specify a custom `self` on all calls you
 -- make into LibTimer.
 -- @class file
--- @name LibTimer-3.0
--- @release $Id: LibTimer-3.0.lua 895 2009-12-06 16:28:55Z nevcairiel $
+-- @name LibTimer-1.0
+-- @release $Id: LibTimer-1.0.lua 895 2009-12-06 16:28:55Z nevcairiel $
 
 --[[
 	Basic assumptions:
@@ -69,7 +69,7 @@ local timerCache = nil
 	If this is ever LOWERED, all existing timers need to be enforced to have a delay >= 1/HZ on lib upgrade.
 	If this number is ever changed, all entries need to be rehashed on lib upgrade.
 	]]
-local HZ = 45
+local HZ = 11
 
 --[[
 	Prime for good distribution
@@ -264,7 +264,7 @@ end
 -- @param delay Delay for the timer, in seconds.
 -- @param arg An optional argument to be passed to the callback function.
 -- @usage
--- MyAddon = LibStub("AceAddon-3.0"):NewAddon("TimerTest", "LibTimer-3.0")
+-- MyAddon = LibStub("AceAddon-3.0"):NewAddon("TimerTest", "LibTimer-1.0")
 -- 
 -- function MyAddon:OnEnable()
 --   self:ScheduleTimer("TimerFeedback", 5)
@@ -283,7 +283,7 @@ end
 -- @param delay Delay for the timer, in seconds.
 -- @param arg An optional argument to be passed to the callback function.
 -- @usage
--- MyAddon = LibStub("AceAddon-3.0"):NewAddon("TimerTest", "LibTimer-3.0")
+-- MyAddon = LibStub("AceAddon-3.0"):NewAddon("TimerTest", "LibTimer-1.0")
 -- 
 -- function MyAddon:OnEnable()
 --   self.timerCount = 0
@@ -380,7 +380,7 @@ end
 -- and clean it out - otherwise the table indices can grow indefinitely
 -- if an addon starts and stops a lot of timers. AceBucket does this!
 --
--- See ACE-94 and tests/LibTimer-3.0-ACE-94.lua
+-- See ACE-94 and tests/LibTimer-1.0-ACE-94.lua
 
 local lastCleaned = nil
 
@@ -460,3 +460,9 @@ LibTimer.frame:RegisterEvent("PLAYER_REGEN_ENABLED")
 -- In theory, we should hide&show the frame based on there being timers or not.
 -- However, this job is fairly expensive, and the chance that there will
 -- actually be zero timers running is diminuitive to say the lest.
+
+-- Alias AceTimer-3.0
+local MAJOR, MINOR = "LibTimer-1.0", 5
+local AceTimer, _ = LibStub:NewLibrary("AceTimer-3.0", 5)
+AceTimer.Embed = LibTimer.Embed
+LibTimer:Embed(AceTimer)

@@ -1,7 +1,6 @@
 ------------
 -- Weagle --
 ------------
--- © 2009 - Jerome Leclanche for MMO-Champion
 
 WEAGLE, Weagle = ...
 Weagle.NAME = WEAGLE
@@ -42,6 +41,7 @@ Weagle.settings = {
 		skip = {},
 		max = MAX_ID_ITEM,
 		settings = {
+			throttle        = 0.1,   -- Throttle timer
 			show_cached     = false, -- Feedback on items already cached
 			show_caching    = true,  -- Feedback on successful item queries
 			show_failed     = true,  -- Feedback on failed item queries
@@ -304,7 +304,7 @@ function Weagle:GrabData()
 			end
 			ITEMS.failed[id] = true
 			WeagleLastItem = ITEMS.previous
-			ITEMS.handle = self:ScheduleTimer("GrabData", 0)
+			ITEMS.handle = self:ScheduleTimer("GrabData", ITEMS.settings.throttle)
 			return
 		end
 	end
@@ -361,7 +361,7 @@ function Weagle:GrabData()
 		
 		GetItemInfo(id)
 		ITEMS.previous = id
-		ITEMS.handle = self:ScheduleTimer("GrabData", 0)
+		ITEMS.handle = self:ScheduleTimer("GrabData", ITEMS.settings.throttle)
 		
 		table.remove(ITEMS.get, 1)
 	else
